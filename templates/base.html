@@ -12,11 +12,43 @@
     <title>K Watch</title>
 </head>
 <body>
-    {% block content %}
 
+    
+
+    <header>
+        <nav>
+            <!-- Top navbar -->
+            <div class="nav-wrapper">
+                <a href="#!">K Watch</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ url_for('get_shows') }}">My Lists</a></li>
+                    <li><a href="#">Add Drama</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Log In</a></li>   
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile navbar -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Lists</a></li>
+            <li><a href="#">Add Drama</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Log In</a></li>   
+        </ul>
+    </header>
+
+    {% block content %}
     {% endblock %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.css') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
