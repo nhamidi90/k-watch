@@ -2,6 +2,16 @@
 
 {% block content %}
 
+    <h1>My lists</h1>
+
+    <div id="status-menu">
+        <ul>
+            <li>Plan to Watch</li>
+            <li>Currently Watching</li>
+            <li>Completed</li>
+        </ul>
+    </div>
+
     {% for show in shows %}
         {{ show.title }}
         {{ show.year }}
