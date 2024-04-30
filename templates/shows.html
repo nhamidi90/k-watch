@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Watch</title>
+</head>
+<body>
+    {% for show in shows %}
+        {{ show.title }}
+        {{ show.year }}
+        {{ show.number_of_episodes }}
+        {{ show.episodes_watched }}
+        {{ show.status }}
+        {{ show.rating }}
+        {{ show.notes }}
+    {% endfor %}
+</body>
+</html>
