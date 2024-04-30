@@ -5,14 +5,13 @@
     <h1>My lists</h1>
 
     <div id="status-menu">
-        <ul>
-            <li>Plan to Watch</li>
-            <li>Currently Watching</li>
-            <li>Completed</li>
-        </ul>
+        <div>Plan to Watch</div>
+        <div>Currently Watching</div>
+        <div>Completed</div>
     </div>
 
     {% for show in shows %}
+        <img src="{{ show.image }}">
         {{ show.title }}
         {{ show.year }}
         {{ show.number_of_episodes }}
@@ -20,5 +19,6 @@
         {{ show.status }}
         {{ show.rating }}
         {{ show.notes }}
+        
     {% endfor %}
 {% endblock %}
