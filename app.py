@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
 	import env
 
@@ -22,6 +23,36 @@ mongo = PyMongo(app)
 def get_shows():
     shows = mongo.db.shows.find()
     return render_template("shows.html", shows=shows)
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        existing_user = mongo.db.user.find_one(
+            {"username": request.form.get("username").lower()})
+        
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "email": request.form.get("email"),
+            "password": generate_password_hash(request.form.get("password")),
+            "confirm_password": generate_password_hash(request.form.get("confirm_password"))
+        }
+        
+        password1 = request.form.get("password")
+        password2 = request.form.get("confirm_password")
+
+        if password1 != password2:
+            flash("Passwords do not match. Please try again")
+        else: mongo.db.user.insert_one(register), flash("Registration successful")
+        
+        session["user"] = request.form.get("username").lower()
+
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
