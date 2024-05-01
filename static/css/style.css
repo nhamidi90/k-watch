@@ -7,3 +7,11 @@ h1 {
     justify-content: center;
     gap: 30px;
 }
+
+form {
+    margin-top: 50px;
+}
+
+.form-btn {
+    width: 180px;
+}
