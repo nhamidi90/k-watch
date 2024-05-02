@@ -52,8 +52,6 @@ def register():
             "Registration successful! Welcome!")
         session["user"] = request.form.get("email")
         return redirect(url_for("profile", username=session["user"]))
-        
-        
 
     return render_template("register.html")
 
@@ -67,7 +65,7 @@ def sign_in():
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("email")
+                    session['user'] = existing_user['username']
                     return redirect(url_for("get_shows", username=session["user"]))
             else:
                 flash("Incorrect Email or Password")
@@ -81,7 +79,7 @@ def sign_in():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    username = mongo.db.user.find_one({"username": session["user"]})
+    username = mongo.db.user.find_one({"username": session["user"]})['username']
 
     if session["user"]:
         return render_template("profile.html", username=username)
