@@ -20,7 +20,7 @@
                 <a href="#!">K Watch</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('get_shows', username=session['user']) }}">My Lists</a></li>
                         <li><a href="#">Add Drama</a></li>
@@ -36,7 +36,7 @@
 
         <!-- Mobile navbar -->
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('get_shows', username=session['user']) }}">My Lists</a></li>
                 <li><a href="#">Add Drama</a></li>
