@@ -10,15 +10,44 @@
         <div>Completed</div>
     </div>
 
-    {% for show in shows %}
-        <img src="{{ show.image }}">
-        {{ show.title }}
-        {{ show.year }}
-        {{ show.number_of_episodes }}
-        {{ show.episodes_watched }}
-        {{ show.status }}
-        {{ show.rating }}
-        {{ show.notes }}
-        
-    {% endfor %}
+    <table class="centered highlight responsive-table">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th></th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Episodes</th>
+                <th>Progress</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        {% for show in shows %}
+        <tr>
+            <td>
+                {{ show._id }}>
+            </td>
+            <td>
+                <img src="{{ show.image }}">
+            </td>
+            <td>
+                {{ show.title }}
+            </td>
+            <td>
+                {{ show.year }}
+            </td>
+            <td>
+                {{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.rating }}
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
 {% endblock %}
