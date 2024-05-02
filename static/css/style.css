@@ -29,3 +29,7 @@ form {
     object-fit: cover; 
     border-radius: 5px; 
 } 
+
+.thumb-box {
+    width: 90px;
+}
