@@ -48,7 +48,7 @@ def register():
 
         if password1 != password2:
             flash("Passwords do not match. Please try again")
-        else: mongo.db.user.insert_one(register), flash("Registration successful")
+        else: mongo.db.user.insert_one(register), flash("Registration successful! Welcome!")
         
         session["user"] = request.form.get("email")
 
@@ -67,11 +67,11 @@ def sign_in():
                     session["user"] = request.form.get("email")
                     return redirect(url_for("get_shows"))
             else:
-                flash("Incorrect Username or Password")
+                flash("Incorrect Email or Password")
                 return redirect(url_for("sign_in"))
 
         else:
-            flash("Incorrect Username or Password")
+            flash("Incorrect Email or Password")
             return redirect(url_for("sign_in"))
     return render_template("sign-in.html")
 
