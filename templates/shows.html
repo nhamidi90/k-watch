@@ -2,20 +2,23 @@
 
 {% block content %}
 
-    <h1>My lists</h1>
+    <h2>My lists</h2>
 
-    <div id="status-menu">
-        <div>Plan to Watch</div>
-        <div>Currently Watching</div>
-        <div>Completed</div>
+    <div id="status-menu-container">
+        <ul id="status-menu">
+        {% for status in status %}
+            <li>{{ status.current_status }}</li>
+        {% endfor %}
+        </ul>
     </div>
 
-    <table class="centered highlight responsive-table">
+    <table class="highlight centered">
         <thead>
             <tr>
-                <th>Number</th>
+                <!-- <th>Number</th> -->
                 <th></th>
                 <th>Title</th>
+                <th>Edit / Delete</th>
                 <th>Year</th>
                 <th>Episodes</th>
                 <th>Progress</th>
@@ -24,14 +27,19 @@
         </thead>
         {% for show in shows %}
         <tr>
-            <td>
+            <!-- <td>
                 {{ show._id }}>
-            </td>
-            <td>
-                <img src="{{ show.image }}">
+            </td> -->
+            <td class="thumb-box">
+                <div class="thumb-container">
+                    <img class="thumbnail" src="{{ show.image }}">
+                </div>
             </td>
             <td>
                 {{ show.title }}
+            </td>
+            <td>
+                <i class="fa-regular fa-pen-to-square"></i> / <i class="fa-solid fa-trash"></i>
             </td>
             <td>
                 {{ show.year }}
