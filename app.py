@@ -50,9 +50,30 @@ def register():
             flash("Passwords do not match. Please try again")
         else: mongo.db.user.insert_one(register), flash("Registration successful")
         
-        session["user"] = request.form.get("username").lower()
+        session["user"] = request.form.get("email")
 
     return render_template("register.html")
+
+
+@app.route("/sign_in", methods=["GET", "POST"])
+def sign_in():
+    if request.method == "POST":
+        existing_user = mongo.db.user.find_one(
+            {"email": request.form.get("email")})
+        
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("email")
+                    return redirect(url_for("get_shows"))
+            else:
+                flash("Incorrect Username or Password")
+                return redirect(url_for("sign_in"))
+
+        else:
+            flash("Incorrect Username or Password")
+            return redirect(url_for("sign_in"))
+    return render_template("sign-in.html")
 
 
 if __name__ == "__main__":
