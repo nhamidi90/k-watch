@@ -82,9 +82,19 @@ def sign_in():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.user.find_one({"username": session["user"]})
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+    
+    return redirect(url_for(sign_in))
 
 
+@app.route("/sign_out")
+def sign_out():
+    session.clear()
+    return redirect(url_for("sign_in"))
+
+    
 if __name__ == "__main__":
     app.run(host = os.environ.get("IP"),
             port = int(os.environ.get("PORT")), 
