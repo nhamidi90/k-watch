@@ -4,4 +4,76 @@
 
 <h2>Add drama</h2>
 
+<div class="row">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="title" name="title" type="text" class="validate">
+                <label for="title">Title</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="img_url" name="img_url" type="text" class="validate">
+                <label for="img_url">Image Link</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="year" name="year" type="text" class="validate">
+                <label for="year">Year</label>
+            </div>
+            <div class="input-field col s4">
+                <p class="range-field">
+                    <label for="number_of_episodes">Number of Episodes</label>
+                    <input type="range" id="number_of_episodes" name="number_of_episodes" min="1" max="172" />
+                    
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <select>
+                    <option value="Plan to Watch">Plan to Watch</option>
+                    <option value="Currently Watching">Currently Watching</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Dropped">Dropped</option>
+                </select>
+                <label>Status</label>
+            </div>
+            <div class="input-field col s4">
+                <p class="range-field">
+                    <label for="episodes_watched">Episodes watched</label>
+                    <input type="range" id="episodes_watched" name="episodes_watched" min="1" max="172" />
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <fieldset class="rating col s12">
+                <input type="radio" id="star10" name="rating" value="10"/>
+                <label for="star10" class="full"></label>
+                <input type="radio" id="star9" name="rating" value="9"/>
+                <label for="star9" class="full"></label>
+                <input type="radio" id="star8" name="rating" value="8"/>
+                <label for="star8" class="full"></label>
+                <input type="radio" id="star7" name="rating" value="7"/>
+                <label for="star7" class="full"></label>
+                <input type="radio" id="star6" name="rating" value="6"/>
+                <label for="star6" class="full"></label>
+                <input type="radio" id="star5" name="rating" value="5"/>
+                <label for="star5" class="full"></label>
+                <input type="radio" id="star4" name="rating" value="4"/>
+                <label for="star4" class="full"></label>
+                <input type="radio" id="star3" name="rating" value="3"/>
+                <label for="star3" class="full"></label>
+                <input type="radio" id="star2" name="rating" value="2"/>
+                <label for="star2" class="full"></label>
+                <input type="radio" id="star1" name="rating" value="1"/>
+                <label for="star1" class="full"></label>
+            </fieldset>
+            <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">Notes</label>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}
