@@ -96,7 +96,12 @@ def sign_out():
     session.clear()
     return redirect(url_for("sign_in"))
 
-    
+
+@app.route("/add_drama")
+def add_drama():
+    return render_template("add_drama.html")
+
+
 if __name__ == "__main__":
     app.run(host = os.environ.get("IP"),
             port = int(os.environ.get("PORT")), 
