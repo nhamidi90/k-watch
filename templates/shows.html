@@ -39,7 +39,8 @@
                 {{ show.title }}
             </td>
             <td>
-                <i class="fa-regular fa-pen-to-square"></i> / <i class="fa-solid fa-trash"></i>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i class="fa-regular fa-pen-to-square"></i></a> / 
+                <i class="fa-solid fa-trash"></i>
             </td>
             <td>
                 {{ show.year }}
