@@ -103,6 +103,13 @@ def add_drama():
     return render_template("add_drama.html", status=status)
 
 
+@app.route("/edit_drama/<show_id>", methods=["GET", "POST"])
+def edit_drama(show_id):
+    show = mongo.db.shows.find_one({"_id": ObjectId(show_id)})
+    status = list(mongo.db.status.find())
+    return render_template("edit_drama.html", show=show, status=status)
+
+
 if __name__ == "__main__":
     app.run(host = os.environ.get("IP"),
             port = int(os.environ.get("PORT")), 
