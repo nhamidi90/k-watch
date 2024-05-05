@@ -16,14 +16,20 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 }
 
+
     let status = document.getElementById('status');
     let episodesWatched = document.getElementById('number-of-eps');
-    status.addEventListener('click', showEpisodes());
-        
-    function showEpisodes() {
-        if (status.value != 'plan-to-watch') {
-            episodesWatched.classList.remove("nodisplay");
+    status.addEventListener('click', showElement);
+
+function showElement(status, episodesWatched){
+        if (status.value === "Currently Watching") {
+            revealElement(episodesWatched);
         }
     }
 
+    function revealElement(episodesWatched) {
+        episodesWatched.classList.remove("nodisplay")
+    }
+
 });
+
