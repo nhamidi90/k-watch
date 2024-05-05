@@ -39,7 +39,7 @@
                             <select id="status" name="status" class="validate" required>
                                 <option value="" disabled selected>Select an option</option>
                                 {% for status in status %}
-                                    <option value="plan-to_watch">{{ status.current_status }}</option>
+                                    <option value="{{ status.current_status }}">{{ status.current_status }}</option>
                                 {% endfor %}
                             </select>
                             <label for="status">Status</label>
