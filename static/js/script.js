@@ -15,4 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		showValue.innerHTML = i + " out of 10";
 	});
 }
+
+    let status = document.getElementById('status');
+    let episodesWatched = document.getElementById('number-of-eps');
+    status.addEventListener('click', showEpisodes());
+        
+    function showEpisodes() {
+        if (status.value != 'plan-to-watch') {
+            episodesWatched.classList.remove("nodisplay");
+        }
+    }
+
 });
