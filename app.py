@@ -99,7 +99,8 @@ def sign_out():
 
 @app.route("/add_drama")
 def add_drama():
-    return render_template("add_drama.html")
+    status = list(mongo.db.status.find())
+    return render_template("add_drama.html", status=status)
 
 
 if __name__ == "__main__":

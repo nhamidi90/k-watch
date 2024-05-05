@@ -38,10 +38,9 @@
                         <div class="input-field col s6">
                             <select id="status" name="status" class="validate" required>
                                 <option value="" disabled selected>Select an option</option>
-                                <option value="plan-to_watch">Plan to Watch</option>
-                                <option value="currently_watching">Currently Watching</option>
-                                <option value="completed">Completed</option>
-                                <option value="dropped">Dropped</option>
+                                {% for status in status %}
+                                    <option value="plan-to_watch">{{ status.current_status }}</option>
+                                {% endfor %}
                             </select>
                             <label for="status">Status</label>
                         </div>
