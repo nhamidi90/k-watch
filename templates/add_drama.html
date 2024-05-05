@@ -30,7 +30,7 @@
                             <p class="range-field">
                                 <label for="number_of_episodes">Number of Episodes</label>
                                 <input type="range" id="number_of_episodes" name="number_of_episodes" min="1"
-                                    max="172" />
+                                    value="0" max="172" />
                             </p>
                         </div>
                     </div>
@@ -46,10 +46,10 @@
                             <label for="status">Status</label>
                         </div>
                         
-                        <div class="input-field col s4 nodisplay" id="number-of-eps">
+                        <div class="input-field col s4" id="number-of-eps">
                             <p class="range-field">
                                 <label for="episodes_watched">Episodes watched</label>
-                                <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172" />
+                                <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172" value="0"/>
                             </p>
                         </div>
                     </div>
@@ -60,25 +60,25 @@
                                 <div class="star-cont">
                                     <div>
                                         <fieldset class="rating">
-                                            <input type="radio" id="star10" name="rating" value="10"/><label
+                                            <input type="radio" id="star10" name="rating" value="10" class="star"/><label
                                                 for="star10"></label>
-                                            <input type="radio" id="star9" name="rating" value="9"/><label
+                                            <input type="radio" id="star9" name="rating" value="9" class="star"/><label
                                                 for="star9"></label>
-                                            <input type="radio" id="star8" name="rating" value="8"/><label
+                                            <input type="radio" id="star8" name="rating" value="8" class="star"/><label
                                                 for="star8"></label>
-                                            <input type="radio" id="star7" name="rating" value="7"/><label
+                                            <input type="radio" id="star7" name="rating" value="7" class="star"/><label
                                                 for="star7"></label>
-                                            <input type="radio" id="star6" name="rating" value="6"/><label
+                                            <input type="radio" id="star6" name="rating" value="6" class="star"/><label
                                                 for="star6"></label>
-                                            <input type="radio" id="star5" name="rating" value="5"/><label
+                                            <input type="radio" id="star5" name="rating" value="5" class="star"/><label
                                                 for="star5"></label>
-                                            <input type="radio" id="star4" name="rating" value="4"/><label
+                                            <input type="radio" id="star4" name="rating" value="4" class="star"/><label
                                                 for="star4"></label>
-                                            <input type="radio" id="star3" name="rating" value="3"/><label
+                                            <input type="radio" id="star3" name="rating" value="3" class="star"/><label
                                                 for="star3"></label>
-                                            <input type="radio" id="star2" name="rating" value="2"/><label
+                                            <input type="radio" id="star2" name="rating" value="2" class="star"/><label
                                                 for="star2"></label>
-                                            <input type="radio" id="star1" name="rating" value="1"/><label
+                                            <input type="radio" id="star1" name="rating" value="1" class="star"/><label
                                                 for="star1"></label>
                                         </fieldset>
                                     </div>
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="row center-align">
-                        <a class="waves-effect waves-light btn">Clear</a>
+                        <a href="{{ url_for('add_drama') }}" class="waves-effect waves-light btn">Clear</a>
                         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                         </button>
                     </div>

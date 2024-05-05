@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let dropdown = document.querySelectorAll('select');
     M.FormSelect.init(dropdown);
 
-    let star = document.querySelectorAll('input');
+    let star = document.querySelectorAll('input.star');
     let showValue = document.querySelector('#rating-value');
 
     for (let i = 0; i < star.length; i++) {
@@ -17,19 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 
-    let status = document.getElementById('status');
-    let episodesWatched = document.getElementById('number-of-eps');
-    status.addEventListener('click', showElement);
+//     let status = document.getElementById('status');
+//     let episodesWatched = document.getElementById('number-of-eps');
+//     status.addEventListener('click', showElement);
 
-function showElement(status, episodesWatched){
-        if (status.value === "Currently Watching") {
-            revealElement(episodesWatched);
-        }
-    }
+// function showElement(status, episodesWatched){
+//         if (status.value === "Currently Watching") {
+//             revealElement(episodesWatched);
+//         }
+//     }
 
-    function revealElement(episodesWatched) {
-        episodesWatched.classList.remove("nodisplay")
-    }
+//     function revealElement(episodesWatched) {
+//         episodesWatched.classList.remove("nodisplay")
+//     }
 
 });
 
