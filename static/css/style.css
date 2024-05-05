@@ -112,3 +112,7 @@ form {
 .thumb-box {
     width: 90px;
 }
+
+.nodisplay {
+	display: none;
+}
