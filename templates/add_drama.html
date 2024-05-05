@@ -31,21 +31,22 @@
                                 <label for="number_of_episodes">Number of Episodes</label>
                                 <input type="range" id="number_of_episodes" name="number_of_episodes" min="1"
                                     max="172" />
-
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <select>
-                                <option value="Plan to Watch">Plan to Watch</option>
-                                <option value="Currently Watching">Currently Watching</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Dropped">Dropped</option>
+                            <select id="status" name="status">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="plan-to_watch">Plan to Watch</option>
+                                <option value="currently_watching">Currently Watching</option>
+                                <option value="completed">Completed</option>
+                                <option value="dropped">Dropped</option>
                             </select>
-                            <label>Status</label>
+                            <label for="status">Status</label>
                         </div>
-                        <div class="input-field col s4">
+                        
+                        <div class="input-field col s4 nodisplay" id="number-of-eps">
                             <p class="range-field">
                                 <label for="episodes_watched">Episodes watched</label>
                                 <input type="range" id="episodes_watched" name="episodes_watched" min="1" max="172" />
