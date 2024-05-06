@@ -120,6 +120,21 @@ def add_drama():
 
 @app.route("/edit_drama/<show_id>", methods=["GET", "POST"])
 def edit_drama(show_id):
+    if request.method == "POST":
+        drama = {
+        "title": request.form.get("title"),
+        "image": request.form.get("img_url"),
+        "year": request.form.get("year"),
+        "number_of_episodes": request.form.get("number_of_episodes"),
+        "status": request.form.get("status"),
+        "episodes_watched": request.form.get("episodes_watched"),
+        "rating": request.form.get("rating"),
+        "notes": request.form.get("notes"),
+        "created_by": session["user"]
+        }
+        mongo.db.shows.replace_one({"_id": ObjectId(show_id)}, drama)
+        flash("Your drama was updated successfully")
+        return redirect(url_for("get_shows"))
     show = mongo.db.shows.find_one({"_id": ObjectId(show_id)})
     status = list(mongo.db.status.find())
     return render_template("edit_drama.html", show=show, status=status)
