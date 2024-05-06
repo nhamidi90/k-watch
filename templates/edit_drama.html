@@ -38,7 +38,7 @@
                             <select id="status" name="status" class="validate" required>
                                 <option value="" disabled>Select an option</option>
                                 {% for status in status %}
-                                    {% if status.current_status == show.current_status %}
+                                    {% if status.current_status == show.status %}
                                         <option value="{{ status.current_status }}" selected>{{ status.current_status }}</option>
                                     {% else %}
                                         <option value="{{ status.current_status }}">{{ status.current_status }}</option>
