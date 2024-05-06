@@ -6,57 +6,250 @@
 
     <div id="status-menu-container">
         <ul id="status-menu">
-        {% for status in status %}
-            <li>{{ status.current_status }}</li>
-        {% endfor %}
+            <li id="menu-all">All dramas</li>
+            <li id="menu-plan-to-watch">Plan to Watch</li>
+            <li id="menu-currently-watching">Currently Watching</li>
+            <li id="menu-completed">Completed</li>
+            <li id="menu-dropped">Dropped</li>
         </ul>
     </div>
+    <div id="all-shows">
+        <table class="highlight centered">
+            <thead>
+                <tr>
+                    <!-- <th>Number</th> -->
+                    <th></th>
+                    <th>Title</th>
+                    <th>Edit / Delete</th>
+                    <th>Year</th>
+                    <th>Episodes</th>
+                    <th>Progress</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            {% for show in shows %}
+                {% if session.user|lower == show.created_by|lower %}
+                <tr>
+                    <!-- <td>
+                            {{ show._id }}>
+                        </td> -->
+                    <td class="thumb-box">
+                        <div class="thumb-container">
+                            <img class="thumbnail" src="{{ show.image }}">
+                        </div>
+                    </td>
+                    <td>
+                        {{ show.title }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
+                                class="fa-regular fa-pen-to-square"></i></a> /
+                        <i class="fa-solid fa-trash"></i>
+                    </td>
+                    <td>
+                        {{ show.year }}
+                    </td>
+                    <td>
+                        {{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.rating }}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
 
-    <table class="highlight centered">
-        <thead>
-            <tr>
-                <!-- <th>Number</th> -->
-                <th></th>
-                <th>Title</th>
-                <th>Edit / Delete</th>
-                <th>Year</th>
-                <th>Episodes</th>
-                <th>Progress</th>
-                <th>Rating</th>
-            </tr>
-        </thead>
-        {% for show in shows %}
-        <tr>
-            <!-- <td>
-                {{ show._id }}>
-            </td> -->
-            <td class="thumb-box">
-                <div class="thumb-container">
-                    <img class="thumbnail" src="{{ show.image }}">
-                </div>
-            </td>
-            <td>
-                {{ show.title }}
-            </td>
-            <td>
-                <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i class="fa-regular fa-pen-to-square"></i></a> / 
-                <i class="fa-solid fa-trash"></i>
-            </td>
-            <td>
-                {{ show.year }}
-            </td>
-            <td>
-                {{ show.number_of_episodes }}
-            </td>
-            <td>
-                {{ show.episodes_watched }}/{{ show.number_of_episodes }}
-            </td>
-            <td>
-                {{ show.rating }}
-            </td>
+    <div id="plan-to-watch" class="nodisplay">
+        <table class="highlight centered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Edit / Delete</th>
+                    <th>Year</th>
+                    <th>Episodes</th>
+                    <th>Progress</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            {% for show in shows %}
+                {% if (show.status == "Plan to watch") and (session.user|lower == show.created_by|lower) %}
+                <tr>
+                    <td class="thumb-box">
+                        <div class="thumb-container">
+                            <img class="thumbnail" src="{{ show.image }}">
+                        </div>
+                    </td>
+                    <td>
+                        {{ show.title }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
+                                class="fa-regular fa-pen-to-square"></i></a> /
+                        <i class="fa-solid fa-trash"></i>
+                    </td>
+                    <td>
+                        {{ show.year }}
+                    </td>
+                    <td>
+                        {{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.rating }}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
 
-        </tr>
-        {% endfor %}
-    </table>
+    <div id="currently-watching" class="nodisplay">
+        <table class="highlight centered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Edit / Delete</th>
+                    <th>Year</th>
+                    <th>Episodes</th>
+                    <th>Progress</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            {% for show in shows %}
+                {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
+                <tr>
+                    <td class="thumb-box">
+                        <div class="thumb-container">
+                            <img class="thumbnail" src="{{ show.image }}">
+                        </div>
+                    </td>
+                    <td>
+                        {{ show.title }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
+                                class="fa-regular fa-pen-to-square"></i></a> /
+                        <i class="fa-solid fa-trash"></i>
+                    </td>
+                    <td>
+                        {{ show.year }}
+                    </td>
+                    <td>
+                        {{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.rating }}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
 
+    <div id="completed" class="nodisplay">
+        <table class="highlight centered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Edit / Delete</th>
+                    <th>Year</th>
+                    <th>Episodes</th>
+                    <th>Progress</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            {% for show in shows %}
+                {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
+                <tr>
+                    <td class="thumb-box">
+                        <div class="thumb-container">
+                            <img class="thumbnail" src="{{ show.image }}">
+                        </div>
+                    </td>
+                    <td>
+                        {{ show.title }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
+                                class="fa-regular fa-pen-to-square"></i></a> /
+                        <i class="fa-solid fa-trash"></i>
+                    </td>
+                    <td>
+                        {{ show.year }}
+                    </td>
+                    <td>
+                        {{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.rating }}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+
+    <div id="dropped" class="nodisplay">
+        <table class="highlight centered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Edit / Delete</th>
+                    <th>Year</th>
+                    <th>Episodes</th>
+                    <th>Progress</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            {% for show in shows %}
+                {% if (show.status == "Dropped") and (session.user|lower == show.created_by|lower) %}
+                <tr>
+                    <td class="thumb-box">
+                        <div class="thumb-container">
+                            <img class="thumbnail" src="{{ show.image }}">
+                        </div>
+                    </td>
+                    <td>
+                        {{ show.title }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
+                                class="fa-regular fa-pen-to-square"></i></a> /
+                        <i class="fa-solid fa-trash"></i>
+                    </td>
+                    <td>
+                        {{ show.year }}
+                    </td>
+                    <td>
+                        {{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+                    </td>
+                    <td>
+                        {{ show.rating }}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+    
 {% endblock %}
