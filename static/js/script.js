@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // navbar 
     let navbar = document.querySelectorAll('.sidenav');
     M.Sidenav.init(navbar);
 
+    // Dropdown menu 
     let dropdown = document.querySelectorAll('select');
     M.FormSelect.init(dropdown);
 
+    // Star rating 
     let star = document.querySelectorAll('input.star');
     let showValue = document.querySelector('#rating-value');
 
@@ -14,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		showValue.innerHTML = i + " out of 10";
 	});
-
+    
+    // Custom materialize validation 
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = "border-bottom: 1px solid #4caf50; box-shadow: 0 1px 0 0 #4caf50;";
@@ -54,7 +59,58 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 
+    // Show/hide drama tables 
+    allShows = document.getElementById("all-shows")
+    planToWatch = document.getElementById("plan-to-watch")
+    currentlyWatching = document.getElementById("currently-watching")
+    completed = document.getElementById("completed")
+    dropped = document.getElementById("dropped")
 
+    menuAll = document.getElementById("menu-all").addEventListener("click", showAllShows)
+    menuPlanToWatch = document.getElementById("menu-plan-to-watch").addEventListener("click", showPlanToWatch)
+    menuCurrentlyWatching = document.getElementById("menu-currently-watching").addEventListener("click", showCurrentlyWatching)
+    menuCompleted = document.getElementById("menu-completed").addEventListener("click", completedDramas)
+    menuDropped = document.getElementById("menu-dropped").addEventListener("click", showDropped)
+
+    function showAllShows() {
+        allShows.classList.remove('nodisplay')
+        planToWatch.classList.add('nodisplay')
+        currentlyWatching.classList.add('nodisplay')
+        completed.classList.add('nodisplay')
+        dropped.classList.add('nodisplay')
+    }
+
+    function showPlanToWatch() {
+        allShows.classList.add('nodisplay')
+        planToWatch.classList.remove('nodisplay')
+        currentlyWatching.classList.add('nodisplay')
+        completed.classList.add('nodisplay')
+        dropped.classList.add('nodisplay')
+    }
+
+    function showCurrentlyWatching() {
+        allShows.classList.add('nodisplay')
+        planToWatch.classList.add('nodisplay')
+        currentlyWatching.classList.remove('nodisplay')
+        completed.classList.add('nodisplay')
+        dropped.classList.add('nodisplay')
+    }
+
+    function completedDramas() {
+        allShows.classList.add('nodisplay')
+        planToWatch.classList.add('nodisplay')
+        currentlyWatching.classList.add('nodisplay')
+        completed.classList.remove('nodisplay')
+        dropped.classList.add('nodisplay')
+    }
+
+    function showDropped() {
+        allShows.classList.add('nodisplay')
+        planToWatch.classList.add('nodisplay')
+        currentlyWatching.classList.add('nodisplay')
+        completed.classList.add('nodisplay')
+        dropped.classList.remove('nodisplay')
+    }
 //     let status = document.getElementById('status');
 //     let episodesWatched = document.getElementById('number-of-eps');
 //     status.addEventListener('click', showElement);
