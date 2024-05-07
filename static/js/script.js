@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let dropdown = document.querySelectorAll('select');
     M.FormSelect.init(dropdown);
 
+    // Modal
+    let modal = document.querySelectorAll('.modal');
+    M.Modal.init(modal);
+
     // Star rating 
     let star = document.querySelectorAll('input.star');
     let showValue = document.querySelector('#rating-value');
