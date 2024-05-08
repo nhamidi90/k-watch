@@ -84,11 +84,35 @@ def sign_in():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.user.find_one({"username": session["user"]})['username']
-
-    if session["user"]:
-        return render_template("profile.html", username=username)
+    email = mongo.db.user.find_one({"username": session["user"]})['email']
+    password = mongo.db.user.find_one({"username": session["user"]})['password']
     
-    return redirect(url_for(sign_in))
+    if session["user"]:
+
+        if request.method == "POST":
+            existing_user = mongo.db.user.find_one(
+                {"username": request.form.get("username").lower()})
+        
+            if existing_user:
+
+                update_profile = {
+                    "username": request.form.get("username").lower(),
+                    "email": request.form.get("email"),
+                    "password": generate_password_hash(request.form.get("password")),
+                    "confirm_password": generate_password_hash(request.form.get("confirm_password"))
+                }
+
+            password1 = request.form.get("password")
+            password2 = request.form.get("confirm_password")
+
+            if (password1 != password2):
+                flash("Passwords do not match. Please try again")
+            else: mongo.db.user.replace_one({"username": session["user"]}, update_profile), flash(
+                "Profile updated")
+
+        return render_template("profile.html", username=username, email=email, password=password)
+    
+    return redirect(url_for('profile',username=username))
 
 
 @app.route("/sign_out")
