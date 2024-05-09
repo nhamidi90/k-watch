@@ -166,6 +166,13 @@ def edit_drama(show_id):
     return render_template("edit_drama.html", show=show, status=status)
 
 
+@app.route("/delete_drama/<show_id>")
+def delete_drama(show_id):
+    mongo.db.shows.delete_one({"_id": ObjectId(show_id)})
+    flash("Drama deleted")
+    return redirect(url_for("get_shows"))
+
+
 if __name__ == "__main__":
     app.run(host = os.environ.get("IP"),
             port = int(os.environ.get("PORT")), 
