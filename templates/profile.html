@@ -58,13 +58,48 @@
 </div>
 
 <!-- currently watching carousel  -->
+<div class="row">
+    <div class="col s12 m5">
+        <div class="card-panel teal">
+            <h6>Currently Watching</h6>
 
-{% for show in shows %}
-    {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
-    <div class="carousel">
-        <a class="carousel-item" href="{{ url_for('edit_drama', show_id=show._id) }}"><img src="{{ show.image }}"></a>
+            {% for show in shows %}
+            {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
+            {{ show.title }}
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
-    {% endif %}
-{% endfor %}
+</div>
+
+<div class="row">
+    <div class="col s12 m5">
+        <div class="card-panel teal">
+            <h6>Recently Completed</h6>
+            <div class="carousel">
+                {% for show in shows[:10] %}
+                {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
+                <a class="carousel-item" href="#one!"><img src="{{ show.image }}">{{ show.title }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 m5">
+        <div class="card-panel teal">
+            <h6>Highly Rated</h6>
+            <div class="carousel">
+                {% for show in shows[:10] %}
+                {% if (show.rating >= 8) and (session.user|lower == show.created_by|lower) %}
+                <a class="carousel-item" href="#one!"><img src="{{ show.image }}">{{ show.title }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

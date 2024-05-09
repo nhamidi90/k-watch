@@ -83,6 +83,8 @@ def sign_in():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    shows = list(mongo.db.shows.find())
+    status = list(mongo.db.status.find())
     username = mongo.db.user.find_one({"username": session["user"]})['username']
     email = mongo.db.user.find_one({"username": session["user"]})['email']
     password = mongo.db.user.find_one({"username": session["user"]})['password']
@@ -110,7 +112,7 @@ def profile(username):
             else: mongo.db.user.replace_one({"username": session["user"]}, update_profile), flash(
                 "Profile updated")
 
-        return render_template("profile.html", username=username, email=email, password=password)
+        return render_template("profile.html", username=username, email=email, password=password, shows=shows, status=status)
     
     return redirect(url_for('profile',username=username))
 
@@ -131,7 +133,7 @@ def add_drama():
         "number_of_episodes": request.form.get("number_of_episodes"),
         "status": request.form.get("status"),
         "episodes_watched": request.form.get("episodes_watched"),
-        "rating": request.form.get("rating"),
+        "rating": int(request.form.get("rating")),
         "notes": request.form.get("notes"),
         "created_by": session["user"]
         }
@@ -152,7 +154,7 @@ def edit_drama(show_id):
         "number_of_episodes": request.form.get("number_of_episodes"),
         "status": request.form.get("status"),
         "episodes_watched": request.form.get("episodes_watched"),
-        "rating": request.form.get("rating"),
+        "rating": int(request.form.get("rating")),
         "notes": request.form.get("notes"),
         "created_by": session["user"]
         }
