@@ -76,6 +76,7 @@
 <div class="row">
     <div class="col s12 m5 offset-m1">
         <div class="card-panel">
+            <!-- recently completed  -->
             <h6>Recently Completed</h6>
             <div class="carousel">
                 {% for show in shows[:10] %}
@@ -88,10 +89,11 @@
     </div>
     <div class="col s12 m5 offset-m-1">
         <div class="card-panel">
+            <!-- highly rated  -->
             <h6>Highly Rated</h6>
             <div class="carousel">
                 {% for show in shows[:10] %}
-                {% if (show.rating >= 8) and (session.user|lower == show.created_by|lower) %}
+                {% if (show.rating >= 7) and (session.user|lower == show.created_by|lower) %}
                 <a class="carousel-item" href="#one!"><img src="{{ show.image }}">{{ show.title }}</a>
                 {% endif %}
                 {% endfor %}
