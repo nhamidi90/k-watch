@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let modal = document.querySelectorAll('.modal');
     M.Modal.init(modal);
 
+    // Carousel
+    let carousel = document.querySelectorAll('.carousel');
+    M.Carousel.init(carousel);
+
     // Star rating 
     let star = document.querySelectorAll('input.star');
     let showValue = document.querySelector('#rating-value');
