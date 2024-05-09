@@ -18,15 +18,26 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    if request.method == "POST":
+        coming_soon = {
+        "title": request.form.get("title"),
+        "video-link": request.form.get("video-link"),
+        "synopsis": request.form.get("synopsis"),
+        }
+
+        mongo.db.coming.insert_one(coming_soon)
+        flash("Your drama was added successfully")
+        return redirect(url_for("index"))
+    shows = list(mongo.db.shows.find())
+    upcoming = list(mongo.db.coming.find())
+    return render_template("index.html", shows=shows, upcoming=upcoming)
 
 @app.route("/get_shows")
 def get_shows():
     shows = list(mongo.db.shows.find())
-    status = list(mongo.db.status.find())
-    return render_template("shows.html", shows=shows, status=status)
+    return render_template("shows.html", shows=shows)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -84,7 +95,6 @@ def sign_in():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     shows = list(mongo.db.shows.find())
-    status = list(mongo.db.status.find())
     username = mongo.db.user.find_one({"username": session["user"]})['username']
     email = mongo.db.user.find_one({"username": session["user"]})['email']
     password = mongo.db.user.find_one({"username": session["user"]})['password']
@@ -112,7 +122,7 @@ def profile(username):
             else: mongo.db.user.replace_one({"username": session["user"]}, update_profile), flash(
                 "Profile updated")
 
-        return render_template("profile.html", username=username, email=email, password=password, shows=shows, status=status)
+        return render_template("profile.html", username=username, email=email, password=password, shows=shows)
     
     return redirect(url_for('profile',username=username))
 
@@ -162,8 +172,7 @@ def edit_drama(show_id):
         flash("Your drama was updated successfully")
         return redirect(url_for("get_shows"))
     show = mongo.db.shows.find_one({"_id": ObjectId(show_id)})
-    status = list(mongo.db.status.find())
-    return render_template("edit_drama.html", show=show, status=status)
+    return render_template("edit_drama.html", show=show)
 
 
 @app.route("/delete_drama/<show_id>")
