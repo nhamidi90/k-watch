@@ -2,15 +2,16 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row row-margin">
 <h5>Coming soon</h5>
+
 </div>
 
-<div class="row">
+<div class="row row-margin">
     <h5>Most popular</h5>
     {% for show in shows[:10] %}
     {% if (show.rating >= 7) %}
-    <div class="col spacing">
+    <div class="col img-spacing">
         <img src="{{ show.image }}" class="images">
             <p>{{ show.title }} <span><i class="fa-solid fa-plus"></i></span></p>
     </div>
@@ -18,11 +19,11 @@
     {% endfor %}
 </div>
 
-<div class="row">
+<div class="row row-margin">
     <h5>People are watching right now</h5>
     {% for show in shows %}
     {% if (show.status == "Currently watching") %}
-    <div class="col spacing">
+    <div class="col img-spacing">
         <img src="{{ show.image }}" class="images">
             <p>{{ show.title }} <span><i class="fa-solid fa-plus"></i></span></p>
     </div>
