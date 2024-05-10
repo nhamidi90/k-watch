@@ -33,7 +33,7 @@ p {
 .row-margin {
 	margin-left: 50px;
 	margin-right: 50px;
-	border: 1px solid;
+	/* border: 1px solid; */
 }
 
 .upcoming-header {
@@ -201,13 +201,4 @@ h6 {
 
 .carousel-item {
 	margin-top: -70px;
-}
-
-.table-row {
-	border: 0;
-}
-
-.table-row > td {
-	padding: 0;
-	width: 300px;
 }
