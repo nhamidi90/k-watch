@@ -4,7 +4,7 @@
 
 <div class="row row-margin">
     <div class="upcoming-header"><h5>Coming soon</h5><span>{% if (session.user|lower == "admin") %}
-    <a class="waves-effect waves-light btn modal-trigger admin-edit" href="#coming-soon">Edit</a>
+    <a class="waves-effect waves-light btn modal-trigger admin-edit" href="#coming-soon">Add new drama</a>
 {% endif %}
 </span></div>
     {% for coming in upcoming %}
@@ -28,15 +28,17 @@
                         <label for="title">Title</label>
                     </div>
                     <div class="input-field col s6">
+                        <input id="release-date" name="release-date" type="text" class="validate">
+                        <label for="release-date">Release Date (Type year or TBA)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
                         <input id="video-link" name="video-link" type="text" class="validate">
                         <label for="video-link">Video link</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" name="synopsis" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Synopsis</label>
-                    </div>
                 </div>
                 <div class="row center-align">
                     <a href="{{ url_for('index') }}" class="waves-effect waves-light btn">Cancel</a>
