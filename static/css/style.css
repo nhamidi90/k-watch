@@ -38,6 +38,7 @@ p {
 
 .upcoming-header {
 	display: flex;
+	margin-top: 40px;
 }
 
 .admin-edit {
