@@ -9,7 +9,11 @@
 </span></div>
     {% for coming in upcoming %}
     <div class="col img-spacing">
-        <img src="{{ coming.image }}" class="images">
+        {% if coming.image %}
+            <img src="{{ coming.image }}" class="images">
+        {% else %}
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        {% endif %}
         <p><a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a></p>
         <p>{{ coming.title }} ({{ coming.releaseDate }})</p>
         <p>Add to your watch list <span><i class="fa-solid fa-plus"></i></span></p>
@@ -57,7 +61,11 @@
     {% for show in shows[:10] %}
     {% if (show.rating >= 7) %}
     <div class="col img-spacing">
-        <img src="{{ show.image }}" class="images">
+        {% if show.image %}
+            <img src="{{ show.image }}" class="images">
+        {% else %}
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        {% endif %}
             <p>{{ show.title }} <span><i class="fa-solid fa-plus"></i></span></p>
     </div>
     {% endif %}
@@ -69,7 +77,11 @@
     {% for show in shows %}
     {% if (show.status == "Currently watching") %}
     <div class="col img-spacing">
-        <img src="{{ show.image }}" class="images">
+        {% if show.image %}
+            <img src="{{ show.image }}" class="images">
+        {% else %}
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        {% endif %}
             <p>{{ show.title }} <span><i class="fa-solid fa-plus"></i></span></p>
     </div>
     {% endif %}
