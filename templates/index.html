@@ -3,16 +3,18 @@
 {% block content %}
 
 <div class="row row-margin">
-<h5>Coming soon</h5>
-{% for coming in upcoming %}
-<div class="col img-spacing">
-    
-        {{ coming.title }}
-</div>
-{% endfor %}
-{% if (session.user|lower == "admin") %}
-    <a class="waves-effect waves-light btn modal-trigger" href="#coming-soon">Edit</a>
+    <div class="upcoming-header"><h5>Coming soon</h5><span>{% if (session.user|lower == "admin") %}
+    <a class="waves-effect waves-light btn modal-trigger admin-edit" href="#coming-soon">Edit</a>
 {% endif %}
+</span></div>
+    {% for coming in upcoming %}
+    <div class="col img-spacing">
+        {{ coming.title }}
+        <p>Add to your watch list <span><i class="fa-solid fa-plus"></i></span></p>
+    </div>
+    {% endfor %}
+</div>
+
 
 <!-- edit coming soon modal -->
 <div id="coming-soon" class="modal">

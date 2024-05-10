@@ -32,9 +32,18 @@ p {
 
 .row-margin {
 	margin-left: 50px;
-	margin-right: 50px;;
+	margin-right: 50px;
+	border: 1px solid;
 }
 
+.upcoming-header {
+	display: flex;
+}
+
+.admin-edit {
+	margin-top: 10px;
+	margin-left: 20px;
+}
 /* star rating  */
 .star-container{
 	display: flex;
