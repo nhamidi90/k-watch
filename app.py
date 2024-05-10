@@ -35,6 +35,14 @@ def index():
     upcoming = list(mongo.db.coming.find())
     return render_template("index.html", shows=shows, upcoming=upcoming)
 
+
+@app.route("/delete_upcoming/<upcoming_id>")
+def delete_upcoming(upcoming_id):
+    mongo.db.coming.delete_one({"_id": ObjectId(upcoming_id)})
+    flash("Successfully deleted")
+    return redirect(url_for("/"))
+
+
 @app.route("/get_shows")
 def get_shows():
     shows = list(mongo.db.shows.find())

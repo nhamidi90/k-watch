@@ -3,10 +3,13 @@
 {% block content %}
 
 <div class="row row-margin">
-    <div class="upcoming-header"><h5>Coming soon</h5><span>{% if (session.user|lower == "admin") %}
-    <a class="waves-effect waves-light btn modal-trigger admin-edit" href="#coming-soon">Add new drama</a>
-{% endif %}
-</span></div>
+    <div class="upcoming-header"><h5>Coming soon</h5>
+        {% if (session.user|lower == "admin") %}
+            <span>
+                <a class="waves-effect waves-light btn modal-trigger admin-edit" href="#coming-soon">Add new drama</a>
+            </span>
+        {% endif %}
+</div>
     {% for coming in upcoming %}
     <div class="col img-spacing">
         {% if coming.image %}
@@ -15,8 +18,18 @@
             <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
         <p><a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a></p>
-        <p>{{ coming.title }} ({{ coming.releaseDate }})</p>
-        <p>Add to your watch list <span><i class="fa-solid fa-plus"></i></span></p>
+        <p><strong>{{ coming.title }}</strong> ({{ coming.releaseDate }})</p>
+        <p>Add to your watch list 
+            <span>
+                <a class="modal-trigger" href="#coming-soon"></a>
+                <i class="fa-solid fa-plus"></i>
+            </span>
+        </p>
+        {% if (session.user|lower == "admin") %}
+            <a href="{{ url_for('delete_upcoming', upcoming_id=upcoming._id) }}" class="waves-effect waves-light btn">
+                Remove <i class="fa-solid fa-trash"></i>
+            </a>
+        {% endif %}
     </div>
     {% endfor %}
 </div>
