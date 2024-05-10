@@ -58,19 +58,21 @@
 </div>
 
 <!-- currently watching  -->
-<div class="row">
-    <div class="col s10 offset-m1">
-        <h6>Currently Watching</h6>
-        <div class="currently-watching">
-            {% for show in shows %}
-            {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
-            <div><img src="{{ show.image }}" class="images">
-                <p class="title-align">{{ show.title }}</p>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
+<div class="row row-margin">
+    <h6>Currently Watching</h6>
+
+    {% for show in shows %}
+    {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
+    <div class="currently-watching col img-spacing">
+        {% if show.image %}
+            <img src="{{ show.image }}" class="images">
+        {% else %}
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        {% endif %}
+        <p>{{ show.title }}</p>
     </div>
+    {% endif %}
+    {% endfor %}
 </div>
 
 <div class="row">
@@ -81,7 +83,7 @@
             <div class="carousel">
                 {% for show in shows[:10] %}
                 {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
-                <a class="carousel-item" href="#one!"><img src="{{ show.image }}">{{ show.title }}</a>
+                    <a class="carousel-item" href="#one!"><img src="{{ show.image }}">{{ show.title }}</a>
                 {% endif %}
                 {% endfor %}
             </div>
@@ -94,7 +96,7 @@
             <div class="carousel">
                 {% for show in shows[:10] %}
                 {% if (show.rating >= 7) and (session.user|lower == show.created_by|lower) %}
-                <a class="carousel-item" href="#one!"><img src="{{ show.image }}">{{ show.title }}</a>
+                    <a class="carousel-item" href="#one!"><img src="{{ show.image }}">{{ show.title }}</a>
                 {% endif %}
                 {% endfor %}
             </div>
