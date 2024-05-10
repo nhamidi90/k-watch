@@ -9,7 +9,9 @@
 </span></div>
     {% for coming in upcoming %}
     <div class="col img-spacing">
-        {{ coming.title }}
+        <img src="{{ coming.image }}" class="images">
+        <p><a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a></p>
+        <p>{{ coming.title }} ({{ coming.releaseDate }})</p>
         <p>Add to your watch list <span><i class="fa-solid fa-plus"></i></span></p>
     </div>
     {% endfor %}
