@@ -23,8 +23,9 @@ def index():
     if request.method == "POST":
         coming_soon = {
         "title": request.form.get("title"),
-        "video-link": request.form.get("video-link"),
-        "synopsis": request.form.get("synopsis"),
+        "image": "",
+        "releaseDate": request.form.get("release-date"),
+        "videoLink": request.form.get("video-link"),
         }
 
         mongo.db.coming.insert_one(coming_soon)
