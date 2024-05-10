@@ -199,12 +199,6 @@ h6 {
 	max-height: 285px;
 }
 
-
-.currently-watching {
-	display: flex;
-	gap: 20px;
-}
-
 .carousel-item {
 	margin-top: -70px;
 }
