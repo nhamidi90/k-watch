@@ -21,16 +21,59 @@
         <p><strong>{{ coming.title }}</strong> ({{ coming.releaseDate }})</p>
         <p>Add to your watch list 
             <span>
-                <a class="modal-trigger" href="#coming-soon"></a>
-                <i class="fa-solid fa-plus"></i>
+                <a class="modal-trigger" href="#add-to-list{{coming.title}}">
+                <i class="fa-solid fa-plus"></i></a>
             </span>
         </p>
         {% if (session.user|lower == "admin") %}
-            <a href="{{ url_for('delete_upcoming', upcoming_id=upcoming._id) }}" class="waves-effect waves-light btn">
+            <a href="{{ url_for('delete_upcoming', coming_id=coming._id) }}" class="waves-effect waves-light btn">
                 Remove <i class="fa-solid fa-trash"></i>
             </a>
         {% endif %}
     </div>
+    <!-- add to list modal -->
+<div id="add-to-list{{coming.title}}" class="modal">
+    <div class="modal-content">
+        <h4>Add to your list</h4>
+        <div class="row">
+            <form class="col s12" method="POST" action="{{ url_for('add_upcoming') }}" id="add-upcoming">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" name="title" type="text" value="{{ coming.title }}" class="validate" required>
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="img_url" name="img_url" type="text" value="{{ coming.image }}" class="validate">
+                        <label for="img_url">Image Link</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="year" name="year" type="text" value="{{ coming.releaseDate }}" class="validate" required>
+                        <label for="year">Year</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="status" name="status" class="validate" required>
+                                <option value="Plan to watch">Plan to watch</option>
+                        </select>
+                        <label for="status">Status</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+                        <label for="notes">Notes</label>
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <a onclick="document.getElementById('add-upcoming').reset()" class="waves-effect waves-light btn">Clear</a>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     {% endfor %}
 </div>
 
@@ -68,6 +111,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <div class="row row-margin">
     <h5>Most popular</h5>

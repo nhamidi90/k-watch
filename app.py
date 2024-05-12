@@ -36,11 +36,30 @@ def index():
     return render_template("index.html", shows=shows, upcoming=upcoming)
 
 
-@app.route("/delete_upcoming/<upcoming_id>")
-def delete_upcoming(upcoming_id):
-    mongo.db.coming.delete_one({"_id": ObjectId(upcoming_id)})
+@ app.route("/add_upcoming", methods=["GET", "POST"])
+def add_upcoming():
+    if request.method == "POST":
+        upcoming_show = {
+        "title": request.form.get("title"),
+        "image": request.form.get("img_url"),
+        "year": request.form.get("year"),
+        "number_of_episodes": int(0),
+        "status": request.form.get("status"),
+        "episodes_watched": int(0),
+        "rating": int(0),
+        "notes": request.form.get("notes"),
+        "created_by": session["user"]
+        }
+        mongo.db.shows.insert_one(upcoming_show)
+        flash("Your drama was added successfully")
+        return redirect(url_for("index"))
+
+
+@app.route("/delete_upcoming/<coming_id>")
+def delete_upcoming(coming_id):
+    mongo.db.coming.delete_one({"_id": ObjectId(coming_id)})
     flash("Successfully deleted")
-    return redirect(url_for("/"))
+    return redirect(url_for("index"))
 
 
 @app.route("/get_shows")
@@ -181,7 +200,8 @@ def edit_drama(show_id):
         flash("Your drama was updated successfully")
         return redirect(url_for("get_shows"))
     show = mongo.db.shows.find_one({"_id": ObjectId(show_id)})
-    return render_template("edit_drama.html", show=show)
+    status = list(mongo.db.status.find())
+    return render_template("edit_drama.html", show=show, status=status)
 
 
 @app.route("/delete_drama/<show_id>")
