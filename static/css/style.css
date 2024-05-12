@@ -27,7 +27,7 @@ p {
 }
 
 .img-spacing {
-	min-width: 205px;
+	width: 205px;
 }
 
 .row-margin {
@@ -45,6 +45,11 @@ p {
 	margin-top: 10px;
 	margin-left: 20px;
 }
+
+strong {
+	font-weight: bold;
+}
+
 /* star rating  */
 .star-container{
 	display: flex;
