@@ -36,7 +36,13 @@
                         </td> -->
                     <td class="thumb-box">
                         <div class="thumb-container">
-                            <img class="thumbnail" src="{{ show.image }}">
+                            {% if show.image %}
+                                <img class="thumbnail modal-trigger" href="#modal{{ show.title }}" src="{{ show.image }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% else %}
+                                <img class="thumbnail modal-trigger" href="#modal{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% endif %}
                         </div>
                     </td>
                     <td>
@@ -64,6 +70,35 @@
                     </td>
                 </tr>
                 {% endif %}
+
+                <!-- modal for drama information -->
+                <div id="modal{{ show.title }}" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col s4">
+                                {% if show.image %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                {% else %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Click for information about {{ show.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="col s8">
+                                <h6>{{ show.title }}</h6>
+                                <p><strong>Year:</strong> {{ show.year }}</p>
+                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                                <p><strong>Status:</strong> {{ show.status }}</p>
+                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                                <p><strong>Notes:</strong> {{ show.notes }}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
             {% endfor %}
         </table>
     </div>
@@ -86,7 +121,13 @@
                 <tr>
                     <td class="thumb-box">
                         <div class="thumb-container">
-                            <img class="thumbnail" src="{{ show.image }}">
+                            {% if show.image %}
+                                <img class="thumbnail modal-trigger" href="#modal2{{ show.title }}" src="{{ show.image }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% else %}
+                                <img class="thumbnail modal-trigger" href="#modal2{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% endif %}
                         </div>
                     </td>
                     <td>
@@ -113,6 +154,34 @@
                     </td>
                 </tr>
                 {% endif %}
+                <!-- modal for drama information -->
+                <div id="modal2{{ show.title }}" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col s4">
+                                {% if show.image %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                {% else %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Click for information about {{ show.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="col s8">
+                                <h6>{{ show.title }}</h6>
+                                <p><strong>Year:</strong> {{ show.year }}</p>
+                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                                <p><strong>Status:</strong> {{ show.status }}</p>
+                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                                <p><strong>Notes:</strong> {{ show.notes }}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
             {% endfor %}
         </table>
     </div>
@@ -135,7 +204,13 @@
                 <tr>
                     <td class="thumb-box">
                         <div class="thumb-container">
-                            <img class="thumbnail" src="{{ show.image }}">
+                            {% if show.image %}
+                                <img class="thumbnail modal-trigger" href="#modal3{{ show.title }}" src="{{ show.image }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% else %}
+                                <img class="thumbnail modal-trigger" href="#modal3{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% endif %}
                         </div>
                     </td>
                     <td>
@@ -162,6 +237,34 @@
                     </td>
                 </tr>
                 {% endif %}
+                <!-- modal for drama information -->
+                <div id="modal3{{ show.title }}" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col s4">
+                                {% if show.image %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                {% else %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Click for information about {{ show.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="col s8">
+                                <h6>{{ show.title }}</h6>
+                                <p><strong>Year:</strong> {{ show.year }}</p>
+                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                                <p><strong>Status:</strong> {{ show.status }}</p>
+                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                                <p><strong>Notes:</strong> {{ show.notes }}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
             {% endfor %}
         </table>
     </div>
@@ -184,7 +287,13 @@
                 <tr>
                     <td class="thumb-box">
                         <div class="thumb-container">
-                            <img class="thumbnail" src="{{ show.image }}">
+                            {% if show.image %}
+                                <img class="thumbnail modal-trigger" href="#modal4{{ show.title }}" src="{{ show.image }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% else %}
+                                <img class="thumbnail modal-trigger" href="#modal4{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% endif %}
                         </div>
                     </td>
                     <td>
@@ -211,6 +320,34 @@
                     </td>
                 </tr>
                 {% endif %}
+                <!-- modal for drama information -->
+                <div id="modal4{{ show.title }}" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col s4">
+                                {% if show.image %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                {% else %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Click for information about {{ show.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="col s8">
+                                <h6>{{ show.title }}</h6>
+                                <p><strong>Year:</strong> {{ show.year }}</p>
+                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                                <p><strong>Status:</strong> {{ show.status }}</p>
+                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                                <p><strong>Notes:</strong> {{ show.notes }}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
             {% endfor %}
         </table>
     </div>
@@ -233,7 +370,13 @@
                 <tr>
                     <td class="thumb-box">
                         <div class="thumb-container">
-                            <img class="thumbnail" src="{{ show.image }}">
+                            {% if show.image %}
+                                <img class="thumbnail modal-trigger" href="#modal5{{ show.title }}" src="{{ show.image }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% else %}
+                                <img class="thumbnail modal-trigger" href="#modal5{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                alt="Click for information about {{ show.title }}">
+                            {% endif %}
                         </div>
                     </td>
                     <td>
@@ -260,6 +403,34 @@
                     </td>
                 </tr>
                 {% endif %}
+                <!-- modal for drama information -->
+                <div id="modal5{{ show.title }}" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col s4">
+                                {% if show.image %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                {% else %}
+                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                    src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Click for information about {{ show.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="col s8">
+                                <h6>{{ show.title }}</h6>
+                                <p><strong>Year:</strong> {{ show.year }}</p>
+                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                                <p><strong>Status:</strong> {{ show.status }}</p>
+                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                                <p><strong>Notes:</strong> {{ show.notes }}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
             {% endfor %}
         </table>
     </div>
