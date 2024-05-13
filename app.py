@@ -113,7 +113,7 @@ def register():
             flash("Passwords do not match. Please try again")
         else: mongo.db.user.insert_one(register), flash(
             "Registration successful! Welcome!")
-        session["user"] = request.form.get("email")
+        session["user"] = request.form.get("username")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
