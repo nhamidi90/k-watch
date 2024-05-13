@@ -50,6 +50,11 @@ strong {
 	font-weight: bold;
 }
 
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+}
+
 /* star rating  */
 .star-container{
 	display: flex;
