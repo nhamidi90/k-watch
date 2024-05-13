@@ -34,7 +34,12 @@
     <!-- add to list modal -->
 <div id="add-to-list{{coming.title}}" class="modal">
     <div class="modal-content">
-        <h4>Add to your list</h4>
+        <div class="modal-header">
+            <h4>Add to your list</h4>
+            <span>
+                <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+            </span>
+        </div>
         <div class="row">
             <form class="col s12" method="POST" action="{{ url_for('add_upcoming') }}" id="add-upcoming">
                 <div class="row">
@@ -66,7 +71,6 @@
                     </div>
                 </div>
                 <div class="row center-align">
-                    <a onclick="document.getElementById('add-upcoming').reset()" class="waves-effect waves-light btn">Clear</a>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     </button>
                 </div>
@@ -81,7 +85,12 @@
 <!-- edit coming soon modal -->
 <div id="coming-soon" class="modal">
     <div class="modal-content">
-        <h4>Add coming soon</h4>
+        <div class="modal-header">
+            <h4>Add coming soon</h4>
+            <span>
+                <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+            </span>
+        </div>
         <div class="row">
             <form class="col s12" method="POST" action="{{ url_for('index')}}">
                 <div class="row">
@@ -103,7 +112,6 @@
                 <div class="row">
                 </div>
                 <div class="row center-align">
-                    <a href="{{ url_for('index') }}" class="waves-effect waves-light btn">Cancel</a>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Add
                     </button>
                 </div>
@@ -112,9 +120,7 @@
     </div>
 </div>
 
-
-
-
+<!-- Most popular shows  -->
 <div class="row row-margin">
     <h5>Most popular</h5>
     {% for show in shows[:10] %}
@@ -125,12 +131,114 @@
         {% else %}
             <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
-            <p>{{ show.title }} <span><i class="fa-solid fa-plus"></i></span></p>
+            <p>{{ show.title }} 
+                <span>
+                    <a class="modal-trigger" href="#popular{{ show.title }}">
+                    <i class="fa-solid fa-plus"></i></a>
+                </span>
+            </p>
     </div>
     {% endif %}
-    {% endfor %}
-</div>
 
+<!-- Add drama modal-->
+<div id="popular{{ show.title }}" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4>Add to your list</h4>
+            <span>
+                <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+            </span>
+        </div>
+        <div class="row">
+            <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" name="title" value="{{ show.title }}" type="text" class="validate" required>
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="input-field col s6">
+                        {% if show.image %}
+                        <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                            {% else %}
+                        <input id="img_url" name="img_url" value="{{ url_for('static', filename='images/no-img.png') }}" type="text" class="validate">
+                            {% endif %}
+                        <label for="img_url">Image Link</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="year" name="year" value="{{ show.year }}" type="text" class="validate" required>
+                        <label for="year">Year</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <p class="range-field">
+                            <label for="number_of_episodes">Number of Episodes</label>
+                            <input type="range" id="number_of_episodes" name="number_of_episodes" 
+                            value="{{ show.number_of_episodes }}" min="1" value="0" max="172" required />
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="input-field col s6" id="number-of-eps">
+                        <p class="range-field">
+                            <label for="episodes_watched">Episodes watched</label>
+                            <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
+                                value="0" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="star-container col s12">
+                        <div class="rating-wrap">
+                            <label>Rating</label>
+                            <div class="star-cont">
+                                <div>
+                                    <fieldset class="rating">
+                                        <input type="radio" id="star10" name="rating" value="10" class="star" /><label
+                                            for="star10"></label>
+                                        <input type="radio" id="star9" name="rating" value="9" class="star" /><label
+                                            for="star9"></label>
+                                        <input type="radio" id="star8" name="rating" value="8" class="star" /><label
+                                            for="star8"></label>
+                                        <input type="radio" id="star7" name="rating" value="7" class="star" /><label
+                                            for="star7"></label>
+                                        <input type="radio" id="star6" name="rating" value="6" class="star" /><label
+                                            for="star6"></label>
+                                        <input type="radio" id="star5" name="rating" value="5" class="star" /><label
+                                            for="star5"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" class="star" /><label
+                                            for="star4"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" class="star" /><label
+                                            for="star3"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" class="star" /><label
+                                            for="star2"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" class="star" /><label
+                                            for="star1"></label>
+                                    </fieldset>
+                                </div>
+                                <a class="waves-effect waves-light btn">Clear</a>
+                            </div>
+                            <h4 id="rating-value"></h4>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+                        <label for="notes">Notes</label>
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    {% endfor %}
+
+
+<!-- Watching now  -->
 <div class="row row-margin">
     <h5>People are watching right now</h5>
     {% for show in shows %}
@@ -141,9 +249,15 @@
         {% else %}
             <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
-            <p>{{ show.title }} <span><i class="fa-solid fa-plus"></i></span></p>
+        <p>{{ show.title }} 
+            <span>
+                <a class="modal-trigger" href="#popular{{ show.title }}">
+                <i class="fa-solid fa-plus"></i></a>
+            </span>
+        </p>
     </div>
     {% endif %}
     {% endfor %}
 </div>
+
 {% endblock %}
