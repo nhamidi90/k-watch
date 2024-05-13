@@ -6,7 +6,7 @@
     <div class="upcoming-header"><h5>Coming soon</h5>
         {% if (session.user|lower == "admin") %}
             <span>
-                <a class="waves-effect waves-light btn modal-trigger admin-edit" href="#coming-soon">Add new drama</a>
+                <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit" href="#coming-soon">Add new drama</a>
             </span>
         {% endif %}
 </div>
@@ -26,7 +26,7 @@
             </span>
         </p>
         {% if (session.user|lower == "admin") %}
-            <a href="{{ url_for('delete_upcoming', coming_id=coming._id) }}" class="waves-effect waves-light btn">
+            <a href="{{ url_for('delete_upcoming', coming_id=coming._id) }}" class="waves-effect waves-light btnpurple darken-4">
                 Remove <i class="fa-solid fa-trash"></i>
             </a>
         {% endif %}
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="row center-align">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Submit
                     </button>
                 </div>
             </form>
@@ -112,7 +112,7 @@
                 <div class="row">
                 </div>
                 <div class="row center-align">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Add
+                    <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Add
                     </button>
                 </div>
             </form>
@@ -217,7 +217,7 @@
                                             for="star1"></label>
                                     </fieldset>
                                 </div>
-                                <a class="waves-effect waves-light btn">Clear</a>
+                                <i class="fa-solid fa-broom"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
@@ -228,7 +228,7 @@
                     </div>
                 </div>
                 <div class="row center-align">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Submit
                     </button>
                 </div>
             </form>

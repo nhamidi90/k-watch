@@ -5,7 +5,7 @@
 <div class="profile-header">
     <h3>{{ username }}'s profile</h3>
     <span>
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
+        <a class="waves-effect waves-light btn modal-trigger purple darken-4" href="#modal1">
             <i class="fa-solid fa-gear"></i> Settings
         </a>
     </span>
@@ -48,21 +48,21 @@
             </div>
             <!-- cancel/edit buttons  -->
             <div class="row center-align">
-                <a href="#!" class="modal-close btn waves-effect waves-light">Cancel</a>
-                <button class="btn waves-effect waves-light form-btn" type="submit" name="action">
-                    <i class="fa-solid fa-check-to-slot"></i> Edit Profile
+                <a href="#!" class="modal-close btn waves-effect waves-light purple darken-4">Cancel</a>
+                <button class="btn waves-effect waves-light form-btn purple darken-4" type="submit" name="action">
+                    Edit Profile
                 </button>
             </div>
         </form>
         <hr>
         <div class="delete-section">
             <strong>Delete my account</strong>
-            <a class="btn waves-effect waves-light" id="delete-button">Delete</a>
+            <a class="btn waves-effect waves-light purple darken-4" id="delete-button">Delete</a>
         </div>
         <div class="delete-section" id="delete-account">
             <strong>Are you sure you want to delete your account? This action cannot be undone</strong>
-            <a class="btn waves-effect waves-light modal-close">No</a>
-            <a href="{{ url_for('delete_user')}}" class="btn waves-effect waves-light">Yes
+            <a class="btn waves-effect waves-light modal-close purple darken-4">No</a>
+            <a href="{{ url_for('delete_user')}}" class="btn waves-effect waves-light purple darken-4">Yes
             </a>
         </div>
     </div>
