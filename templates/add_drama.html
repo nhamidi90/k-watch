@@ -58,26 +58,10 @@
                                 <div class="star-cont">
                                     <div>
                                         <fieldset class="rating">
-                                            <input type="radio" id="star10" name="rating" value="10" class="star"/><label
-                                                for="star10"></label>
-                                            <input type="radio" id="star9" name="rating" value="9" class="star"/><label
-                                                for="star9"></label>
-                                            <input type="radio" id="star8" name="rating" value="8" class="star"/><label
-                                                for="star8"></label>
-                                            <input type="radio" id="star7" name="rating" value="7" class="star"/><label
-                                                for="star7"></label>
-                                            <input type="radio" id="star6" name="rating" value="6" class="star"/><label
-                                                for="star6"></label>
-                                            <input type="radio" id="star5" name="rating" value="5" class="star"/><label
-                                                for="star5"></label>
-                                            <input type="radio" id="star4" name="rating" value="4" class="star"/><label
-                                                for="star4"></label>
-                                            <input type="radio" id="star3" name="rating" value="3" class="star"/><label
-                                                for="star3"></label>
-                                            <input type="radio" id="star2" name="rating" value="2" class="star"/><label
-                                                for="star2"></label>
-                                            <input type="radio" id="star1" name="rating" value="1" class="star"/><label
-                                                for="star1"></label>
+                                            {% for i in range(1,11)|reverse %}
+                                            <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star"/><label
+                                                for="star{{i}}"></label>
+                                            {% endfor %}
                                         </fieldset>
                                     </div>
                                     <i class="fa-solid fa-broom"></i>
