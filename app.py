@@ -172,7 +172,7 @@ def profile(username):
 
         return render_template("profile.html", username=username, email=email, password=password, shows=shows)
     
-    return redirect(url_for('profile',username=username))
+    return redirect(url_for('profile', username=username))
 
 
 @app.route("/sign_out")
