@@ -188,6 +188,12 @@ h2 {
     width: 180px;
 }
 
+.sign-in-footer {
+	display:flex;
+	gap: 25px;
+	justify-content: center;
+}
+
 /* Profile  */
 
 h6 {
@@ -211,4 +217,10 @@ h6 {
 
 .carousel-item {
 	margin-top: -70px;
+}
+
+.delete-section {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
 }
