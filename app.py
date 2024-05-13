@@ -181,6 +181,12 @@ def sign_out():
     return redirect(url_for("sign_in"))
 
 
+@app.route("/delete_user")
+def delete_user():
+    mongo.db.user.delete_one({"username": session["user"]})
+    return redirect(url_for("register"))
+
+
 @app.route("/add_drama", methods=["GET", "POST"])
 def add_drama():
     if request.method == "POST":
