@@ -179,7 +179,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    
+                    <div class="input-field col s6">
+                        <select id="status" name="status" class="validate" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Plan to watch">Plan to watch</option>
+                            <option value="Currently watching">Currently watching</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Dropped">Dropped</option>
+                        </select>
+                        <label for="status">Status</label>
+                    </div>
                     <div class="input-field col s6" id="number-of-eps">
                         <p class="range-field">
                             <label for="episodes_watched">Episodes watched</label>
