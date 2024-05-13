@@ -184,6 +184,7 @@ def sign_out():
 @app.route("/delete_user")
 def delete_user():
     mongo.db.user.delete_one({"username": session["user"]})
+    session.clear()
     return redirect(url_for("register"))
 
 
