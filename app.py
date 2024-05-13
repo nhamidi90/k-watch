@@ -58,7 +58,6 @@ def add_upcoming():
 @app.route("/add_new_drama", methods=["GET", "POST"])
 def add_new_drama():
     if request.method == "POST":
-        status = list(mongo.db.status.find())
         new_drama = {
         "title": request.form.get("title"),
         "image": request.form.get("img_url"),
@@ -72,7 +71,7 @@ def add_new_drama():
         }
         mongo.db.shows.insert_one(new_drama)
         flash("Your drama was added successfully")
-        return redirect(url_for("index", status=status))
+        return redirect(url_for("index"))
 
 
 @app.route("/delete_upcoming/<coming_id>")
