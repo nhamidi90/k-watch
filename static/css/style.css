@@ -52,7 +52,6 @@ p {
 .row-margin {
 	margin-left: 50px;
 	margin-right: 50px;
-	/* border: 1px solid; */
 }
 
 .upcoming-header {
@@ -278,10 +277,31 @@ h6 {
 
 /* media queries  */
 
+@media only screen and (max-width: 455px) {
+	.profile-header {
+		gap: 0;
+		padding-right: 20px;
+	}
+
+	.row-margin {
+		/* display: flex;
+		flex-direction: column;
+		justify-content: center; */
+		margin-bottom: 10px;
+	}
+
+	.img-spacing {
+		margin-bottom: 10px;
+	}
+
+	h5 {
+		margin-left: 0;
+	}
+}
+
 @media only screen and (max-width: 500px) {
 	.table-col {
 		display: none;
-		
 	}
 }
 
