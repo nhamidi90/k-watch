@@ -74,6 +74,14 @@ strong {
 	justify-content: space-between;
 }
 
+/* add drama  */
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	gap: 25px;
+}
+
 /* star rating  */
 .star-container{
 	display: flex;
