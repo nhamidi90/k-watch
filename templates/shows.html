@@ -14,6 +14,8 @@
         </ul>
     </div>
 </div>
+
+    <!-- All shows  -->
     <div id="all-shows">
         <table class="highlight centered show-table">
             <thead>
@@ -71,16 +73,16 @@
                 </tr>
                 {% endif %}
 
-                <!-- modal for drama information -->
+                <!-- modal for all drama information -->
                 <div id="modal{{ show.title }}" class="modal">
                     <div class="modal-content">
                         <div class="row">
                             <div class="col s4">
                                 {% if show.image %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images"
                                     src="{{ show.image }}" alt="Click for information about {{ show.title }}">
                                 {% else %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ url_for('static', filename='images/no-img.png') }}"
                                     alt="Click for information about {{ show.title }}">
                                 {% endif %}
@@ -103,6 +105,7 @@
         </table>
     </div>
 
+    <!-- Plan to watch  -->
     <div id="plan-to-watch" class="nodisplay">
         <table class="highlight centered show-table">
             <thead>
@@ -154,16 +157,17 @@
                     </td>
                 </tr>
                 {% endif %}
-                <!-- modal for drama information -->
+
+                <!-- modal for 'plan to watch' drama information -->
                 <div id="modal2{{ show.title }}" class="modal">
                     <div class="modal-content">
                         <div class="row">
                             <div class="col s4">
                                 {% if show.image %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ show.image }}" alt="Click for information about {{ show.title }}">
                                 {% else %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ url_for('static', filename='images/no-img.png') }}"
                                     alt="Click for information about {{ show.title }}">
                                 {% endif %}
@@ -186,6 +190,7 @@
         </table>
     </div>
 
+    <!-- Currently watching  -->
     <div id="currently-watching" class="nodisplay">
         <table class="highlight centered show-table">
             <thead>
@@ -237,16 +242,17 @@
                     </td>
                 </tr>
                 {% endif %}
-                <!-- modal for drama information -->
+
+                <!-- modal for 'currently watching' drama information -->
                 <div id="modal3{{ show.title }}" class="modal">
                     <div class="modal-content">
                         <div class="row">
                             <div class="col s4">
                                 {% if show.image %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ show.image }}" alt="Click for information about {{ show.title }}">
                                 {% else %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ url_for('static', filename='images/no-img.png') }}"
                                     alt="Click for information about {{ show.title }}">
                                 {% endif %}
@@ -269,6 +275,7 @@
         </table>
     </div>
 
+    <!-- Completed  -->
     <div id="completed" class="nodisplay">
         <table class="highlight centered show-table">
             <thead>
@@ -320,16 +327,17 @@
                     </td>
                 </tr>
                 {% endif %}
-                <!-- modal for drama information -->
+
+                <!-- modal for 'completed' drama information -->
                 <div id="modal4{{ show.title }}" class="modal">
                     <div class="modal-content">
                         <div class="row">
                             <div class="col s4">
                                 {% if show.image %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ show.image }}" alt="Click for information about {{ show.title }}">
                                 {% else %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ url_for('static', filename='images/no-img.png') }}"
                                     alt="Click for information about {{ show.title }}">
                                 {% endif %}
@@ -352,6 +360,7 @@
         </table>
     </div>
 
+    <!-- Dropped  -->
     <div id="dropped" class="nodisplay">
         <table class="highlight centered show-table">
             <thead>
@@ -365,6 +374,7 @@
                     <th>Rating</th>
                 </tr>
             </thead>
+
             {% for show in shows %}
                 {% if (show.status == "Dropped") and (session.user|lower == show.created_by|lower) %}
                 <tr>
@@ -403,16 +413,17 @@
                     </td>
                 </tr>
                 {% endif %}
-                <!-- modal for drama information -->
+
+                <!-- modal for 'dropped' drama information -->
                 <div id="modal5{{ show.title }}" class="modal">
                     <div class="modal-content">
                         <div class="row">
                             <div class="col s4">
                                 {% if show.image %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ show.image }}" alt="Click for information about {{ show.title }}">
                                 {% else %}
-                                <img class="thumbnail modal-trigger images" href="#modal{{ show.title }}"
+                                <img class="thumbnail modal-trigger images" 
                                     src="{{ url_for('static', filename='images/no-img.png') }}"
                                     alt="Click for information about {{ show.title }}">
                                 {% endif %}
@@ -434,5 +445,5 @@
             {% endfor %}
         </table>
     </div>
-    
+
 {% endblock %}
