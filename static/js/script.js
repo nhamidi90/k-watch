@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let dropdown = document.querySelectorAll('select');
     M.FormSelect.init(dropdown);
 
+    // status dropdown 
+    let drop = document.querySelectorAll('.dropdown-trigger');
+    M.Dropdown.init(drop);
+
     // Modal
     let modal = document.querySelectorAll('.modal');
     M.Modal.init(modal);
