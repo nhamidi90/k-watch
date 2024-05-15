@@ -17,14 +17,14 @@
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('profile', username=username) }}">
             <div class="row">
                 <!-- username  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-regular fa-user prefix"></i>
                     <input id="username" name="username" type="text" value="{{ username }}" minlength="5" maxlength="15" class="validate"
                         required>
                     <label for="username">Username</label>
                 </div>
                 <!-- email  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-at prefix"></i>
                     <input id="email" name="email" type="email" value="{{ email }}" class="validate" required>
                     <label for="email">Email</label>
@@ -34,38 +34,41 @@
                     Change Password:
                 </div>
                 <!-- new password  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-lock prefix"></i>
                     <input id="password" name="password" type="password" class="validate">
                     <label for="password">New Password</label>
                 </div>
                 <!-- confirm password  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-lock prefix"></i>
                     <input id="confirm_password" name="confirm_password" type="password" class="validate">
                     <label for="confirm_password">Confirm New Password</label>
                 </div>
             </div>
-            <!-- cancel/edit buttons  -->
-            <div class="row center-align">
-                <a href="#!" class="modal-close btn waves-effect waves-light purple darken-4">Cancel</a>
-                <button class="btn waves-effect waves-light form-btn purple darken-4" type="submit" name="action">
-                    Edit Profile
-                </button>
-            </div>
-        </form>
-        <hr>
-        <div class="delete-section">
-            <strong>Delete my account</strong>
-            <a class="btn waves-effect waves-light purple darken-4" id="delete-button">Delete</a>
+           <!-- cancel/edit buttons  -->
+           <div class="row center-align">
+            <a href="#!" class="modal-close btn waves-effect waves-light purple darken-4 button-margin">Cancel</a>
+            <button class="btn waves-effect waves-light form-btn purple darken-4 button-margin" type="submit" name="action">
+                Edit Profile
+            </button>
         </div>
-        <div class="delete-section nodisplay" id="delete-account">
+    </form>
+    <hr>
+    <div class="delete-section">
+        <strong>Delete my account</strong>
+        <a class="btn waves-effect waves-light purple darken-4" id="delete-button">Delete</a>
+    </div>
+    <div class="delete-section nodisplay row" id="delete-account">
+        <div class="col">
             <strong>Are you sure you want to delete your account? This action cannot be undone</strong>
-            <a class="btn waves-effect waves-light modal-close purple darken-4">No</a>
-            <a href="{{ url_for('delete_user')}}" class="btn waves-effect waves-light purple darken-4">Yes
-            </a>
+        </div>
+        <div class="col">
+            <a class="btn waves-effect waves-light modal-close purple darken-4 button-margin">No</a>
+            <a href="{{ url_for('delete_user')}}" class="btn waves-effect waves-light purple darken-4 button-margin">Yes</a>
         </div>
     </div>
+</div>
 </div>
 
 <!-- currently watching  -->
