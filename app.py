@@ -89,6 +89,13 @@ def get_shows():
     return render_template("shows.html", shows=shows)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    shows = list(mongo.db.shows.find({"$text": {"$search": query}}))
+    return render_template("shows.html", shows=shows)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
