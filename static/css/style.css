@@ -154,6 +154,15 @@ h2 {
 
 /* My list  */
 
+.drama-header {
+	margin-bottom: 0;
+}
+
+.header-margin {
+	margin-top: 50px;
+	margin-bottom: 0;
+}
+
 .menu-container {
 	display: flex;
 	justify-content: center;

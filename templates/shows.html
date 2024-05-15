@@ -5,17 +5,17 @@
 <!-- title and search bar  -->
 <div class="row s12 drama-header">
     <div class="col s12 m6">
-        <h3>My lists</h3>
+        <h3 class="header-margin">My lists</h3>
     </div>
     <div class="col s12 m6">
         <!-- search  -->
-        <form action="{{ url_for('search') }}" method="post">
-            <div class="search row">
-                <div class="input-field col s12">
+        <form action="{{ url_for('search') }}" method="post" >
+            <div class="row drama-header">
+                <div class="input-field col s12 m7">
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
                     <label for="query">Search dramas</label>
                 </div>
-                <div class="col s12">
+                <div class="col s12 m5">
                     <a href="{{ url_for('get_shows') }}"
                         class="waves-effect waves-light btn purple darken-4 button-margin">Reset</a>
                     <button type="submit"
