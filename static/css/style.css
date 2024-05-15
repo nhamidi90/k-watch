@@ -1,5 +1,15 @@
 /* Global settings  */
 
+.center-align {
+	display: flex;
+	justify-content: center;
+	
+}
+
+.row .col.s10 {
+	margin-left: 0;
+}
+
 .flash {
 	text-align: center;
 	color:#462355;
