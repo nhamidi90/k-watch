@@ -124,7 +124,7 @@
 <div class="row row-margin">
     <h5>Most popular</h5>
     {% for show in shows[:10] %}
-    {% if (show.rating >= 7) %}
+    {% if (show.rating != None) and (show.rating >= 7) %}
     <div class="col img-spacing">
         {% if show.image %}
             <img src="{{ show.image }}" class="images">

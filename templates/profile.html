@@ -115,7 +115,7 @@
             <h6>Highly Rated</h6>
             <div class="carousel">
                 {% for show in shows[:10] %}
-                {% if (show.rating >= 7) and (session.user|lower == show.created_by|lower) %}
+                {% if (show.rating != None) and (show.rating >= 7) and (session.user|lower == show.created_by|lower) %}
                     <a class="carousel-item" href="#one!">
                         {% if show.image %}
                             <img src="{{ show.image }}" alt="Click for information about {{ show.title }}">{{ show.title }}
