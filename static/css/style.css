@@ -154,6 +154,12 @@ h2 {
 
 /* My list  */
 
+.dropdown-trigger {
+	display: flex;
+	justify-content: center;
+	margin: 30px 30px 30px 30px;
+}
+
 .drama-header {
 	margin-bottom: 0;
 }
@@ -268,4 +274,35 @@ h6 {
 
 .button-margin {
 	margin-bottom: 5px;
+}
+
+/* media queries  */
+
+@media only screen and (max-width: 500px) {
+	.table-col {
+		display: none;
+		
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	.dropdown-trigger {
+		display: none;
+	}
+	
+}
+
+@media only screen and (max-width: 700px) {
+	.menu-container {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	#status-menu {
+		font-size: 15px;
+	}	
+	.menu-container {
+		margin-top: 20px;
+	}
 }
