@@ -82,12 +82,6 @@ strong {
 }
 
 /* star rating  */
-.star-container{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-}
 
 .rating-wrap{
 	max-width: 600px;
@@ -102,6 +96,7 @@ strong {
 	justify-content: center;
     gap: 25px;
 }
+
 #rating-value{	
 	width: 120px;
 	margin: 20px auto 0;
@@ -112,7 +107,7 @@ strong {
 /*styling star rating*/
 .rating{
 	border: none;
-	float: left;
+	/* float: left; */
 }
 
 .rating > input{
