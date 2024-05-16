@@ -96,7 +96,7 @@
             <!-- recently completed  -->
             <h6>Recently Completed</h6>
             <div class="carousel">
-                {% for show in shows[:10] %}
+                {% for show in shows[-10:] %}
                 {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
                     <a class="carousel-item" href="#one!">
                         {% if show.image %}
@@ -115,7 +115,7 @@
             <!-- highly rated  -->
             <h6>Highly Rated</h6>
             <div class="carousel">
-                {% for show in shows[:10] %}
+                {% for show in shows[-10:] %}
                 {% if (show.rating != None) and (show.rating >= 7) and (session.user|lower == show.created_by|lower) %}
                     <a class="carousel-item" href="#one!">
                         {% if show.image %}
