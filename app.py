@@ -46,7 +46,7 @@ def add_upcoming():
         "number_of_episodes": int(0),
         "status": request.form.get("status"),
         "episodes_watched": int(0),
-        "rating": int(0),
+        "rating": None,
         "notes": request.form.get("notes"),
         "created_by": session["user"]
         }
