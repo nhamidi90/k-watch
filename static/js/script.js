@@ -78,11 +78,17 @@ document.addEventListener('DOMContentLoaded', function() {
     completed = document.getElementById("completed")
     dropped = document.getElementById("dropped")
 
-    menuAll = document.getElementById("menu-all").addEventListener("click", showAllShows)
-    menuPlanToWatch = document.getElementById("menu-plan-to-watch").addEventListener("click", showPlanToWatch)
-    menuCurrentlyWatching = document.getElementById("menu-currently-watching").addEventListener("click", showCurrentlyWatching)
-    menuCompleted = document.getElementById("menu-completed").addEventListener("click", completedDramas)
-    menuDropped = document.getElementById("menu-dropped").addEventListener("click", showDropped)
+    document.getElementById("menu-all").addEventListener("click", showAllShows)
+    document.getElementById("menu-plan-to-watch").addEventListener("click", showPlanToWatch)
+    document.getElementById("menu-currently-watching").addEventListener("click", showCurrentlyWatching)
+    document.getElementById("menu-completed").addEventListener("click", completedDramas)
+    document.getElementById("menu-dropped").addEventListener("click", showDropped)
+
+    document.getElementById("menu-all-desktop").addEventListener("click", showAllShows)
+    document.getElementById("menu-plan-to-watch-desktop").addEventListener("click", showPlanToWatch)
+    document.getElementById("menu-currently-watching-desktop").addEventListener("click", showCurrentlyWatching)
+    document.getElementById("menu-completed-desktop").addEventListener("click", completedDramas)
+    document.getElementById("menu-dropped-desktop").addEventListener("click", showDropped)
 
     function showAllShows() {
         allShows.classList.remove('nodisplay')
@@ -123,19 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
         completed.classList.add('nodisplay')
         dropped.classList.remove('nodisplay')
     }
-//     let status = document.getElementById('status');
-//     let episodesWatched = document.getElementById('number-of-eps');
-//     status.addEventListener('click', showElement);
-
-// function showElement(status, episodesWatched){
-//         if (status.value === "Currently Watching") {
-//             revealElement(episodesWatched);
-//         }
-//     }
-
-//     function revealElement(episodesWatched) {
-//         episodesWatched.classList.remove("nodisplay")
-//     }
 
 });
 
