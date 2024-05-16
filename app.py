@@ -23,7 +23,7 @@ def index():
     if request.method == "POST":
         coming_soon = {
         "title": request.form.get("title"),
-        "image": "",
+        "image": request.form.get("img_url"),
         "releaseDate": request.form.get("release-date"),
         "videoLink": request.form.get("video-link"),
         }

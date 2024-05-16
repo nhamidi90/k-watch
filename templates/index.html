@@ -15,9 +15,9 @@
     {% for coming in upcoming %}
     <div class="col upcoming-spacing">
         {% if coming.image %}
-        <img src="{{ coming.image }}" class="images">
+            <img src="{{ coming.image }}" class="images">
         {% else %}
-        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
         <p><a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a></p>
         <p><strong>{{ coming.title }}</strong> ({{ coming.releaseDate }})</p>
@@ -87,7 +87,7 @@
 </div>
 
 
-<!-- edit coming soon modal -->
+<!-- Admin add coming soon modal -->
 <div id="coming-soon" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -109,6 +109,10 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="img_url" name="img_url" type="text" class="validate">
+                        <label for="img_url">Image Link</label>
+                    </div>
                     <div class="input-field col s12 m6">
                         <input id="video-link" name="video-link" type="text" class="validate">
                         <label for="video-link">Video link</label>
