@@ -218,6 +218,16 @@ h2 {
 	font-size: 20px;
 }
 
+.modal-container {
+	display: flex;
+	width: 100%;
+}
+
+.drama-info {
+	width: 100%;
+	margin-left: 20px;
+}
+
 .show-table {
 	width: 90%;
 	margin: auto;
@@ -313,6 +323,10 @@ h6 {
 @media only screen and (max-width: 500px) {
 	.table-col {
 		display: none;
+	}
+
+	.drama-info {
+		margin-left: 0;
 	}
 
 	.no-margin {
