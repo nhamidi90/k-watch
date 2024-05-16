@@ -4,7 +4,7 @@
 
 <div class="row row-margin">
     <div class="upcoming-header">
-        <h5>Coming soon</h5>
+        <h4>Coming soon</h4>
         {% if (session.user|lower == "admin") %}
         <span>
             <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit" href="#coming-soon">Add new
@@ -38,7 +38,7 @@
     <div id="add-to-list{{coming.title}}" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>Add to your list</h4>
+                <h5>Add to your list</h5>
                 <span>
                     <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
                 </span>
@@ -91,7 +91,7 @@
 <div id="coming-soon" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h4>Add coming soon</h4>
+            <h5>Add coming soon</h5>
             <span>
                 <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
             </span>
@@ -125,7 +125,7 @@
 
 <!-- Most popular shows  -->
 <div class="row row-margin">
-    <h5>Most popular</h5>
+    <h4>Most popular</h4>
     {% for show in shows[:10] %}
     {% if (show.rating != None) and (show.rating >= 7) %}
     <div class="col img-spacing">
@@ -147,7 +147,7 @@
     <div id="popular{{ show.title }}" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>Add to your list</h4>
+                <h5>Add to your list</h5>
                 <span>
                     <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
                 </span>
@@ -237,7 +237,7 @@
 
 <!-- Watching now  -->
 <div class="row row-margin">
-    <h5>People are watching right now</h5>
+    <h4>People are watching right now</h4>
     {% for show in shows %}
     {% if (show.status == "Currently watching") %}
     <div class="col img-spacing">
