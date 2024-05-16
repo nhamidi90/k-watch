@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 /* Global settings  */
+
+body {
+	font-family: nunito;
+}
 
 .center-align {
 	display: flex;
@@ -18,6 +23,7 @@
 h3 {
 	margin-bottom: 40px;
 	text-align: center;
+	font-family: "caveat";
 }
 
 .nodisplay {
@@ -34,10 +40,12 @@ form {
 }
 /* index page  */
 
-h5 {
+h4 {
 	margin-left: 40px;
 	margin-top: 20px;
 	margin-bottom: 30px;
+	font-family: "caveat";
+	color:#462355;
 }
 
 p {
@@ -47,6 +55,7 @@ p {
 
 .img-spacing {
 	width: 205px;
+	min-height: 350px;
 	margin-bottom: 20px;
 }
 
