@@ -336,7 +336,6 @@ h6 {
 	.search {
 		margin: 0;
 	}
-
 }
 
 @media only screen and (min-width: 700px) {
@@ -359,5 +358,16 @@ h6 {
 
 	.menu-container {
 		margin-top: 20px;
+	}
+
+}
+
+@media only screen and (max-width: 864px) {
+	#status-menu li {
+		padding-top: 10px;
+	}
+
+	#menu-dropped {
+		padding-bottom: 10px;
 	}
 }
