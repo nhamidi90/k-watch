@@ -55,6 +55,27 @@ def add_upcoming():
         return redirect(url_for("index"))
 
 
+@app.route("/edit_upcoming/<coming_id>", methods=["GET", "POST"])
+def edit_upcoming(coming_id):
+    if request.method == "POST":
+        rating_str = request.form.get("rating")
+        rating = None if rating_str is None or rating_str == "null" else int(rating_str)
+        drama = {
+        "title": request.form.get("title"),
+        "image": request.form.get("img_url"),
+        "year": request.form.get("year"),
+        "number_of_episodes": request.form.get("number_of_episodes"),
+        "status": request.form.get("status"),
+        "episodes_watched": request.form.get("episodes_watched"),
+        "rating": rating,
+        "notes": request.form.get("notes"),
+        "created_by": session["user"]
+        }
+        upcoming = mongo.db.coming.replace_one({"_id": ObjectId(coming_id)}, drama)
+        flash("Your drama was updated successfully")
+        return redirect(url_for("index", upcoming=upcoming))
+
+
 @app.route("/add_new_drama", methods=["GET", "POST"])
 def add_new_drama():
     if request.method == "POST":

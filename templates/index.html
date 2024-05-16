@@ -7,7 +7,8 @@
         <h4>Coming soon</h4>
         {% if (session.user|lower == "admin") %}
         <span>
-            <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit no-margin" href="#coming-soon">Add new
+            <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit no-margin"
+                href="#coming-soon">Add new
                 drama</a>
         </span>
         {% endif %}
@@ -15,9 +16,9 @@
     {% for coming in upcoming %}
     <div class="col upcoming-spacing">
         {% if coming.image %}
-            <img src="{{ coming.image }}" class="images">
+        <img src="{{ coming.image }}" class="images">
         {% else %}
-            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
         <p><a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a></p>
         <p><strong>{{ coming.title }}</strong> ({{ coming.releaseDate }})</p>
@@ -28,12 +29,58 @@
             </span>
         </p>
         {% if (session.user|lower == "admin") %}
+        <a class="waves-effect waves-light btn purple darken-4 modal-trigger button-margin"
+            href="#modal1{{ coming.title }}">Edit</a>
         <a href="{{ url_for('delete_upcoming', coming_id=coming._id) }}"
-            class="waves-effect waves-light btn purple darken-4">
-            Remove <i class="fa-solid fa-trash"></i>
+            class="waves-effect waves-light btn purple darken-4 button-margin">
+            Remove
         </a>
+
+        <!-- Admin edit coming soon modal -->
+        <div id="modal1{{ coming.title }}" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Edit upcoming</h5>
+                    <span>
+                        <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+                    </span>
+                </div>
+                <div class="row">
+                    <form class="col s12" method="POST" action="{{ url_for('edit_upcoming', coming_id=coming._id)}}">
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input id="title" name="title" value="{{ coming.title }}" type="text" class="validate">
+                                <label for="title">Title</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input id="release-date" name="release-date" value="{{ coming.releaseDate }}"
+                                    type="text" class="validate" required>
+                                <label for="release-date">Release Date (Type year or TBA)</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input id="img_url" name="img_url" value="{{ coming.image }}" type="text"
+                                    class="validate">
+                                <label for="img_url">Image Link</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input id="video-link" name="video-link" value="{{ coming.videoLink }}" type="text"
+                                    class="validate">
+                                <label for="video-link">Video link</label>
+                            </div>
+                        </div>
+                        <div class="row center-align">
+                            <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Add
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         {% endif %}
     </div>
+
     <!-- add to list modal -->
     <div id="add-to-list{{coming.title}}" class="modal">
         <div class="modal-content">
