@@ -30,7 +30,7 @@ h3 {
 	display: none;
 }
 
-form {
+.search {
 	margin-top: 50px;
 }
 
@@ -330,6 +330,13 @@ h6 {
 		flex-wrap: wrap-reverse;
 		flex-direction: row-reverse;
 	}
+}
+
+@media only screen and (max-width: 600px) {
+	.search {
+		margin: 0;
+	}
+
 }
 
 @media only screen and (min-width: 700px) {
