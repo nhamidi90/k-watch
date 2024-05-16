@@ -4,32 +4,32 @@
 
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}" >
-        <div class="card-panel center-align">
-            <h4>Sign up</h4>
+        <div class="card-panel">
+            <h3>Sign up</h3>
             <div class="row">
                 <!-- username  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-regular fa-user prefix"></i>
                     <input id="username" name="username" type="text" minlength="5" maxlength="15"
                         class="validate" required>
                     <label for="username">Username</label>
                 </div>
                 <!-- email  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-at prefix"></i>
                     <input id="email" name="email" type="email" class="validate" 
                         required>
                     <label for="email">Email</label>
                 </div>
                 <!-- password  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-lock prefix"></i>
                     <input id="password" name="password" type="password" minlength="5" maxlength="15" 
                         class="validate" required>
                     <label for="password">Password</label>
                 </div>
                 <!-- confirm password  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-lock prefix"></i>
                     <input id="confirm_password" name="confirm_password" 
                         type="password" class="validate" required>
@@ -38,8 +38,8 @@
             </div>
             
             <div class="row center-align">
-                <button class="btn waves-effect waves-light form-btn" type="submit" name="action">
-                    <i class="fa-solid fa-check-to-slot"></i> Sign Up
+                <button class="btn waves-effect waves-light purple darken-4 form-btn" type="submit" name="action">
+                    Sign Up
                 </button>
             </div>
         </div>
