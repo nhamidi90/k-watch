@@ -3,19 +3,20 @@
 {% block content %}
 
 <div class="row">
+    
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('sign_in') }}" >
-        <div class="card-panel center-align">
-            <h4>Sign In</h4>
+        <div class="card-panel">
+            <h3>Sign In</h3>  
             <div class="row">
                 <!-- email  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-at prefix"></i>
                     <input id="email" name="email" type="email" class="validate" 
                         required>
                     <label for="email">Email</label>
                 </div>
                 <!-- password  -->
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <i class="fa-solid fa-lock prefix"></i>
                     <input id="password" name="password" type="password" minlength="5" maxlength="15" 
                         class="validate" required>
@@ -24,9 +25,11 @@
             </div>
             
             <div class="row center-align">
-                <button class="btn waves-effect waves-light form-btn" type="submit" name="action">
+                <div class="col s12">
+                <button class="waves-effect waves-light btn purple darken-4 form-btn" type="submit" name="action">
                     <i class="fa-solid fa-check-to-slot"></i> Sign In
                 </button>
+            </div>
             </div>
         </div>
     </form>
