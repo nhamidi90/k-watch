@@ -29,7 +29,7 @@
         </p>
         {% if (session.user|lower == "admin") %}
         <a href="{{ url_for('delete_upcoming', coming_id=coming._id) }}"
-            class="waves-effect waves-light btnpurple darken-4">
+            class="waves-effect waves-light btn purple darken-4">
             Remove <i class="fa-solid fa-trash"></i>
         </a>
         {% endif %}
