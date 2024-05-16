@@ -7,13 +7,13 @@
         <h4>Coming soon</h4>
         {% if (session.user|lower == "admin") %}
         <span>
-            <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit" href="#coming-soon">Add new
+            <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit no-margin" href="#coming-soon">Add new
                 drama</a>
         </span>
         {% endif %}
     </div>
     {% for coming in upcoming %}
-    <div class="col img-spacing">
+    <div class="col upcoming-spacing">
         {% if coming.image %}
         <img src="{{ coming.image }}" class="images">
         {% else %}

@@ -55,8 +55,13 @@ p {
 
 .img-spacing {
 	width: 205px;
-	min-height: 350px;
+	height: 330px;
 	margin-bottom: 20px;
+}
+
+.upcoming-spacing {
+	width: 205px;
+	min-height: 380px;
 }
 
 .row-margin {
@@ -66,7 +71,9 @@ p {
 
 .upcoming-header {
 	display: flex;
+	flex-wrap: wrap;
 	margin-top: 40px;
+	margin-bottom: 10px;
 }
 
 .admin-edit {
@@ -289,9 +296,6 @@ h6 {
 	}
 
 	.row-margin {
-		/* display: flex;
-		flex-direction: column;
-		justify-content: center; */
 		margin-bottom: 10px;
 	}
 
@@ -307,6 +311,14 @@ h6 {
 @media only screen and (max-width: 500px) {
 	.table-col {
 		display: none;
+	}
+
+	.no-margin {
+		margin:0;
+	}
+
+	h4 {
+		margin-left: 0;
 	}
 }
 
