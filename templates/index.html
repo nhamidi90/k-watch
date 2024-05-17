@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<div class="row row-margin">
-    <div class="upcoming-header">
+<div class="upcoming-header row-margin">
         <h4>Coming soon</h4>
         {% if (session.user|lower == "admin") %}
         <span>
-            <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit no-margin"
+            <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit"
                 href="#coming-soon">Add new
                 drama</a>
         </span>
         {% endif %}
     </div>
+
+<div class="row row-margin scroll-div">
     {% for coming in upcoming %}
     <div class="col upcoming-spacing">
         {% if coming.image %}
@@ -188,8 +188,8 @@
 </div>
 
 <!-- Most popular shows  -->
-<div class="row row-margin">
-    <h4>Most popular</h4>
+<h4 class="row-margin">Most popular</h4>
+<div class="row row-margin scroll-div">
     {% for show in shows[:10] %}
     {% if (show.rating != None) and (show.rating >= 7) %}
     <div class="col img-spacing">
@@ -303,8 +303,8 @@
 </div>
 
 <!-- Watching now  -->
-<div class="row row-margin">
-    <h4>People are watching right now</h4>
+<h4 class="row-margin">People are watching right now</h4>
+    <div class="row row-margin scroll-div">
     {% for show in shows %}
     {% if (show.status == "Currently watching") %}
     <div class="col img-spacing">
