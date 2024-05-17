@@ -45,6 +45,11 @@
                         <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
                     </span>
                 </div>
+                <div class="warning">
+                    <span>*warning*</span>
+                    Please note, images may be removed by the owner at any time. Feel free to replace it should that
+                    happen
+                </div>
                 <div class="row">
                     <form class="col s12" method="POST" action="{{ url_for('edit_upcoming', coming_id=coming._id)}}">
                         <div class="row">
@@ -89,6 +94,10 @@
                 <span>
                     <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
                 </span>
+            </div>
+            <div class="warning">
+                <span>*warning*</span>
+                Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
             </div>
             <div class="row">
                 <form class="col s12" method="POST" action="{{ url_for('add_upcoming') }}" id="add-upcoming">
@@ -142,6 +151,10 @@
             <span>
                 <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
             </span>
+        </div>
+        <div class="warning">
+            <span>*warning*</span>
+            Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
         </div>
         <div class="row">
             <form class="col s12" method="POST" action="{{ url_for('index')}}">
@@ -203,6 +216,10 @@
                     <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
                 </span>
             </div>
+            <div class="warning">
+                <span>*warning*</span>
+                Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
+            </div>
             <div class="row">
                 <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
                     <div class="row">
@@ -212,10 +229,11 @@
                             <label for="title">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
+
                             {% if show.image %}
-                                <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                            <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
-                                <input id="img_url" name="img_url"
+                            <input id="img_url" name="img_url"
                                 value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
                                 class="validate">
                             {% endif %}
@@ -258,12 +276,12 @@
                         <div class="rating-wrap col s12">
                             <label>Rating</label>
                             <div class="star-cont">
-                                    <fieldset class="rating">
-                                        {% for i in range(1,11)|reverse %}
-                                        <input type="radio" id="star{{i}}" name="rating" value="{{i}}"
-                                            class="star" /><label for="star{{i}}"></label>
-                                        {% endfor %}
-                                    </fieldset>
+                                <fieldset class="rating">
+                                    {% for i in range(1,11)|reverse %}
+                                    <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star" /><label
+                                        for="star{{i}}"></label>
+                                    {% endfor %}
+                                </fieldset>
                                 <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
                             <h4 id="rating-value"></h4>

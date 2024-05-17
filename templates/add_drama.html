@@ -8,6 +8,10 @@
 <div class="row center-align">
     <div class="col s10 offset-m1">
         <div class="card-panel">
+            <div class="warning">
+                <span>*warning*</span>
+                Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
+            </div>
             <div class="row">
                 <form class="col s12" method="POST" action="{{ url_for('add_drama')}}">
                     <div class="row">
@@ -56,14 +60,12 @@
                         <div class="col s12 m6 rating-wrap">
                             <label>Rating</label>
                             <div class="star-cont">
-                                <div>
-                                    <fieldset class="rating">
-                                        {% for i in range(1,11)|reverse %}
-                                        <input type="radio" id="star{{i}}" name="rating" value="{{i}}"
-                                            class="star" /><label for="star{{i}}"></label>
-                                        {% endfor %}
-                                    </fieldset>
-                                </div>
+                                <fieldset class="rating">
+                                    {% for i in range(1,11)|reverse %}
+                                        <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star" /><label
+                                            for="star{{i}}"></label>
+                                    {% endfor %}
+                                </fieldset>
                                 <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
                             <h4 id="rating-value"></h4>

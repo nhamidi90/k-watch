@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 /* Global settings  */
 
 body {
@@ -30,13 +31,20 @@ h3 {
 	display: none;
 }
 
-.search {
-	margin-top: 50px;
-}
-
 .logo {
 	width: 150px;
 	margin-left: 50px;
+}
+
+.warning {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-style: italic;
+	font-size: small;
+}
+
+span {
+	color: red;
 }
 
 /* index page  */
@@ -125,7 +133,6 @@ strong {
 /*styling star rating*/
 .rating {
 	border: none;
-	/* float: left; */
 }
 
 .rating>input {
@@ -165,6 +172,10 @@ h2 {
 }
 
 /* My list  */
+
+.search {
+	margin-top: 50px;
+}
 
 .dropdown-trigger {
 	display: flex;
