@@ -47,6 +47,10 @@ span {
 	color: red;
 }
 
+.btn {
+	min-width: 80px;
+}
+
 /* index page  */
 
 h4 {
