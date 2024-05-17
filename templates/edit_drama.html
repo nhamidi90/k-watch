@@ -65,16 +65,16 @@
                                     <fieldset class="rating">
                                         {% for i in range(1,11)|reverse %}
                                         {% if show.rating  == i %}
-                                        <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star"
+                                            <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star"
                                             checked /><label for="star{{i}}"></label>
                                         {% else %}
-                                        <input type="radio" id="star{{i}}" name="rating" value="{{i}}"
+                                            <input type="radio" id="star{{i}}" name="rating" value="{{i}}"
                                             class="star" /><label for="star{{i}}"></label>
                                         {% endif %}
                                         {% endfor %}
                                     </fieldset>
                                 </div>
-                                <i class="fa-solid fa-eraser"></i>
+                                <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
