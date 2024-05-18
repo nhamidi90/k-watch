@@ -65,7 +65,7 @@
                         <div class="rating-wrap col s12 m6">
                             <label>Rating</label>
                             <div class="star-cont">
-                                <fieldset class="rating">
+                                <fieldset class="rating rating-large">
                                     {% for i in range(1,11)|reverse %}
                                     {% if show.rating  == i %}
                                     <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star"
