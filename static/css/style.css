@@ -275,6 +275,11 @@ h2 {
 }
 
 /* sign in  */
+
+.form-margin {
+	margin-top: 70px;
+}
+
 .form-btn {
 	width: 180px;
 }
