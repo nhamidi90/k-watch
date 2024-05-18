@@ -134,7 +134,7 @@
 <h4 class="row-margin">Don't forget to rate me</h4>
     <div class="row row-margin scroll-div">
     {% for show in shows %}
-    {% if (show.rating != None) and (session.user|lower == show.created_by|lower) %}
+    {% if (show.rating == None) and (session.user|lower == show.created_by|lower) %}
     <div class="col img-spacing">
         {% if show.image %}
             <img src="{{ show.image }}" class="images">
