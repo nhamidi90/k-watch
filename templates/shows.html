@@ -72,7 +72,7 @@
                     <th>Rating</th>
                 </tr>
             </thead>
-            {% for show in shows %}
+            {% for show in shows|sort(attribute='title') %}
                 {% if session.user|lower == show.created_by|lower %}
                 <tr>
                     <!-- <td>
@@ -161,7 +161,7 @@
                     <th>Rating</th>
                 </tr>
             </thead>
-            {% for show in shows %}
+            {% for show in shows|sort(attribute='title') %}
                 {% if (show.status == "Plan to watch") and (session.user|lower == show.created_by|lower) %}
                 <tr>
                     <td class="thumb-box">
@@ -246,7 +246,7 @@
                     <th>Rating</th>
                 </tr>
             </thead>
-            {% for show in shows %}
+            {% for show in shows|sort(attribute='title') %}
                 {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
                 <tr>
                     <td class="thumb-box">
@@ -331,7 +331,7 @@
                     <th>Rating</th>
                 </tr>
             </thead>
-            {% for show in shows %}
+            {% for show in shows|sort(attribute='title') %}
                 {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
                 <tr>
                     <td class="thumb-box">
@@ -417,7 +417,7 @@
                 </tr>
             </thead>
 
-            {% for show in shows %}
+            {% for show in shows|sort(attribute='title') %}
                 {% if (show.status == "Dropped") and (session.user|lower == show.created_by|lower) %}
                 <tr>
                     <td class="thumb-box">
