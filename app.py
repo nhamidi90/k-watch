@@ -106,7 +106,7 @@ def delete_upcoming(coming_id):
 
 @app.route("/get_shows")
 def get_shows():
-    shows = list(mongo.db.shows.find().sort("title", 1))
+    shows = list(mongo.db.shows.find())
     return render_template("shows.html", shows=shows)
 
 
