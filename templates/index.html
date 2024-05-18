@@ -305,7 +305,7 @@
 <!-- Watching now  -->
 <h4 class="row-margin">People are watching right now</h4>
     <div class="row row-margin scroll-div">
-    {% for show in shows %}
+    {% for show in shows[-20:] %}
     {% if (show.status == "Currently watching") %}
     <div class="col img-spacing">
         {% if show.image %}
