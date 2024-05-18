@@ -177,6 +177,11 @@ h2 {
 	text-align: center;
 }
 
+.resetButton {
+	font-size: 30px;
+	color: #462355;
+}
+
 /* My list  */
 
 .search {
