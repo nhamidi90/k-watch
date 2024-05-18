@@ -21,7 +21,7 @@
         <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
         <p><a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a></p>
-        <p><strong>{{ coming.title }}</strong> ({{ coming.releaseDate }})</p>
+        <p><strong>{{ coming.title }}</strong> ({{ coming.year }})</p>
         <p>Add to your watch list
             <span>
                 <a class="modal-trigger" href="#add-to-list{{coming.title}}">
@@ -58,9 +58,9 @@
                                 <label for="title">Title</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <input id="release-date" name="release-date" value="{{ coming.releaseDate }}"
+                                <input id="year" name="year" value="{{ coming.year }}"
                                     type="text" class="validate" required>
-                                <label for="release-date">Release Date (Type year or TBA)</label>
+                                <label for="year">Release Date (Type year or TBA)</label>
                             </div>
                         </div>
                         <div class="row">
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="row center-align">
-                            <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Add
+                            <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Edit
                             </button>
                         </div>
                     </form>
@@ -114,7 +114,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="year" name="year" type="text" value="{{ coming.releaseDate }}" class="validate"
+                            <input id="year" name="year" type="text" value="{{ coming.year }}" class="validate"
                                 required>
                             <label for="year">Year</label>
                         </div>
@@ -164,8 +164,8 @@
                         <label for="title">Title</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input id="release-date" name="release-date" type="text" class="validate" required>
-                        <label for="release-date">Release Date (Type year or TBA)</label>
+                        <input id="year" name="year" type="text" class="validate" required>
+                        <label for="year">Release Date (Type year or TBA)</label>
                     </div>
                 </div>
                 <div class="row">

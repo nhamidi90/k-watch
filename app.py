@@ -24,7 +24,7 @@ def index():
         coming_soon = {
         "title": request.form.get("title"),
         "image": request.form.get("img_url"),
-        "releaseDate": request.form.get("release-date"),
+        "year": request.form.get("year"),
         "videoLink": request.form.get("video-link"),
         }
 
