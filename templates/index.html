@@ -190,7 +190,7 @@
 <!-- Most popular shows  -->
 <h4 class="row-margin">Most popular</h4>
 <div class="row row-margin scroll-div">
-    {% for show in shows[:10] %}
+    {% for show in shows[-10:] %}
     {% if (show.rating != None) and (show.rating >= 7) %}
     <div class="col img-spacing">
         {% if show.image %}
