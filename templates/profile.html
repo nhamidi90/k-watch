@@ -137,14 +137,14 @@
     {% if (show.rating != None) and (session.user|lower == show.created_by|lower) %}
     <div class="col img-spacing">
         {% if show.image %}
-        <img src="{{ show.image }}" class="images">
+            <img src="{{ show.image }}" class="images">
         {% else %}
-        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
         <p>{{ show.title }}
             <span>
-                <a class="modal-trigger" href="#popular{{ show.title }}">
-                    <i class="fa-solid fa-plus"></i></a>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
+                    class="fa-regular fa-pen-to-square"></i></a>
             </span>
         </p>
     </div>
