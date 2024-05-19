@@ -2,15 +2,14 @@
 
 {% block content %}
 <div class="upcoming-header row-margin">
-        <h4>Coming soon</h4>
-        {% if (session.user|lower == "admin") %}
-        <span class="button-span">
-            <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit"
-                href="#coming-soon">Add new
-                drama</a>
-        </span>
-        {% endif %}
-    </div>
+    <h4>Coming soon</h4>
+    {% if (session.user|lower == "admin") %}
+    <span class="button-span">
+        <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit" href="#coming-soon">Add new
+            drama</a>
+    </span>
+    {% endif %}
+</div>
 
 <div class="row row-margin scroll-div">
     {% for coming in upcoming %}
@@ -58,8 +57,8 @@
                                 <label for="title">Title</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <input id="year" name="year" value="{{ coming.year }}"
-                                    type="text" class="validate" required>
+                                <input id="year" name="year" value="{{ coming.year }}" type="text" class="validate"
+                                    required>
                                 <label for="year">Release Date (Type year or TBA)</label>
                             </div>
                         </div>
@@ -76,7 +75,8 @@
                             </div>
                         </div>
                         <div class="row center-align">
-                            <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Edit
+                            <button class="btn waves-effect waves-light purple darken-4" type="submit"
+                                name="action">Edit
                             </button>
                         </div>
                     </form>
@@ -190,7 +190,7 @@
 <!-- Most popular shows  -->
 <h4 class="row-margin">Most popular</h4>
 <div class="row row-margin scroll-div">
-    {% for show in shows[-10:] %}
+    {% for show in (shows|shuffle)[:10] %}
     {% if (show.rating != None) and (show.rating >= 7) %}
     <div class="col img-spacing">
         {% if show.image %}
@@ -304,8 +304,8 @@
 
 <!-- Watching now  -->
 <h4 class="row-margin">People are watching right now</h4>
-    <div class="row row-margin scroll-div">
-    {% for show in shows[-20:] %}
+<div class="row row-margin scroll-div">
+    {% for show in (shows|shuffle)[:10] %}
     {% if (show.status == "Currently watching") %}
     <div class="col img-spacing">
         {% if show.image %}

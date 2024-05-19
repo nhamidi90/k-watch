@@ -1,4 +1,5 @@
 import os
+import random
 from flask import (
     Flask, flash, render_template, 
     redirect, request, session, url_for)
@@ -34,6 +35,16 @@ def index():
     shows = list(mongo.db.shows.find())
     upcoming = list(mongo.db.coming.find())
     return render_template("index.html", shows=shows, upcoming=upcoming)
+
+
+@app.template_filter('shuffle')
+def filter_shuffle(seq):
+    try:
+        result = list(seq)
+        random.shuffle(result)
+        return result
+    except:
+        return seq
 
 
 @ app.route("/add_upcoming", methods=["GET", "POST"])
