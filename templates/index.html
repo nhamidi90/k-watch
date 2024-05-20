@@ -19,8 +19,14 @@
         {% else %}
         <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
         {% endif %}
-        <p><a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a></p>
-        <p><strong>{{ coming.title }}</strong> ({{ coming.year }})</p>
+        {% if coming.videoLink %}
+        <p>
+            <a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a>
+        </p>
+        {% endif %}
+        <p>
+            <strong>{{ coming.title }}</strong> ({{ coming.year }})
+        </p>
         <p>Add to your watch list
             {% if session.user %}
             <span>
@@ -38,7 +44,8 @@
         </p>
         {% if (session.user|lower == "admin") %}
         <a class="waves-effect waves-light btn purple darken-4 modal-trigger button-margin"
-            href="#modal1{{ coming.title }}">Edit</a>
+            href="#modal1{{ coming.title }}">Edit
+        </a>
         <a href="{{ url_for('delete_upcoming', coming_id=coming._id) }}"
             class="waves-effect waves-light btn purple darken-4 button-margin">
             Remove
