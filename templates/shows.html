@@ -62,7 +62,6 @@
         <table class="highlight centered show-table">
             <thead>
                 <tr>
-                    <!-- <th>Number</th> -->
                     <th></th>
                     <th>Title</th>
                     <th>Edit / Delete</th>
@@ -75,9 +74,6 @@
             {% for show in shows|sort(attribute='title') %}
                 {% if session.user|lower == show.created_by|lower %}
                 <tr>
-                    <!-- <td>
-                            {{ show._id }}>
-                        </td> -->
                     <td class="thumb-box">
                         <div class="thumb-container">
                             {% if show.image %}
