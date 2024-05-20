@@ -16,10 +16,11 @@
                     <label for="query">Search dramas</label>
                 </div>
                 <div class="col s12 m5">
-                    <a href="{{ url_for('get_shows') }}"
-                        class="waves-effect waves-light btn purple darken-4 button-margin">Reset</a>
-                    <button type="submit"
-                        class="modal-close waves-effect waves-light btn purple darken-4 button-margin">
+                    <a href="{{ url_for('get_shows') }}" aria-label="Reset" class="waves-effect waves-light btn purple 
+                        darken-4 button-margin">Reset
+                    </a>
+                    <button type="submit" aria-label="Search" class="modal-close waves-effect waves-light btn purple 
+                        darken-4 button-margin">
                         <i class="fas fa-search left"></i> Search
                     </button>
                 </div>
@@ -34,11 +35,11 @@
 
     <!-- mobile dropdown -->
     <ul id='dropdown1' class='dropdown-content'>
-        <li id="menu-all">All dramas</li>
-        <li id="menu-plan-to-watch">Plan to Watch</li>
-        <li id="menu-currently-watching">Currently Watching</li>
-        <li id="menu-completed">Completed</li>
-        <li id="menu-dropped">Dropped</li>
+        <li id="menu-all" aria-label="View all dramas">All dramas</li>
+        <li id="menu-plan-to-watch" aria-label="View plan to watch">Plan to Watch</li>
+        <li id="menu-currently-watching" aria-label="View currently watching">Currently Watching</li>
+        <li id="menu-completed" aria-label="View completed">Completed</li>
+        <li id="menu-dropped" aria-label="View dropped">Dropped</li>
     </ul>
 </div>
 
@@ -46,11 +47,11 @@
 <div class="menu-container">
     <div id="status-menu-container">
         <ul id="status-menu">
-            <li id="menu-all-desktop">All dramas</li>
-            <li id="menu-plan-to-watch-desktop">Plan to Watch</li>
-            <li id="menu-currently-watching-desktop">Currently Watching</li>
-            <li id="menu-completed-desktop">Completed</li>
-            <li id="menu-dropped-desktop">Dropped</li>
+            <li id="menu-all-desktop" aria-label="View all dramas">All dramas</li>
+            <li id="menu-plan-to-watch-desktop" aria-label="View plan to watch">Plan to Watch</li>
+            <li id="menu-currently-watching-desktop" aria-label="View currently watching">Currently Watching</li>
+            <li id="menu-completed-desktop" aria-label="View completed">Completed</li>
+            <li id="menu-dropped-desktop" aria-label="View dropped">Dropped</li>
         </ul>
     </div>
 </div>
@@ -89,10 +90,10 @@
                         {{ show.title }}
                     </td>
                     <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
-                                class="fa-regular fa-pen-to-square"></i>
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                            <i class="fa-regular fa-pen-to-square"></i>
                         </a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}">
+                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
@@ -117,12 +118,10 @@
                         <div class="modal-container">
                             <div class="table-col">
                                 {% if show.image %}
-                                <img class="images"
-                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
                                 {% else %}
-                                <img class="images" 
-                                    src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Picture for {{ show.title }}">
                                 {% endif %}
                             </div>
                             <div class="drama-info">
@@ -136,9 +135,11 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4">Close</a>
+                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
+                                aria-label="Close">Close</a>
                         </div>
                     </div>
+                </div>
             {% endfor %}
         </table>
     </div>
@@ -166,8 +167,9 @@
                                 <img class="thumbnail modal-trigger" href="#modal2{{ show.title }}" src="{{ show.image }}"
                                 alt="Click for information about {{ show.title }}">
                             {% else %}
-                                <img class="thumbnail modal-trigger" href="#modal2{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                alt="Click for information about {{ show.title }}">
+                                <img class="thumbnail modal-trigger" href="#modal2{{ show.title }}" 
+                                src="{{ url_for('static', filename='images/no-img.png') }}" alt="Click for information 
+                                    about {{ show.title }}">
                             {% endif %}
                         </div>
                     </td>
@@ -175,9 +177,9 @@
                         {{ show.title }}
                     </td>
                     <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
-                                class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}">
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                            <i class="fa-regular fa-pen-to-square"></i></a> /
+                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
@@ -202,12 +204,10 @@
                         <div class="modal-container">
                             <div class="table-col">
                                 {% if show.image %}
-                                <img class="images" 
-                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
                                 {% else %}
-                                <img class="images"
-                                    src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Picture for {{ show.title }}">
                                 {% endif %}
                             </div>
                             <div class="drama-info">
@@ -221,9 +221,11 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4">Close</a>
+                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
+                                aria-label="Close">Close</a>
                         </div>
                     </div>
+                </div>
             {% endfor %}
         </table>
     </div>
@@ -251,8 +253,9 @@
                                 <img class="thumbnail modal-trigger" href="#modal3{{ show.title }}" src="{{ show.image }}"
                                 alt="Click for information about {{ show.title }}">
                             {% else %}
-                                <img class="thumbnail modal-trigger" href="#modal3{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                alt="Click for information about {{ show.title }}">
+                                <img class="thumbnail modal-trigger" href="#modal3{{ show.title }}" 
+                                src="{{ url_for('static', filename='images/no-img.png') }}" alt="Click for information 
+                                about {{ show.title }}">
                             {% endif %}
                         </div>
                     </td>
@@ -260,12 +263,12 @@
                         {{ show.title }}
                     </td>
                     <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
-                                class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}">
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                            <i class="fa-regular fa-pen-to-square"></i></a> /
+                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
                             <i class="fa-solid fa-trash"></i>
                         </a>
-                        </td>
+                    </td>
                     <td class="table-col">
                         {{ show.year }}
                     </td>
@@ -287,12 +290,10 @@
                         <div class="modal-container">
                             <div class="table-col">
                                 {% if show.image %}
-                                <img class="images" 
-                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
                                 {% else %}
-                                <img class="images" 
-                                    src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Picture for {{ show.title }}">
                                 {% endif %}
                             </div>
                             <div class="drama-info">
@@ -305,10 +306,12 @@
                                 <p><strong>Notes:</strong> {{ show.notes }}</p>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4">Close</a>
-                        </div>
                     </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
+                            aria-label="Close">Close</a>
+                    </div>
+                </div>
             {% endfor %}
         </table>
     </div>
@@ -345,9 +348,9 @@
                         {{ show.title }}
                     </td>
                     <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
-                                class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}">
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                            <i class="fa-regular fa-pen-to-square"></i></a> /
+                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
@@ -372,12 +375,10 @@
                         <div class="modal-container">
                             <div class="table-col">
                                 {% if show.image %}
-                                <img class="images" 
-                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
                                 {% else %}
-                                <img class="images" 
-                                    src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Click for information about {{ show.title }}">
+                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                                    alt="Picture for {{ show.title }}">
                                 {% endif %}
                             </div>
                             <div class="drama-info">
@@ -391,9 +392,11 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4">Close</a>
+                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
+                                aria-label="Close">Close</a>
                         </div>
                     </div>
+                </div>
             {% endfor %}
         </table>
     </div>
@@ -431,9 +434,9 @@
                         {{ show.title }}
                     </td>
                     <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
-                                class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}">
+                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                            <i class="fa-regular fa-pen-to-square"></i></a> /
+                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
@@ -459,11 +462,11 @@
                             <div class="table-col">
                                 {% if show.image %}
                                 <img class="images" 
-                                    src="{{ show.image }}" alt="Click for information about {{ show.title }}">
+                                    src="{{ show.image }}" alt="Picture for {{ show.title }}">
                                 {% else %}
                                 <img class="images" 
                                     src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Click for information about {{ show.title }}">
+                                    alt="Picture for {{ show.title }}">
                                 {% endif %}
                             </div>
                             <div class="drama-info">
@@ -477,9 +480,11 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4">Close</a>
+                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
+                                aria-label="Close">Close</a>
                         </div>
                     </div>
+                </div>
             {% endfor %}
         </table>
     </div>
