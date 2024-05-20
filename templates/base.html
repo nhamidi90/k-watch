@@ -17,18 +17,20 @@
         <nav>
             <!-- Top navbar -->
             <div class="nav-wrapper purple darken-4">
-                <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/kwatch.png') }}" class="logo"></a>
+                <a href="{{ url_for('index') }}" aria-label="Go to home page">
+                    <img src="{{ url_for('static', filename='images/kwatch.png') }}" class="logo">
+                </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('index') }}" aria-label="Go to home page">Home</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('get_shows', username=session['user']) }}">My Lists</a></li>
-                        <li><a href="{{ url_for('add_drama') }}">Add Drama</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('sign_out') }}">Sign Out</a></li>
+                        <li><a href="{{ url_for('get_shows', username=session['user']) }}" aria-label="Go to my lists page">My Lists</a></li>
+                        <li><a href="{{ url_for('add_drama') }}" aria-label="Go to add drama page">Add Drama</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" aria-label="Go to myprofile page">Profile</a></li>
+                        <li><a href="{{ url_for('sign_out') }}" aria-label="Sign out">Sign Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('sign_in') }}">Sign In</a></li>  
-                        <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                        <li><a href="{{ url_for('sign_in') }}" aria-label="Sign in">Sign In</a></li>  
+                        <li><a href="{{ url_for('register') }}" aria-label="Sign up">Sign Up</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -36,15 +38,15 @@
 
         <!-- Mobile navbar -->
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('index') }}" aria-label="Go to home page">Home</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('get_shows', username=session['user']) }}">My Lists</a></li>
-                <li><a href="{{ url_for('add_drama') }}">Add Drama</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('sign_out') }}">Sign Out</a></li>
+                <li><a href="{{ url_for('get_shows', username=session['user']) }}" aria-label="Go to my lists page">My Lists</a></li>
+                <li><a href="{{ url_for('add_drama') }}" aria-label="Go to add drama page">Add Drama</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}" aria-label="Go to my profile page">Profile</a></li>
+                <li><a href="{{ url_for('sign_out') }}" aria-label="Sign out">Sign Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('sign_in') }}">Sign In</a></li>
-                <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                <li><a href="{{ url_for('sign_in') }}" aria-label="Sign in">Sign In</a></li>
+                <li><a href="{{ url_for('register') }}" aria-label="Sign up">Sign Up</a></li>
             {% endif %}
         </ul>
     </header>

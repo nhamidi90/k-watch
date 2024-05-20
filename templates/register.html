@@ -36,10 +36,9 @@
                     <label for="confirm_password">Confirm Password</label>
                 </div>
             </div>
-            
             <div class="row center-align">
-                <button class="btn waves-effect waves-light purple darken-4 form-btn" type="submit" name="action">
-                    Sign Up
+                <button class="btn waves-effect waves-light purple darken-4 form-btn" type="submit" name="action"
+                    aria-label="Sign up">Sign Up
                 </button>
             </div>
         </div>
@@ -48,7 +47,7 @@
 
 <div class="sign-in-footer">
     <p>Already registered?</p>
-    <p><a href="{{ url_for('sign_in') }}">Sign in</a></p>
+    <p><a href="{{ url_for('sign_in') }}" aria-label="Sign in">Sign in</a></p>
 </div>
 
 {% endblock %}

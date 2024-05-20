@@ -25,8 +25,8 @@
             
             <div class="row center-align">
                 <div class="col s12">
-                <button class="waves-effect waves-light btn purple darken-4 form-btn" type="submit" name="action">
-                    Sign In
+                <button class="waves-effect waves-light btn purple darken-4 form-btn" type="submit" name="action"
+                    aria-label="Sign in">Sign In
                 </button>
             </div>
             </div>
@@ -36,7 +36,7 @@
 
 <div class="sign-in-footer">
     <p>Don't have an account yet?</p>
-    <p><a href="{{ url_for('register') }}">Sign Up</a></p>
+    <p><a href="{{ url_for('register') }}" aria-label="Sign up">Sign Up</a></p>
 </div>
 
 {% endblock %}

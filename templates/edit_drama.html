@@ -4,7 +4,6 @@
 
 <h3>Edit drama</h3>
 
-
 <div class="row center-align">
     <div class="col s10 offset-m1">
         <div class="card-panel">
@@ -76,7 +75,7 @@
                                     {% endif %}
                                     {% endfor %}
                                 </fieldset>
-                                <i class="fa-solid fa-eraser resetButton"></i>
+                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
@@ -85,17 +84,15 @@
                             <label for="notes">Notes</label>
                         </div>
                     </div>
-
                     <div class="row button-container">
                         <a href="{{ url_for('get_shows') }}"
-                            class="waves-effect waves-light btn purple darken-4">Cancel</a>
-                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Edit
-                            Drama
+                            class="waves-effect waves-light btn purple darken-4" aria-label="Cancel">Cancel</a>
+                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                            aria-label="Edit drama">Edit Drama
                         </button>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

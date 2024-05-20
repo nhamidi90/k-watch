@@ -4,7 +4,6 @@
 
 <h3>Add drama</h3>
 
-
 <div class="row center-align">
     <div class="col s10 offset-m1">
         <div class="card-panel">
@@ -47,7 +46,6 @@
                             </select>
                             <label for="status">Status</label>
                         </div>
-
                         <div class="input-field col s12 m6" id="number-of-eps">
                             <p class="range-field">
                                 <label for="episodes_watched">Episodes watched</label>
@@ -66,7 +64,7 @@
                                             for="star{{i}}"></label>
                                     {% endfor %}
                                 </fieldset>
-                                <i class="fa-solid fa-eraser resetButton"></i>
+                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
@@ -75,16 +73,15 @@
                             <label for="notes">Notes</label>
                         </div>
                     </div>
-
                     <div class="row button-container">
-                        <a href="{{ url_for('add_drama') }}"
+                        <a href="{{ url_for('add_drama') }}" aria-label="Clear"
                             class="waves-effect waves-light btn purple darken-4">Clear</a>
-                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                            aria-label="Submit">Submit
                         </button>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

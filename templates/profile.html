@@ -5,7 +5,7 @@
 <div class="profile-header">
     <h3 class="profile">{{ username }}'s profile</h3>
     <span class="button-span">
-        <a class="waves-effect waves-light btn modal-trigger purple darken-4" href="#modal1">
+        <a class="waves-effect waves-light btn modal-trigger purple darken-4" href="#modal1" aria-label="Settings">
             <i class="fa-solid fa-gear"></i> Settings
         </a>
     </span>
@@ -48,9 +48,10 @@
             </div>
             <!-- cancel/edit buttons  -->
             <div class="row button-container">
-                <a href="#!" class="modal-close btn waves-effect waves-light purple darken-4 button-margin">Cancel</a>
+                <a href="#!" class="modal-close btn waves-effect waves-light purple darken-4 button-margin"
+                    aria-label="Cancel">Cancel</a>
                 <button class="btn waves-effect waves-light form-btn purple darken-4 button-margin" type="submit"
-                    name="action">
+                    name="action" aria-label="Edit profile">
                     Edit Profile
                 </button>
             </div>
@@ -58,16 +59,18 @@
         <hr>
         <div class="delete-section">
             <strong>Delete my account</strong>
-            <a class="btn waves-effect waves-light purple darken-4" id="delete-button">Delete</a>
+            <a class="btn waves-effect waves-light purple darken-4" id="delete-button" aria-label="Delete my account">
+                Delete
+            </a>
         </div>
         <div class="delete-section nodisplay row" id="delete-account">
             <div class="col">
                 <strong>Are you sure you want to delete your account? This action cannot be undone</strong>
             </div>
             <div class="col">
-                <a class="btn waves-effect waves-light modal-close purple darken-4 button-margin">No</a>
+                <a class="btn waves-effect waves-light modal-close purple darken-4 button-margin" aria-label="No">No</a>
                 <a href="{{ url_for('delete_user')}}"
-                    class="btn waves-effect waves-light purple darken-4 button-margin">Yes</a>
+                    class="btn waves-effect waves-light purple darken-4 button-margin" aria-label="Yes">Yes</a>
             </div>
         </div>
     </div>
@@ -80,9 +83,9 @@
     {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
     <div class="currently-watching col img-spacing">
         {% if show.image %}
-        <img src="{{ show.image }}" class="images">
+            <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
         {% else %}
-        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
         {% endif %}
         <p>{{ show.title }}</p>
     </div>
@@ -99,29 +102,29 @@
             {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
             <a class="carousel-item" href="#one!">
                 {% if show.image %}
-                <img src="{{ show.image }}" alt="Click for information about {{ show.title }}">{{ show.title }}
+                <img src="{{ show.image }}" alt="Picture for {{ show.title }}">{{ show.title }}
                 {% else %}
                 <img src="{{ url_for('static', filename='images/no-img.png') }}"
-                    alt="Click for information about {{ show.title }}">{{ show.title }}
+                    alt="Picture for {{ show.title }}">{{ show.title }}
                 {% endif %}
             </a>
             {% endif %}
             {% endfor %}
         </div>
     </div>
-    <div class="col s12 m5 offset-m-1">
 
+    <div class="col s12 m5 offset-m-1">
         <!-- highly rated  -->
         <h4>Highly Rated</h4>
         <div class="carousel">
             {% for show in shows[-10:] %}
             {% if (show.rating != None) and (show.rating >= 7) and (session.user|lower == show.created_by|lower) %}
-            <a class="carousel-item" href="#one!">
+            <a class="carousel-item">
                 {% if show.image %}
-                <img src="{{ show.image }}" alt="Click for information about {{ show.title }}">{{ show.title }}
+                <img src="{{ show.image }}" alt="Picture for {{ show.title }}">{{ show.title }}
                 {% else %}
                 <img src="{{ url_for('static', filename='images/no-img.png') }}"
-                    alt="Click for information about {{ show.title }}">{{ show.title }}
+                    alt="Picture for {{ show.title }}">{{ show.title }}
                 {% endif %}
             </a>
             {% endif %}
@@ -137,14 +140,14 @@
     {% if (show.rating == None) and (session.user|lower == show.created_by|lower) %}
     <div class="col img-spacing">
         {% if show.image %}
-            <img src="{{ show.image }}" class="images">
+            <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
         {% else %}
-            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
         {% endif %}
         <p>{{ show.title }}
             <span>
-                <a href="{{ url_for('edit_drama', show_id=show._id) }}"><i
-                    class="fa-regular fa-pen-to-square"></i></a>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                    <i class="fa-regular fa-pen-to-square"></i></a>
             </span>
         </p>
     </div>
