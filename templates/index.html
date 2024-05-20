@@ -5,8 +5,8 @@
     <h4>Coming soon</h4>
     {% if (session.user|lower == "admin") %}
     <span class="button-span">
-        <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit" href="#coming-soon">Add new
-            drama</a>
+        <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit" 
+            aria-label="Add new drama" href="#coming-soon">Add new drama</a>
     </span>
     {% endif %}
 </div>
@@ -15,13 +15,13 @@
     {% for coming in upcoming %}
     <div class="col upcoming-spacing">
         {% if coming.image %}
-        <img src="{{ coming.image }}" class="images">
+        <img src="{{ coming.image }}" class="images" alt="Picture for {{ coming.title }}">
         {% else %}
-        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ coming.title }}">
         {% endif %}
         {% if coming.videoLink %}
         <p>
-            <a href="{{ coming.videoLink }}" target="_blank">Watch the trailer</a>
+            <a href="{{ coming.videoLink }}" target="_blank" aria-label="Watch the trailer">Watch the trailer</a>
         </p>
         {% endif %}
         <p>
@@ -30,13 +30,13 @@
         <p>Add to your watch list
             {% if session.user %}
             <span>
-                <a class="modal-trigger" href="#add-to-list{{coming.title}}">
+                <a class="modal-trigger" href="#add-to-list{{coming.title}}" aria-label="Add to watch list">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </span>
             {% else %}
             <span>
-                <a href="{{ url_for('sign_in') }}">
+                <a href="{{ url_for('sign_in') }}" aria-label="Sign in">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </span>
@@ -44,10 +44,10 @@
         </p>
         {% if (session.user|lower == "admin") %}
         <a class="waves-effect waves-light btn purple darken-4 modal-trigger button-margin"
-            href="#modal1{{ coming.title }}">Edit
+            href="#modal1{{ coming.title }}" aria-label="Edit drama">Edit
         </a>
         <a href="{{ url_for('delete_upcoming', coming_id=coming._id) }}"
-            class="waves-effect waves-light btn purple darken-4 button-margin">
+            class="waves-effect waves-light btn purple darken-4 button-margin" aria-label="Remove drama">
             Remove
         </a>
 
@@ -57,7 +57,9 @@
                 <div class="modal-header">
                     <h5>Edit upcoming</h5>
                     <span>
-                        <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+                        <a href="#!" class="modal-close" aria-label="Close">
+                            <i class="fa-solid fa-x"></i>
+                        </a>
                     </span>
                 </div>
                 <div class="warning">
@@ -80,7 +82,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m6">
-                                <input id="img_url" name="img_url" value="{{ coming.image }}" type="text"
+                                <input id="img_url" name="img_url" value="{{ coming.image }}" type="text" 
                                     class="validate">
                                 <label for="img_url">Image Link</label>
                             </div>
@@ -92,7 +94,7 @@
                         </div>
                         <div class="row center-align">
                             <button class="btn waves-effect waves-light purple darken-4" type="submit"
-                                name="action">Edit
+                                name="action" aria-label="Edit drama">Edit
                             </button>
                         </div>
                     </form>
@@ -108,7 +110,9 @@
             <div class="modal-header">
                 <h5>Add to your list</h5>
                 <span>
-                    <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+                    <a href="#!" class="modal-close" aria-label="Close">
+                        <i class="fa-solid fa-x"></i>
+                    </a>
                 </span>
             </div>
             <div class="warning">
@@ -148,7 +152,8 @@
                         </div>
                     </div>
                     <div class="row center-align">
-                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                            aria-label="Submit">Submit
                         </button>
                     </div>
                 </form>
@@ -165,7 +170,9 @@
         <div class="modal-header">
             <h5>Add coming soon</h5>
             <span>
-                <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+                <a href="#!" class="modal-close" aria-label="Close">
+                    <i class="fa-solid fa-x"></i>
+                </a>
             </span>
         </div>
         <div class="warning">
@@ -195,7 +202,8 @@
                     </div>
                 </div>
                 <div class="row center-align">
-                    <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Add
+                    <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                        aria-label="Submit">Submit
                     </button>
                 </div>
             </form>
@@ -210,20 +218,20 @@
     {% if (show.rating != None) and (show.rating >= 7) %}
     <div class="col img-spacing">
         {% if show.image %}
-        <img src="{{ show.image }}" class="images">
+        <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
         {% else %}
-        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
         {% endif %}
         <p>{{ show.title }}
             {% if session.user %}
             <span>
-                <a class="modal-trigger" href="#popular{{ show.title }}">
+                <a class="modal-trigger" href="#popular{{ show.title }}" aria-label="Add to watch list">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </span>
             {% else %}
             <span>
-                <a href="{{ url_for('sign_in') }}">
+                <a href="{{ url_for('sign_in') }}" aria-label="Sign in">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </span>
@@ -238,7 +246,9 @@
             <div class="modal-header">
                 <h5>Add to your list</h5>
                 <span>
-                    <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+                    <a href="#!" class="modal-close" aria-label="Close">
+                        <i class="fa-solid fa-x"></i>
+                    </a>
                 </span>
             </div>
             <div class="warning">
@@ -307,7 +317,7 @@
                                         for="star{{i}}"></label>
                                     {% endfor %}
                                 </fieldset>
-                                <i class="fa-solid fa-eraser resetButton"></i>
+                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
@@ -317,7 +327,8 @@
                         </div>
                     </div>
                     <div class="row center-align">
-                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                            aria-label="Submit">Submit
                         </button>
                     </div>
                 </form>
@@ -334,20 +345,20 @@
     {% if (show.status == "Currently watching") %}
     <div class="col img-spacing">
         {% if show.image %}
-        <img src="{{ show.image }}" class="images">
+        <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
         {% else %}
-        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images">
+        <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
         {% endif %}
         <p>{{ show.title }}
             {% if session.user %}
             <span>
-                <a class="modal-trigger" href="#watching{{ show.title }}">
+                <a class="modal-trigger" href="#watching{{ show.title }}" aria-label="Add to watch list">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </span>
             {% else %}
             <span>
-                <a href="{{ url_for('sign_in') }}">
+                <a href="{{ url_for('sign_in') }}" aria-label="Sign in">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </span>
@@ -362,7 +373,9 @@
             <div class="modal-header">
                 <h5>Add to your list</h5>
                 <span>
-                    <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+                    <a href="#!" class="modal-close" aria-label="Close">
+                        <i class="fa-solid fa-x"></i>
+                    </a>
                 </span>
             </div>
             <div class="warning">
@@ -378,7 +391,6 @@
                             <label for="title">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
-
                             {% if show.image %}
                             <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
@@ -431,7 +443,7 @@
                                         for="star{{i}}"></label>
                                     {% endfor %}
                                 </fieldset>
-                                <i class="fa-solid fa-eraser resetButton"></i>
+                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
@@ -441,7 +453,8 @@
                         </div>
                     </div>
                     <div class="row center-align">
-                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                            aria-label="Submit">Submit
                         </button>
                     </div>
                 </form>
