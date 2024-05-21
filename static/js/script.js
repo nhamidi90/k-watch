@@ -73,72 +73,89 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Show/hide drama tables 
-    allShows = document.getElementById("all-shows")
-    planToWatch = document.getElementById("plan-to-watch")
-    currentlyWatching = document.getElementById("currently-watching")
-    completed = document.getElementById("completed")
-    dropped = document.getElementById("dropped")
+    allShows = document.getElementById("all-shows");
+    planToWatch = document.getElementById("plan-to-watch");
+    currentlyWatching = document.getElementById("currently-watching");
+    completed = document.getElementById("completed");
+    dropped = document.getElementById("dropped");
 
-    document.getElementById("menu-all").addEventListener("click", showAllShows)
-    document.getElementById("menu-plan-to-watch").addEventListener("click", showPlanToWatch)
-    document.getElementById("menu-currently-watching").addEventListener("click", showCurrentlyWatching)
-    document.getElementById("menu-completed").addEventListener("click", completedDramas)
-    document.getElementById("menu-dropped").addEventListener("click", showDropped)
+    document.getElementById("menu-all").addEventListener("click", showAllShows);
+    document.getElementById("menu-plan-to-watch").addEventListener("click", showPlanToWatch);
+    document.getElementById("menu-currently-watching").addEventListener("click", showCurrentlyWatching);
+    document.getElementById("menu-completed").addEventListener("click", completedDramas);
+    document.getElementById("menu-dropped").addEventListener("click", showDropped);
 
-    document.getElementById("menu-all-desktop").addEventListener("click", showAllShows)
-    document.getElementById("menu-plan-to-watch-desktop").addEventListener("click", showPlanToWatch)
-    document.getElementById("menu-currently-watching-desktop").addEventListener("click", showCurrentlyWatching)
-    document.getElementById("menu-completed-desktop").addEventListener("click", completedDramas)
-    document.getElementById("menu-dropped-desktop").addEventListener("click", showDropped)
+    document.getElementById("menu-all-desktop").addEventListener("click", showAllShows);
+    document.getElementById("menu-plan-to-watch-desktop").addEventListener("click", showPlanToWatch);
+    document.getElementById("menu-currently-watching-desktop").addEventListener("click", showCurrentlyWatching);
+    document.getElementById("menu-completed-desktop").addEventListener("click", completedDramas);
+    document.getElementById("menu-dropped-desktop").addEventListener("click", showDropped);
 
     function showAllShows() {
-        allShows.classList.remove('nodisplay')
-        planToWatch.classList.add('nodisplay')
-        currentlyWatching.classList.add('nodisplay')
-        completed.classList.add('nodisplay')
-        dropped.classList.add('nodisplay')
+        /**
+         * This will display all dramas
+         */
+        allShows.classList.remove('nodisplay');
+        planToWatch.classList.add('nodisplay');
+        currentlyWatching.classList.add('nodisplay');
+        completed.classList.add('nodisplay');
+        dropped.classList.add('nodisplay');
     }
 
     function showPlanToWatch() {
-        allShows.classList.add('nodisplay')
-        planToWatch.classList.remove('nodisplay')
-        currentlyWatching.classList.add('nodisplay')
-        completed.classList.add('nodisplay')
-        dropped.classList.add('nodisplay')
+        /**
+         * This will display only plan to watch dramas
+         */
+        allShows.classList.add('nodisplay');
+        planToWatch.classList.remove('nodisplay');
+        currentlyWatching.classList.add('nodisplay');
+        completed.classList.add('nodisplay');
+        dropped.classList.add('nodisplay');
     }
 
     function showCurrentlyWatching() {
-        allShows.classList.add('nodisplay')
-        planToWatch.classList.add('nodisplay')
-        currentlyWatching.classList.remove('nodisplay')
-        completed.classList.add('nodisplay')
-        dropped.classList.add('nodisplay')
+        /**
+         * This will display only currently watching dramas
+         */
+        allShows.classList.add('nodisplay');
+        planToWatch.classList.add('nodisplay');
+        currentlyWatching.classList.remove('nodisplay');
+        completed.classList.add('nodisplay');
+        dropped.classList.add('nodisplay');
     }
 
     function completedDramas() {
-        allShows.classList.add('nodisplay')
-        planToWatch.classList.add('nodisplay')
-        currentlyWatching.classList.add('nodisplay')
-        completed.classList.remove('nodisplay')
-        dropped.classList.add('nodisplay')
+        /**
+         * This will display only completed dramas
+         */
+        allShows.classList.add('nodisplay');
+        planToWatch.classList.add('nodisplay');
+        currentlyWatching.classList.add('nodisplay');
+        completed.classList.remove('nodisplay');
+        dropped.classList.add('nodisplay');
     }
 
     function showDropped() {
-        allShows.classList.add('nodisplay')
-        planToWatch.classList.add('nodisplay')
-        currentlyWatching.classList.add('nodisplay')
-        completed.classList.add('nodisplay')
-        dropped.classList.remove('nodisplay')
+        /**
+         * This will display only dropped dramas
+         */
+        allShows.classList.add('nodisplay');
+        planToWatch.classList.add('nodisplay');
+        currentlyWatching.classList.add('nodisplay');
+        completed.classList.add('nodisplay');
+        dropped.classList.remove('nodisplay');
     }
 
 });
 
-// reset rating
+
 $(document).ready(function () {
+    // reset star rating
     $(".resetButton").on('click', function () {
-        $('.rating > input').prop('checked', '')
+        $('.rating > input').prop('checked', '');
     });
 
+    // toggle delete account section
     $( "#delete-account" ).hide();
     $("#delete-button").on('click', function () {
         $( "#delete-account" ).toggle();
