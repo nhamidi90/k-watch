@@ -138,4 +138,10 @@ $(document).ready(function () {
     $(".resetButton").on('click', function () {
         $('.rating > input').prop('checked', '')
     });
+
+    $( "#delete-account" ).hide();
+    $("#delete-button").on('click', function () {
+        $( "#delete-account" ).toggle();
+    })
+    
 });
