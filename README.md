@@ -1,112 +1,222 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# K Watch
 
-Welcome USER_NAME,
+K Watch is a website for Korean drama watchers to keep a track of what they are watching. They can add a drama to their list with details such as the status (Plan to watch, Currently watching, Completed or Dropped), number of episode they have watched, give a rating etc. They can then edit each entry as necessary. On the homepage, users can see information on upcoming dramas, most popular dramas as rated by other users and what others are currently watching. On their profile page, they can see personal stats such as what they have recently completed. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Screenshot of the website on different devices]()
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **April 26, 2024**
+The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 
-## Gitpod Reminders
+## User stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### First time visitor goals:
+*	I want to have a way to store information on dramas I have been watching
+*   I want to have images so it is visually appealing and I know which drama is listed
+*   I want to see enough recommendations for me to think it is worthwhile for me to make an account and start watching dramas
 
-`python3 -m http.server`
+### Returning visitor goals:
+*	I want the site to be easy to navigate so I can quickly find what I need
+*	I want to be able to create an account and easily update my information
+*   I want to see what others are watching so that it may encourage me to watch it too
 
-A blue button should appear to click: _Make Public_,
+### Frequent visitor goals:
+*	I want to keep a track on my watch list and edit it as I progress
+*	I want to see recommendations on what others are watching so I can maybe add it to my own list
+*	I want to see my own stats to get an idea of my watching habits
+*   I want to be able to filter my list according to its status
 
-Another blue button should appear to click: _Open Browser_.
+### Admin goals:
+*   As an admin I want to be able to manage the list of upcoming shows so that I can provide updated information to the users
+*   As an admin I want the managing process to be easy and quick so that I don't lose motivation
+*   As an admin, I don't want other users to be able to change the upcoming dramas list as the information may be incorrect
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## Wireframes
 
-A blue button should appear to click: _Make Public_,
+## Features
 
-Another blue button should appear to click: _Open Browser_.
+### Navbar
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+*   All pages include a navbar which becomes a collapsibe navbar for small screens
+*   It includes links to sign in/out, register, homepage, lists page, add drama page and profile page
+*   The links available will depend on whether a user is signed in or not
 
-To log into the Heroku toolbelt CLI:
+![Screenshot of user signed in navbar]()
+![Screenshot of user not signed in navbar]()
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Flash messages
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+*   Flash messages appear to confirm that an action has been completed for example a new drama has been added or deleted
+*   They are styled to not be too distracting to ensure a good user experience
 
-------
+![Screenshot of a flash message informing the user a drama has been edited]()
 
-## Release History
+### Sign in
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+*   Users are asked to provide the email address and password they used to register
+*   If they have not registered yet, there is a link directing them to the sign up page
 
-**April 26 2024:** Update node version to 16
+![Screenshot of sign in page]()
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Register
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+*   Users are asked to provide a username, email address, password and confirmation of the password
+*   If the username already exists, they will be alerted to select a different one
+*   If they already have an account, there is a link directing them to the sign in page
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![Screenshot of register page]()
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Home page
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+*   This features a 'Coming soon' section which only admin can add to, edit and remove. Admin can add information including title, image URL, release date and link to a trailer
+*   The 'Most popular' list feature dramas which users have added to their list which have a rating greater or equal to 7. It is shuffled every time the page is refreshed and sliced to 10 items 
+*   Similarly, 'People are watching right now' section features dramas that users have added to their currently watching list. It is shuffled every time the page is refreshed and sliced to 10 items
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Screenshot of regular user homepage]()
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+![Screenshot of admin homepage]()
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Screenshot of 'add coming soon' modal]()
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Screenshot of 'edit coming soon' modal]()
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+*   If no video link is provided, it will not appear to users
+*   If no image URL is provided, the default image will be used
+*   Users are able to add dramas from any of theses lists to their own should they wish to. If users are not signed in, the link will direct the user to the sign in page
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Screenshot of 'add to your list' modal]()
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### My lists
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+*   This includes a list of all shows that user has added and displays it into a table in alphabetial order
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+![Screenshot of my lists page]()
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+*   The table has a thumbnail to open up a modal including information on each drama. It also shows the title, year, number of episodes, the user's progress and rating.
 
-------
+![Screenshot of my drama modal]()
 
-## FAQ about the uptime script
+*   The table is responsive and will hide the 'year' and 'episodes' columns for mobile screens
+*   Users can also edit and delte each drama from their database
+*   The navbar allows users to filter dramas by status: All dramas, Plan to watch, Currently watching, Completed and Dropped
+*   It turns into a dropdown menu for small screens
+*   Users can also search through their lists with the search bar. If there is no result, they will be alerted
 
-**Why have you added this script?**
+![Screenshot of search with no results found]()
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Add / Edit drama
 
-**How will this affect me?**
+*   This is where users add dramas to their database
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![Screenshot of add drama page]()
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+*   Users can edit information for any drama added to their list
+*   Fields are pre-populated with current information
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![Screenshot of edit drama page]()
 
-**So….?**
+*   Fields for both pages include title, image link, year, number of episodes, status, episodes watched, rating and notes
+*   Title, Year, Number of episodes and status are required
+*   The star rating can be cleared and the clear button at the bottom will refresh the page
+*   As users are adding an image URL rather than uploading their own, there is a warning that the image could be deleted by the image owner and they are able to replace it should that happen
+*   If no image is provided, a default image will be used
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Profile
 
-**Can I opt out?**
+*   Users can edit their profile information or delete their account by clicking on the settings button. This will open up a modal
+*   For users to delete their account entirely, they must click the delete button which will reveal a confirmation. this is for extra security and to avid their account being accidentally deleted
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Screenshot of settings modal]()
 
+*   This page lists dramas that users are currently watching and ones they have not yet given a rating to
+*   It also lists dramas they have recently completed (limited to 10) and highly rated (rating is greater or equal to 7). Both of these are displayed in a carousel
+
+![Screenshot of profile page]()
+
+## Technologies Used
+
+### Languages
+
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Python](https://developer.mozilla.org/en-US/docs/Glossary/Python)
+* [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
+
+### Libraries
+
+* [JQuery](https://jquery.com/) was used to reset the star rating
+* [Materialize CSS](https://materializecss.com/) I used features including Navbar, Modals, Dropdown, Carousel, Cards, Buttons and Form components. I also used their CSS components including color , table and grid
+* [Google fonts](https://fonts.google.com/) was used for fonts
+* [Font awesome](https://fontawesome.com/) was where I got the icons displayed on forms and buttons
+
+### Other tools
+
+* [mongoDB](https://mongodb.com/) was used for my non-relational database
+* [Flask](https://flask.palletsprojects.com/en/3.0.x/) was the framework I used to add logic to my HTML pages
+* [Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) was used to make the pages responsive
+* [Balsamiq](https://balsamiq.com/) was used to make wireframes
+* [Git](https://git-scm.com/) was used for source control management
+* [Gitpod](https://gitpod.io/) was used to write and edit code
+* [GitHub](https://github.com/) was used to store code for the website
+* [Heroku](https://heroku.com/) hosts the website
+* [Adobe photoshop](https://www.adobe.com/uk/products/photoshop.html) was used to crop images for the README.md file
+* [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create the logo
+* [Chrome dev tools](https://developer.chrome.com/docs/devtools) was used for debugging and to check responsiveness
+
+## Testing
+
+Please refer [here](TESTING.md) for all information on testing
+
+## Deployment
+
+* To make a local copy of this project, you can clone the repository by typing the following command into your IDE terminal:
+
+ `git clone https://github.com/nhamidi90/k-watch.git`
+
+* Alternatively, to open the workspace in Gitpod, you can [click here](https://gitpod.io/#https://github.com/nhamidi90/k-watch)
+* Go to mongoDB and create your own mongoDB database and collections
+* Go to the Heroku dashboard an select 'Create new app'
+* Enter a unique name and select your region. Click 'Create App'.
+* Inside your project, go to the settings tab and select the 'Reveal config vars' button
+* Add in the following variables making sure there are no quotation marks and replacing SECRET_KEY, MONGO_URI and MONGO_DBNAME with your own details
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+IP : 0.0.0.0
+PORT : 5000
+MONGO_DBNAME : Your MongoDB database name
+MONGO_URI : Your mongoDB URI. You can find this on MongoDB by going to Database > Connect > Drivers (under connect to your application where it says 'Add your connection string into your application code')
+SECRET_KEY : Your secret key
 ```
+* Go to the Deploy tab and choose 'Connect to Github'
+* Select your repository name and select Connect
+* Scroll to the bottom and click 'Deploy branch'
+* You can then view your app by clicking on 'Open app'
 
-**Anything more?**
+### Future Improvements
+*   It appears that it would be beneficial to work with JQuery as opposed to vanilla javascript from the start as some of the code I used to troubleshoot used JQuery
+*   As it is not ideal to add images via a URL link, I would have like to connect to a Kdrama API as that would already have a large library of dramas including images. Users would then be able to select from the list with the details already at hand rather than having to search and input themselves
+*   It would be great if users could connect and see each others' lists as this would encourage more usage of the site and more watch time
+*   It would also be nice for users to be able to upload their own profile picture
+*   The website has potential to grow more complicated databases by adding and filtering queries such as whether it is a tv show or movie and also add dramas from other countries
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
+## Credits
 
-Happy coding!
+### Content
+* for the purpose of this project, I decided to input existing dramas into the database to simulate real-world usage by getting data from [My drama list](https://mydramalist.com/) and also to give me an idea of what features to add
+
+### Media
+
+
+### Tools
+* [Amiresponsive](https://ui.dev/amiresponsive) was used to create a mockup of the website for the README
+* [Responsive viewer](https://responsiveviewer.org/) was used to check how the website looks on different devices
+
+### Code
+* [Stack overflow](https://stackoverflow.com/questions/31607710/randomize-elements-of-a-list-in-jinja-2) was used to shuffle my lists
+* [Codepen](https://codepen.io/melaniexx/pen/GRgBeKW) by Melanie was used to reset the star rating
+* This walkthrough by [codexdude](https://www.youtube.com/watch?v=zDHC4r5eCdY) was used to create a star rating
+* [Materialize CSS](https://materializecss.com/) components were used a lot throughout this project
+* [Code Institute](https://codeinstitute.net/) I referred to lessons and source code from Code Institute's Web Application Development course
+* I also got the code for custom Materialize validation from Code Institute
+* Some code from [geeksforgeeks](https://www.geeksforgeeks.org/how-to-create-a-thumbnail-image-using-html-and-css/) was used to create thumbnails for the 'My lists' page
+
+### Acknowledgements
