@@ -63,6 +63,10 @@ h4 {
 	color: #462355;
 }
 
+.no-margin {
+	margin-left: 0;
+}
+
 p {
 	display: flex;
 	justify-content: space-between;
@@ -88,13 +92,12 @@ p {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 40px;
-	margin-left: 10px;
+	margin-left: 50px;
 	gap: 25px;
-	width: 100%;
 }
 
 .admin-edit {
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 strong {
@@ -334,7 +337,7 @@ h2 {
 	}
 
 	.admin-edit {
-		margin-left: 40px;
+		margin-left: 0;
 		margin-top: 0;
 	}
 
@@ -373,9 +376,7 @@ h2 {
 		margin-left: 0;
 	}
 
-	.no-margin {
-		margin: 0;
-	}
+
 }
 
 @media only screen and (max-width: 560px) {

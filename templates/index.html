@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="upcoming-header row-margin">
-    <h4>Coming soon</h4>
+    <h4 class="no-margin">Coming soon</h4>
     {% if (session.user|lower == "admin") %}
     <span class="button-span">
         <a class="waves-effect waves-light btn modal-trigger purple darken-4 admin-edit" 
@@ -163,7 +163,6 @@
     </div>
     {% endfor %}
 </div>
-
 
 <!-- Admin add coming soon modal -->
 <div id="coming-soon" class="modal">
