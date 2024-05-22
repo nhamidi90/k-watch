@@ -153,6 +153,7 @@ $(document).ready(function () {
     // reset star rating
     $(".resetButton").on('click', function () {
         $('.rating > input').prop('checked', '');
+        $('#rating-value').empty();
     });
 
     // toggle delete account section
