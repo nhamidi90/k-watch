@@ -5,6 +5,13 @@
 body {
 	font-family: nunito;
 	background-color: rgb(238, 241, 245);
+	display: flex;
+	min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 .center-align {

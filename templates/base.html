@@ -50,7 +50,7 @@
             {% endif %}
         </ul>
     </header>
-
+<main>
     <section class="flash">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -63,7 +63,7 @@
 
     {% block content %}
     {% endblock %}
-
+</main>
     <footer class="purple darken-4 page-footer">
             <div class="container footer-copyright purple darken-4">
                 © 2024 Copyright K-Watch
