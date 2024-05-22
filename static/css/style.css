@@ -327,6 +327,16 @@ h2 {
 	margin-bottom: 10px;
 }
 
+/* footer  */
+
+.footer-icon {
+	font-size: 20px;
+}
+
+.footer-icon:hover {
+	color: rgb(227, 229, 78);
+}
+
 /* media queries  */
 @media only screen and (max-width: 418px) {
 	h4 {
