@@ -79,17 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
     completed = document.getElementById("completed");
     dropped = document.getElementById("dropped");
 
-    document.getElementById("menu-all").addEventListener("click", showAllShows);
-    document.getElementById("menu-plan-to-watch").addEventListener("click", showPlanToWatch);
-    document.getElementById("menu-currently-watching").addEventListener("click", showCurrentlyWatching);
-    document.getElementById("menu-completed").addEventListener("click", completedDramas);
-    document.getElementById("menu-dropped").addEventListener("click", showDropped);
+    document.getElementById("menu-all")?.addEventListener("click", showAllShows);
+    document.getElementById("menu-plan-to-watch")?.addEventListener("click", showPlanToWatch);
+    document.getElementById("menu-currently-watching")?.addEventListener("click", showCurrentlyWatching);
+    document.getElementById("menu-completed")?.addEventListener("click", completedDramas);
+    document.getElementById("menu-dropped")?.addEventListener("click", showDropped);
 
-    document.getElementById("menu-all-desktop").addEventListener("click", showAllShows);
-    document.getElementById("menu-plan-to-watch-desktop").addEventListener("click", showPlanToWatch);
-    document.getElementById("menu-currently-watching-desktop").addEventListener("click", showCurrentlyWatching);
-    document.getElementById("menu-completed-desktop").addEventListener("click", completedDramas);
-    document.getElementById("menu-dropped-desktop").addEventListener("click", showDropped);
+    document.getElementById("menu-all-desktop")?.addEventListener("click", showAllShows);
+    document.getElementById("menu-plan-to-watch-desktop")?.addEventListener("click", showPlanToWatch);
+    document.getElementById("menu-currently-watching-desktop")?.addEventListener("click", showCurrentlyWatching);
+    document.getElementById("menu-completed-desktop")?.addEventListener("click", completedDramas);
+    document.getElementById("menu-dropped-desktop")?.addEventListener("click", showDropped);
 
     function showAllShows() {
         /**
