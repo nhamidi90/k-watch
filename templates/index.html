@@ -317,8 +317,8 @@
                         <div class="star-cont">
                             <fieldset class="rating">
                                 {% for i in range(1,11)|reverse %}
-                                <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star" /><label
-                                    for="star{{i}}"></label>
+                                <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star" /><label
+                                    for="star{{i}}{{show._id}}"></label>
                                 {% endfor %}
                             </fieldset>
                             <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
