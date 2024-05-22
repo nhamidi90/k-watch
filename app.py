@@ -23,10 +23,10 @@ mongo = PyMongo(app)
 def index():
     if request.method == "POST":
         coming_soon = {
-        "title": request.form.get("title"),
-        "image": request.form.get("img_url"),
-        "year": request.form.get("year"),
-        "videoLink": request.form.get("video-link"),
+            "title": request.form.get("title"),
+            "image": request.form.get("img_url"),
+            "year": request.form.get("year"),
+            "videoLink": request.form.get("video-link"),
         }
 
         mongo.db.coming.insert_one(coming_soon)
@@ -51,15 +51,15 @@ def filter_shuffle(seq):
 def add_upcoming():
     if request.method == "POST":
         upcoming_show = {
-        "title": request.form.get("title"),
-        "image": request.form.get("img_url"),
-        "year": request.form.get("year"),
-        "number_of_episodes": int(0),
-        "status": request.form.get("status"),
-        "episodes_watched": int(0),
-        "rating": None,
-        "notes": request.form.get("notes"),
-        "created_by": session["user"]
+            "title": request.form.get("title"),
+            "image": request.form.get("img_url"),
+            "year": request.form.get("year"),
+            "number_of_episodes": int(0),
+            "status": request.form.get("status"),
+            "episodes_watched": int(0),
+            "rating": None,
+            "notes": request.form.get("notes"),
+            "created_by": session["user"]
         }
         mongo.db.shows.insert_one(upcoming_show)
         flash("Your drama was added successfully")
@@ -70,19 +70,25 @@ def add_upcoming():
 def edit_upcoming(coming_id):
     if request.method == "POST":
         rating_str = request.form.get("rating")
-        rating = None if rating_str is None or rating_str == "null" else int(rating_str)
+
+        rating = None if rating_str is None or rating_str == "null" else int(
+            rating_str
+        )
         drama = {
-        "title": request.form.get("title"),
-        "image": request.form.get("img_url"),
-        "year": request.form.get("year"),
-        "number_of_episodes": request.form.get("number_of_episodes"),
-        "status": request.form.get("status"),
-        "episodes_watched": request.form.get("episodes_watched"),
-        "rating": rating,
-        "notes": request.form.get("notes"),
-        "created_by": session["user"]
+            "title": request.form.get("title"),
+            "image": request.form.get("img_url"),
+            "year": request.form.get("year"),
+            "number_of_episodes": request.form.get("number_of_episodes"),
+            "status": request.form.get("status"),
+            "episodes_watched": request.form.get("episodes_watched"),
+            "rating": rating,
+            "notes": request.form.get("notes"),
+            "created_by": session["user"]
         }
-        upcoming = mongo.db.coming.replace_one({"_id": ObjectId(coming_id)}, drama)
+        upcoming = mongo.db.coming.replace_one(
+            {"_id": ObjectId(coming_id)},
+            drama
+        )
         flash("Your drama was updated successfully")
         return redirect(url_for("index", upcoming=upcoming))
 
@@ -91,17 +97,19 @@ def edit_upcoming(coming_id):
 def add_new_drama():
     if request.method == "POST":
         rating_str = request.form.get("rating")
-        rating = None if rating_str is None or rating_str == "null" else int(rating_str)
+        rating = None if rating_str is None or rating_str == "null" else int(
+            rating_str
+        )
         new_drama = {
-        "title": request.form.get("title"),
-        "image": request.form.get("img_url"),
-        "year": request.form.get("year"),
-        "number_of_episodes": request.form.get("number_of_episodes"),
-        "status": request.form.get("status"),
-        "episodes_watched": request.form.get("episodes_watched"),
-        "rating": rating,
-        "notes": request.form.get("notes"),
-        "created_by": session["user"]
+            "title": request.form.get("title"),
+            "image": request.form.get("img_url"),
+            "year": request.form.get("year"),
+            "number_of_episodes": request.form.get("number_of_episodes"),
+            "status": request.form.get("status"),
+            "episodes_watched": request.form.get("episodes_watched"),
+            "rating": rating,
+            "notes": request.form.get("notes"),
+            "created_by": session["user"]
         }
         mongo.db.shows.insert_one(new_drama)
         flash("Your drama was added successfully")
@@ -143,7 +151,9 @@ def register():
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
-            "confirm_password": generate_password_hash(request.form.get("confirm_password"))
+            "confirm_password": generate_password_hash(
+                request.form.get("confirm_password")
+            )
         }
         
         password1 = request.form.get("password")
@@ -169,7 +179,9 @@ def sign_in():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session['user'] = existing_user['username']
-                    return redirect(url_for("get_shows", username=session["user"]))
+                    return redirect(
+                        url_for("get_shows", username=session["user"])
+                    )
             else:
                 flash("Incorrect Email or Password")
                 return redirect(url_for("sign_in"))
@@ -183,9 +195,13 @@ def sign_in():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     shows = list(mongo.db.shows.find())
-    username = mongo.db.user.find_one({"username": session["user"]})['username']
+    username = mongo.db.user.find_one(
+        {"username": session["user"]}
+    )['username']
     email = mongo.db.user.find_one({"username": session["user"]})['email']
-    password = mongo.db.user.find_one({"username": session["user"]})['password']
+    password = mongo.db.user.find_one(
+        {"username": session["user"]}
+    )['password']
     
     if session["user"]:
 
@@ -198,8 +214,12 @@ def profile(username):
                 update_profile = {
                     "username": request.form.get("username").lower(),
                     "email": request.form.get("email"),
-                    "password": generate_password_hash(request.form.get("password")),
-                    "confirm_password": generate_password_hash(request.form.get("confirm_password"))
+                    "password": generate_password_hash(
+                        request.form.get("password")
+                    ),
+                    "confirm_password": generate_password_hash(
+                        request.form.get("confirm_password")
+                    )
                 }
 
             password1 = request.form.get("password")
@@ -207,10 +227,14 @@ def profile(username):
 
             if (password1 != password2):
                 flash("Passwords do not match. Please try again")
-            else: mongo.db.user.replace_one({"username": session["user"]}, update_profile), flash(
-                "Profile updated")
+            else:
+                mongo.db.user.replace_one(
+                    {"username": session["user"]},
+                    update_profile
+                ), flash("Profile updated")
 
-        return render_template("profile.html", username=username, email=email, password=password, shows=shows)
+        return render_template("profile.html", username=username, email=email,
+            password=password, shows=shows)
     
     return redirect(url_for('profile', username=username))
 
@@ -232,17 +256,19 @@ def delete_user():
 def add_drama():
     if request.method == "POST":
         rating_str = request.form.get("rating")
-        rating = None if rating_str is None or rating_str == "null" else int(rating_str)
+        rating = None if rating_str is None or rating_str == "null" else int(
+            rating_str
+        )
         drama = {
-        "title": request.form.get("title"),
-        "image": request.form.get("img_url"),
-        "year": request.form.get("year"),
-        "number_of_episodes": request.form.get("number_of_episodes"),
-        "status": request.form.get("status"),
-        "episodes_watched": request.form.get("episodes_watched"),
-        "rating": rating,
-        "notes": request.form.get("notes"),
-        "created_by": session["user"]
+            "title": request.form.get("title"),
+            "image": request.form.get("img_url"),
+            "year": request.form.get("year"),
+            "number_of_episodes": request.form.get("number_of_episodes"),
+            "status": request.form.get("status"),
+            "episodes_watched": request.form.get("episodes_watched"),
+            "rating": rating,
+            "notes": request.form.get("notes"),
+            "created_by": session["user"]
         }
         mongo.db.shows.insert_one(drama)
         flash("Your drama was added successfully")
@@ -255,17 +281,19 @@ def add_drama():
 def edit_drama(show_id):
     if request.method == "POST":
         rating_str = request.form.get("rating")
-        rating = None if rating_str is None or rating_str == "null" else int(rating_str)
+        rating = None if rating_str is None or rating_str == "null" else int(
+            rating_str
+        )
         drama = {
-        "title": request.form.get("title"),
-        "image": request.form.get("img_url"),
-        "year": request.form.get("year"),
-        "number_of_episodes": request.form.get("number_of_episodes"),
-        "status": request.form.get("status"),
-        "episodes_watched": request.form.get("episodes_watched"),
-        "rating": rating,
-        "notes": request.form.get("notes"),
-        "created_by": session["user"]
+            "title": request.form.get("title"),
+            "image": request.form.get("img_url"),
+            "year": request.form.get("year"),
+            "number_of_episodes": request.form.get("number_of_episodes"),
+            "status": request.form.get("status"),
+            "episodes_watched": request.form.get("episodes_watched"),
+            "rating": rating,
+            "notes": request.form.get("notes"),
+            "created_by": session["user"]
         }
         mongo.db.shows.replace_one({"_id": ObjectId(show_id)}, drama)
         flash("Your drama was updated successfully")
