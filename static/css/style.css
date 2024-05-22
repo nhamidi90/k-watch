@@ -434,9 +434,9 @@ h2 {
 	
 	.scroll-div {
 		display: flex;
-		flex-wrap: nowrap;
 		flex-direction: row;
 		overflow: auto;
+		min-height: 205px;
 		scrollbar-color: rgb(142, 28, 142) rgb(203, 210, 215);
 		margin-left: 30px;
 		margin-right: 30px;
