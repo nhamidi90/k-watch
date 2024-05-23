@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Carousel
     let carousel = document.querySelectorAll('.carousel');
-    M.Carousel.init(carousel);
+    M.Carousel.init(carousel, {
+        numVisible: 10
+    });
 
     // Star rating 
     let star = document.querySelectorAll('input.star');
