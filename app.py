@@ -52,7 +52,6 @@ def index():
 
     random.shuffle(watching_shows)
     watching = watching_shows[:10]
-    print(watching)
 
     upcoming = list(mongo.db.coming.find())
     return render_template("index.html", shows=shows, upcoming=upcoming, watching=watching)
