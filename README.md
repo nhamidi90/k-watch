@@ -6,6 +6,7 @@ K Watch is a website for Korean drama watchers to keep a track of what they are 
 
 The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 
+
 ## User stories
 
 ### First time visitor goals:
@@ -29,7 +30,18 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   As an admin I want the managing process to be easy and quick so that I don't lose motivation
 *   As an admin, I don't want other users to be able to change the upcoming dramas list as the information may be incorrect
 
+
 ## Wireframes
+
+![Sign up page wireframe](documentation/readme/wireframes/register_page.png)
+![Sign in page wireframe](documentation/readme/wireframes/sign_in_page.png)
+![Regular user home page wireframe](documentation/readme/wireframes/home_page_regular.png)
+![Admin home page wireframe](documentation/readme/wireframes/home_page_admin.png)
+![My lists page wireframe](documentation/readme/wireframes/my_lists_page.png)
+![Add drama page wireframe](documentation/readme/wireframes/add_drama.png)
+![Edit drama page wireframe](documentation/readme/wireframes/edit_drama_page.png)
+![Profile page wireframe](documentation/readme/wireframes/profile_page.png)
+
 
 ## Features
 
@@ -39,22 +51,28 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   It includes links to sign in/out, register, homepage, lists page, add drama page and profile page
 *   The links available will depend on whether a user is signed in or not
 
-![Screenshot of user signed in navbar]()
-![Screenshot of user not signed in navbar]()
+![Screenshot of user signed in navbar](documentation/readme/signed_in_navbar.png)
+![Screenshot of user not signed in navbar](documentation/readme/signed_out_navbar.png)
+
+### Footer
+
+* This includes a copyright message and links to Facebook, Instagrama nd Tiktok which open in a new window
+
+![Screenshot of footer](documentation/readme/footer.png)
 
 ### Flash messages
 
 *   Flash messages appear to confirm that an action has been completed for example a new drama has been added or deleted
 *   They are styled to not be too distracting to ensure a good user experience
 
-![Screenshot of a flash message informing the user a drama has been edited]()
+![Screenshot of a flash message informing the user a drama has been edited](documentation/readme/flash_message.png)
 
 ### Sign in
 
 *   Users are asked to provide the email address and password they used to register
 *   If they have not registered yet, there is a link directing them to the sign up page
 
-![Screenshot of sign in page]()
+![Screenshot of sign in page](documentation/readme/sign_in.png)
 
 ### Register
 
@@ -62,37 +80,41 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   If the username already exists, they will be alerted to select a different one
 *   If they already have an account, there is a link directing them to the sign in page
 
-![Screenshot of register page]()
+![Screenshot of register page](documentation/readme/sign_up.png)
 
 ### Home page
 
 *   This features a 'Coming soon' section which only admin can add to, edit and remove. Admin can add information including title, image URL, release date and link to a trailer
+
+![Screenshot of admin homepage](documentation/readme/admin_index.png)
+
+![Screenshot of 'add coming soon' modal](documentation/readme/admin_add_upcoming_modal.png)
+
+![Screenshot of 'edit coming soon' modal](documentation/readme/admin_edit_upcoming_modal.png)
+
+
 *   The 'Most popular' list feature dramas which users have added to their list which have a rating greater or equal to 7. It is shuffled every time the page is refreshed and sliced to 10 items 
 *   Similarly, 'People are watching right now' section features dramas that users have added to their currently watching list. It is shuffled every time the page is refreshed and sliced to 10 items
 
-![Screenshot of regular user homepage]()
-
-![Screenshot of admin homepage]()
-
-![Screenshot of 'add coming soon' modal]()
-
-![Screenshot of 'edit coming soon' modal]()
+![Screenshot of regular user homepage](documentation/readme/regular_index.png)
 
 *   If no video link is provided, it will not appear to users
 *   If no image URL is provided, the default image will be used
 *   Users are able to add dramas from any of theses lists to their own should they wish to. If users are not signed in, the link will direct the user to the sign in page
 
-![Screenshot of 'add to your list' modal]()
+![Screenshot of 'add to your list' modal](documentation/readme/add_drama_modal.png)
+
+![Screenshot of 'add coming soon' modal](documentation/readme/add_upcoming_modal.png)
 
 ### My lists
 
 *   This includes a list of all shows that user has added and displays it into a table in alphabetial order
 
-![Screenshot of my lists page]()
+![Screenshot of my lists page](documentation/readme/my_lists.png)
 
 *   The table has a thumbnail to open up a modal including information on each drama. It also shows the title, year, number of episodes, the user's progress and rating.
 
-![Screenshot of my drama modal]()
+![Screenshot of my drama modal](documentation/readme/my_lists_modal.png)
 
 *   The table is responsive and will hide the 'year' and 'episodes' columns for mobile screens
 *   Users can also edit and delte each drama from their database
@@ -100,18 +122,18 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   It turns into a dropdown menu for small screens
 *   Users can also search through their lists with the search bar. If there is no result, they will be alerted
 
-![Screenshot of search with no results found]()
+![Screenshot of search with no results found](documentation/readme/no_shows_found.png)
 
 ### Add / Edit drama
 
 *   This is where users add dramas to their database
 
-![Screenshot of add drama page]()
+![Screenshot of add drama page](documentation/readme/add_drama.png)
 
 *   Users can edit information for any drama added to their list
 *   Fields are pre-populated with current information
 
-![Screenshot of edit drama page]()
+![Screenshot of edit drama page](documentation/readme/edit_drama.png)
 
 *   Fields for both pages include title, image link, year, number of episodes, status, episodes watched, rating and notes
 *   Title, Year, Number of episodes and status are required
@@ -124,12 +146,15 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   Users can edit their profile information or delete their account by clicking on the settings button. This will open up a modal
 *   For users to delete their account entirely, they must click the delete button which will reveal a confirmation. this is for extra security and to avid their account being accidentally deleted
 
-![Screenshot of settings modal]()
+![Screenshot of settings modal](documentation/readme/settings_modal.png)
+
+![Screenshot of settings modal - delete section](documentation/readme/delete_section.png)
 
 *   This page lists dramas that users are currently watching and ones they have not yet given a rating to
 *   It also lists dramas they have recently completed (limited to 10) and highly rated (rating is greater or equal to 7). Both of these are displayed in a carousel
 
-![Screenshot of profile page]()
+![Screenshot of profile page](documentation/readme/profile.png)
+
 
 ## Technologies Used
 
@@ -162,9 +187,11 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 * [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create the logo
 * [Chrome dev tools](https://developer.chrome.com/docs/devtools) was used for debugging and to check responsiveness
 
+
 ## Testing
 
 Please refer [here](TESTING.md) for all information on testing
+
 
 ## Deployment
 
@@ -190,21 +217,43 @@ SECRET_KEY : Your secret key
 * Scroll to the bottom and click 'Deploy branch'
 * You can then view your app by clicking on 'Open app'
 
-### Future Improvements
+
+## Future Improvements
 *   It appears that it would be beneficial to work with JQuery as opposed to vanilla javascript from the start as some of the code I used to troubleshoot used JQuery
 *   As it is not ideal to add images via a URL link, I would have like to connect to a Kdrama API as that would already have a large library of dramas including images. Users would then be able to select from the list with the details already at hand rather than having to search and input themselves
 *   It would be great if users could connect and see each others' lists as this would encourage more usage of the site and more watch time
 *   It would also be nice for users to be able to upload their own profile picture
 *   The website has potential to grow more complicated databases by adding and filtering queries such as whether it is a tv show or movie and also add dramas from other countries
+*   I would like to make my 'add drama' forms more dynamic so that when a particular status is selected, relevent fields will become visible. For example, users can only see the star rating if they have selected completed or dropped
+*   As watch lists can grow quite long, it would be benficial to introduce pagination
 
 
 ## Credits
 
 ### Content
-* for the purpose of this project, I decided to input existing dramas into the database to simulate real-world usage by getting data from [My drama list](https://mydramalist.com/) and also to give me an idea of what features to add
+* for the purpose of this project, I decided to input existing drama information into the database to simulate real-world usage by getting data from [My drama list](https://mydramalist.com/) and also to give me an idea of what features to add
 
 ### Media
 
+Here are the images I used 
+
+*   https://upload.wikimedia.org/wikipedia/en/e/e2/Queen_of_Tears_poster.png
+*   https://upload.wikimedia.org/wikipedia/en/3/3a/Tomorrow_%282022%29.jpg
+*   https://i.mydramalist.com/gWz4Wf.jpg
+*   https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTujmtz_krfwIsrUzeIVlFwY3YbvU827_rnkMUN72tSHyZ4upXa
+*   https://m.media-amazon.com/images/S/pv-target-images/825d2b8dc5598f3be2bd68f19a089702a4535e81dd9ed67962c514278e651193.png
+*   https://upload.wikimedia.org/wikipedia/en/a/a0/Beautiful_Gong_Shim_poster.jpg
+*   https://upload.wikimedia.org/wikipedia/en/7/72/Hey_Ghost%2C_Let%27s_Fight_-_Poster.jpg
+*   https://upload.wikimedia.org/wikipedia/en/2/24/All_of_Us_Are_Dead.jpeg
+*   https://upload.wikimedia.org/wikipedia/en/f/fe/Caf%C3%A9_Minamdang.jpg
+*   https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Diva_of_the_Deserted_Island.jpg/250px-Diva_of_the_Deserted_Island.jpg
+*   https://upload.wikimedia.org/wikipedia/en/6/64/Crash_Landing_on_You_main_poster.jpg
+*   https://m.media-amazon.com/images/M/MV5BNThlM2ZjYzItYzhmYS00MjI5LTg5YTAtYzZlN2FjNmIwYzc3XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg
+*   https://m.media-amazon.com/images/M/MV5BODNmNzhlYzItYjJjMC00YTUyLWJhMTQtZWRmY2JhM2RiNTljXkEyXkFqcGdeQXVyMTAwMzM3NDI3._V1_FMjpg_UX1000_.jpg
+*   https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/KillMeHealMe-Poster.jpg/220px-KillMeHealMe-Poster.jpg
+*   https://m.media-amazon.com/images/M/MV5BNmYzZTM4MmEtNTZjZi00M2YxLWE3ZGEtOTc2NThlYWEyZTY2XkEyXkFqcGdeQXVyMzE4MDkyNTA@._V1_FMjpg_UX1000_.jpg
+*   https://upload.wikimedia.org/wikipedia/en/b/b5/Pyramid_Game_%28TV_series%29_poster.jpg
+*   https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTujmtz_krfwIsrUzeIVlFwY3YbvU827_rnkMUN72tSHyZ4upXa
 
 ### Tools
 * [Amiresponsive](https://ui.dev/amiresponsive) was used to create a mockup of the website for the README
@@ -220,3 +269,6 @@ SECRET_KEY : Your secret key
 * Some code from [geeksforgeeks](https://www.geeksforgeeks.org/how-to-create-a-thumbnail-image-using-html-and-css/) was used to create thumbnails for the 'My lists' page
 
 ### Acknowledgements
+
+*   Thank you to the tutors at Code Institute who have helped me when I was stuck 
+*   Thank you to my mentor Juliia Konovalova for guiding me through this project
