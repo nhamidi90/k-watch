@@ -52,28 +52,28 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   It includes links to sign in/out, register, homepage, lists page, add drama page and profile page
 *   The links available will depend on whether a user is signed in or not
 
-![Screenshot of user signed in navbar](documentation/readme/signed_in_navbar.png)
-![Screenshot of user not signed in navbar](documentation/readme/signed_out_navbar.png)
+![Screenshot of user signed in navbar](documentation/readme/screenshots/signed_in_navbar.png)
+![Screenshot of user not signed in navbar](documentation/readme/screenshots/signed_out_navbar.png)
 
 ### Footer
 
 * This includes a copyright message and links to Facebook, Instagrama nd Tiktok which open in a new window
 
-![Screenshot of footer](documentation/readme/footer.png)
+![Screenshot of footer](documentation/readme/screenshots/footer.png)
 
 ### Flash messages
 
 *   Flash messages appear to confirm that an action has been completed for example a new drama has been added or deleted
 *   They are styled to not be too distracting to ensure a good user experience
 
-![Screenshot of a flash message informing the user a drama has been edited](documentation/readme/flash_message.png)
+![Screenshot of a flash message informing the user a drama has been edited](documentation/readme/screenshots/flash_message.png)
 
 ### Sign in
 
 *   Users are asked to provide the email address and password they used to register
 *   If they have not registered yet, there is a link directing them to the sign up page
 
-![Screenshot of sign in page](documentation/readme/sign_in.png)
+![Screenshot of sign in page](documentation/readme/screenshots/sign_in.png)
 
 ### Register
 
@@ -81,37 +81,37 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   If the username already exists, they will be alerted to select a different one
 *   If they already have an account, there is a link directing them to the sign in page
 
-![Screenshot of register page](documentation/readme/sign_up.png)
+![Screenshot of register page](documentation/readme/screenshots/sign_up.png)
 
 ### Home page
 
 *   This features a 'Coming soon' section which only admin can add to, edit and remove. Admin can add information including title, image URL, release date and link to a trailer
 
-![Screenshot of admin homepage](documentation/readme/admin_index.png)
+![Screenshot of admin homepage](documentation/readme/screenshots/admin_index.png)
 
-![Screenshot of 'add coming soon' modal](documentation/readme/admin_add_upcoming_modal.png)
+![Screenshot of 'add coming soon' modal](documentation/readme/screenshots/admin_add_upcoming_modal.png)
 
-![Screenshot of 'edit coming soon' modal](documentation/readme/admin_edit_upcoming_modal.png)
+![Screenshot of 'edit coming soon' modal](documentation/readme/screenshots/admin_edit_upcoming_modal.png)
 
 
 *   The 'Most popular' list feature dramas which users have added to their list which have a rating greater or equal to 7. It is shuffled every time the page is refreshed and sliced to 10 items 
 *   Similarly, 'People are watching right now' section features dramas that users have added to their currently watching list. It is shuffled every time the page is refreshed and sliced to 10 items
 
-![Screenshot of regular user homepage](documentation/readme/regular_index.png)
+![Screenshot of regular user homepage](documentation/readme/screenshots/regular_index.png)
 
 *   If no video link is provided, it will not appear to users
 *   If no image URL is provided, the default image will be used
 *   Users are able to add dramas from any of theses lists to their own should they wish to. If users are not signed in, the link will direct the user to the sign in page
 
-![Screenshot of 'add to your list' modal](documentation/readme/add_drama_modal.png)
+![Screenshot of 'add to your list' modal](documentation/readme/screenshots/add_drama_modal.png)
 
-![Screenshot of 'add coming soon' modal](documentation/readme/add_upcoming_modal.png)
+![Screenshot of 'add coming soon' modal](documentation/readme/screenshots/add_upcoming_modal.png)
 
 ### My lists
 
 *   This includes a list of all shows that user has added and displays it into a table in alphabetial order
 
-![Screenshot of my lists page](documentation/readme/my_lists.png)
+![Screenshot of my lists page](documentation/readme/screenshots/my_lists.png)
 
 *   The table has a thumbnail to open up a modal including information on each drama. It also shows the title, year, number of episodes, the user's progress and rating.
 
@@ -123,18 +123,18 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   It turns into a dropdown menu for small screens
 *   Users can also search through their lists with the search bar. If there is no result, they will be alerted
 
-![Screenshot of search with no results found](documentation/readme/no_shows_found.png)
+![Screenshot of search with no results found](documentation/readme/screenshots/no_shows_found.png)
 
 ### Add / Edit drama
 
 *   This is where users add dramas to their database
 
-![Screenshot of add drama page](documentation/readme/add_drama.png)
+![Screenshot of add drama page](documentation/readme/screenshots/add_drama.png)
 
 *   Users can edit information for any drama added to their list
 *   Fields are pre-populated with current information
 
-![Screenshot of edit drama page](documentation/readme/edit_drama.png)
+![Screenshot of edit drama page](documentation/readme/screenshots/edit_drama.png)
 
 *   Fields for both pages include title, image link, year, number of episodes, status, episodes watched, rating and notes
 *   Title, Year, Number of episodes and status are required
@@ -147,14 +147,14 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 *   Users can edit their profile information or delete their account by clicking on the settings button. This will open up a modal
 *   For users to delete their account entirely, they must click the delete button which will reveal a confirmation. this is for extra security and to avid their account being accidentally deleted
 
-![Screenshot of settings modal](documentation/readme/settings_modal.png)
+![Screenshot of settings modal](documentation/readme/screenshots/settings_modal.png)
 
-![Screenshot of settings modal - delete section](documentation/readme/delete_section.png)
+![Screenshot of settings modal - delete section](documentation/readme/screenshots/delete_section.png)
 
 *   This page lists dramas that users are currently watching and ones they have not yet given a rating to
 *   It also lists dramas they have recently completed (limited to 10) and highly rated (rating is greater or equal to 7). Both of these are displayed in a carousel
 
-![Screenshot of profile page](documentation/readme/profile.png)
+![Screenshot of profile page](documentation/readme/screenshots/profile.png)
 
 
 ## Technologies Used
@@ -268,6 +268,7 @@ Here are the images I used
 * [Code Institute](https://codeinstitute.net/) I referred to lessons and source code from Code Institute's Web Application Development course
 * I also got the code for custom Materialize validation from Code Institute
 * Some code from [geeksforgeeks](https://www.geeksforgeeks.org/how-to-create-a-thumbnail-image-using-html-and-css/) was used to create thumbnails for the 'My lists' page
+* [W3schools](https://www.w3schools.com/html/html_favicon.asp) gave me the method to add a favicon
 
 ### Acknowledgements
 
