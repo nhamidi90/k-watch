@@ -32,19 +32,30 @@ def index():
         mongo.db.coming.insert_one(coming_soon)
         flash("Your drama was added successfully")
         return redirect(url_for("index"))
-    shows = list(mongo.db.shows.find())
+    all_shows = list(mongo.db.shows.find())
+    
+    filtered_shows = []
+
+    for show in all_shows:
+        if show.get('rating'):
+            if show.get('rating') >= 7:
+                filtered_shows.append(show)
+
+    random.shuffle(filtered_shows)
+    shows = filtered_shows[:10]
+
+    watching_shows = []
+
+    for show in all_shows:
+        if show.get('status') == "Currently watching":
+            watching_shows.append(show)
+
+    random.shuffle(watching_shows)
+    watching = watching_shows[:10]
+    print(watching)
+
     upcoming = list(mongo.db.coming.find())
-    return render_template("index.html", shows=shows, upcoming=upcoming)
-
-
-@app.template_filter('shuffle')
-def filter_shuffle(seq):
-    try:
-        result = list(seq)
-        random.shuffle(result)
-        return result
-    except:
-        return seq
+    return render_template("index.html", shows=shows, upcoming=upcoming, watching=watching)
 
 
 @ app.route("/add_upcoming", methods=["GET", "POST"])
