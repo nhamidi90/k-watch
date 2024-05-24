@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+
 /* Global settings  */
+
+label {
+	width: auto !important
+}
 
 body {
 	font-family: nunito;
