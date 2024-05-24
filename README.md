@@ -21,6 +21,7 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 
 ### Frequent visitor goals:
 *	I want to keep a track on my watch list and edit it as I progress
+*   I want to see updated information such as upcoming dramas so there is a reason to keep updating my list
 *	I want to see recommendations on what others are watching so I can maybe add it to my own list
 *	I want to see my own stats to get an idea of my watching habits
 *   I want to be able to filter my list according to its status
