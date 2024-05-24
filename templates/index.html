@@ -237,108 +237,103 @@
             {% endif %}
             </p>
         </div>
-    
-    {% endfor %}
-</div>
-{% for show in shows %}
 
-<!-- Add to watch list modal-->
-<div id="add_drama{{ show.title }}" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5>Add to your list</h5>
-            <span>
-                <a href="#!" class="modal-close" aria-label="Close">
-                    <i class="fa-solid fa-x"></i>
-                </a>
-            </span>
-        </div>
-        <div class="warning">
-            <span>*warning*</span>
-            Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
-        </div>
-        <div class="row">
-            <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
-                <div class="row">
-                    <div class="input-field col s12 m6">
-                        <input id="title" name="title" value="{{ show.title }}" type="text" class="validate"
-                            required>
-                        <label for="title">Title</label>
-                    </div>
-                    <div class="input-field col s12 m6">
-                        {% if show.image %}
-                            <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
-                        {% else %}
-                            <input id="img_url" name="img_url"
-                                value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
-                                class="validate">
-                        {% endif %}
-                        <label for="img_url">Image Link</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m6">
-                        <input id="year" name="year" value="{{ show.year }}" type="text" class="validate" required>
-                        <label for="year">Year</label>
-                    </div>
-                    <div class="input-field col s12 m6">
-                        <p class="range-field">
-                            <label for="number_of_episodes">Number of Episodes</label>
-                            <input type="range" id="number_of_episodes" name="number_of_episodes"
-                                value="{{ show.number_of_episodes }}" min="1" value="0" max="172" required />
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m6">
-                        <select id="status" name="status" class="validate" required>
-                            <option value="" disabled selected>Select an option</option>
-                            <option value="Plan to watch">Plan to watch</option>
-                            <option value="Currently watching">Currently watching</option>
-                            <option value="Completed">Completed</option>
-                            <option value="Dropped">Dropped</option>
-                        </select>
-                        <label for="status">Status</label>
-                    </div>
-                    <div class="input-field col s12 m6" id="number-of-eps">
-                        <p class="range-field">
-                            <label for="episodes_watched">Episodes watched</label>
-                            <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
-                                value="0" />
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="rating-wrap s12">
-                        <label>Rating</label>
-                        <div class="star-cont">
-                            <fieldset class="rating">
-                                {% for i in range(1,11)|reverse %}
-                                <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star" /><label
-                                    for="star{{i}}{{show._id}}"></label>
-                                {% endfor %}
-                            </fieldset>
-                            <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
+    <!-- Add most popular modal-->
+    <div id="add_drama{{ show.title }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Add to your list</h5>
+                <span>
+                    <a href="#!" class="modal-close" aria-label="Close">
+                        <i class="fa-solid fa-x"></i>
+                    </a>
+                </span>
+            </div>
+            <div class="warning">
+                <span>*warning*</span>
+                Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
+            </div>
+            <div class="row">
+                <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="title" name="title" value="{{ show.title }}" type="text" class="validate"
+                                required>
+                            <label for="title">Title</label>
                         </div>
-                        <h4 id="rating-value"></h4>
+                        <div class="input-field col s12 m6">
+                            {% if show.image %}
+                                <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                            {% else %}
+                                <input id="img_url" name="img_url"
+                                    value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
+                                    class="validate">
+                            {% endif %}
+                            <label for="img_url">Image Link</label>
+                        </div>
                     </div>
-                    <div class="input-field col s12">
-                        <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
-                        <label for="notes">Notes</label>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="year" name="year" value="{{ show.year }}" type="text" class="validate" required>
+                            <label for="year">Year</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <p class="range-field">
+                                <label for="number_of_episodes">Number of Episodes</label>
+                                <input type="range" id="number_of_episodes" name="number_of_episodes"
+                                    value="{{ show.number_of_episodes }}" min="1" value="0" max="172" required />
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="row center-align">
-                    <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
-                        aria-label="Submit">Submit
-                    </button>
-                </div>
-            </form>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <select id="status" name="status" class="validate" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Plan to watch">Plan to watch</option>
+                                <option value="Currently watching">Currently watching</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Dropped">Dropped</option>
+                            </select>
+                            <label for="status">Status</label>
+                        </div>
+                        <div class="input-field col s12 m6" id="number-of-eps">
+                            <p class="range-field">
+                                <label for="episodes_watched">Episodes watched</label>
+                                <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
+                                    value="0" />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="rating-wrap s12">
+                            <label>Rating</label>
+                            <div class="star-cont">
+                                <fieldset class="rating">
+                                    {% for i in range(1,11)|reverse %}
+                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star" /><label
+                                        for="star{{i}}{{show._id}}"></label>
+                                    {% endfor %}
+                                </fieldset>
+                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
+                            </div>
+                            <h4 id="rating-value"></h4>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes">Notes</label>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                            aria-label="Submit">Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+    {% endfor %}
 </div>
-
-{% endfor %}
-
 
 <!-- Watching now  -->
 <h4 class="row-margin">People are watching right now</h4>
@@ -353,7 +348,7 @@
         <p>{{ show.title }}
             {% if session.user %}
                 <span>
-                    <a class="modal-trigger" href="#add_drama{{ show.title }}" aria-label="Add to watch list">
+                    <a class="modal-trigger" href="#add_drama2{{ show.title }}" aria-label="Add to watch list">
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </span>
@@ -366,6 +361,102 @@
             {% endif %}
         </p>
     </div>
+
+    <!-- Add watching now modal  -->
+    <div id="add_drama2{{ show.title }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Add to your list</h5>
+                <span>
+                    <a href="#!" class="modal-close" aria-label="Close">
+                        <i class="fa-solid fa-x"></i>
+                    </a>
+                </span>
+            </div>
+            <div class="warning">
+                <span>*warning*</span>
+                Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
+            </div>
+            <div class="row">
+                <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="title" name="title" value="{{ show.title }}" type="text" class="validate"
+                                required>
+                            <label for="title">Title</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            {% if show.image %}
+                                <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                            {% else %}
+                                <input id="img_url" name="img_url"
+                                    value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
+                                    class="validate">
+                            {% endif %}
+                            <label for="img_url">Image Link</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="year" name="year" value="{{ show.year }}" type="text" class="validate" required>
+                            <label for="year">Year</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <p class="range-field">
+                                <label for="number_of_episodes">Number of Episodes</label>
+                                <input type="range" id="number_of_episodes" name="number_of_episodes"
+                                    value="{{ show.number_of_episodes }}" min="1" value="0" max="172" required />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <select id="status" name="status" class="validate" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Plan to watch">Plan to watch</option>
+                                <option value="Currently watching">Currently watching</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Dropped">Dropped</option>
+                            </select>
+                            <label for="status">Status</label>
+                        </div>
+                        <div class="input-field col s12 m6" id="number-of-eps">
+                            <p class="range-field">
+                                <label for="episodes_watched">Episodes watched</label>
+                                <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
+                                    value="0" />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="rating-wrap s12">
+                            <label>Rating</label>
+                            <div class="star-cont">
+                                <fieldset class="rating">
+                                    {% for i in range(1,11)|reverse %}
+                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star" /><label
+                                        for="star{{i}}{{show._id}}"></label>
+                                    {% endfor %}
+                                </fieldset>
+                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
+                            </div>
+                            <h4 id="rating-value"></h4>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes">Notes</label>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <button class="btn waves-effect waves-light purple darken-4" type="submit" name="action"
+                            aria-label="Submit">Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
     {% endfor %}
 </div>
 
