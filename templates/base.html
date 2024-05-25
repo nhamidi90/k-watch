@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keep track of all the Korean dramas you watch">
+    <meta name="keywords" content="Korean dramas kdrama kdramas watchlist">
+    <meta name="author" content="Nabilah Hamidi">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,7 +22,7 @@
             <!-- Top navbar -->
             <div class="nav-wrapper purple darken-4">
                 <a href="{{ url_for('index') }}" aria-label="Go to home page">
-                    <img src="{{ url_for('static', filename='images/kwatch.png') }}" class="logo">
+                    <img src="{{ url_for('static', filename='images/kwatch.png') }}" class="logo" alt="Go to home page">
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i>
                 <ul class="right hide-on-med-and-down">
