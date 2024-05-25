@@ -1,13 +1,13 @@
 import os
 import random
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
-	import env
+    import env
 
 
 app = Flask(__name__)
@@ -33,7 +33,7 @@ def index():
         flash("Your drama was added successfully")
         return redirect(url_for("index"))
     all_shows = list(mongo.db.shows.find())
-    
+
     filtered_shows = []
 
     for show in all_shows:
@@ -54,7 +54,8 @@ def index():
     watching = watching_shows[:10]
 
     upcoming = list(mongo.db.coming.find())
-    return render_template("index.html", shows=shows, upcoming=upcoming, watching=watching)
+    return render_template("index.html", shows=shows, upcoming=upcoming,
+                           watching=watching)
 
 
 @ app.route("/add_upcoming", methods=["GET", "POST"])
@@ -151,11 +152,10 @@ def register():
     if request.method == "POST":
         existing_user = mongo.db.user.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-
 
         register = {
             "username": request.form.get("username").lower(),
@@ -165,14 +165,15 @@ def register():
                 request.form.get("confirm_password")
             )
         }
-        
+
         password1 = request.form.get("password")
         password2 = request.form.get("confirm_password")
 
         if password1 != password2:
             flash("Passwords do not match. Please try again")
-        else: mongo.db.user.insert_one(register), flash(
-            "Registration successful! Welcome!")
+        else:
+            mongo.db.user.insert_one(register),
+            flash("Registration successful! Welcome!")
         session["user"] = request.form.get("username")
         return redirect(url_for("profile", username=session["user"]))
 
@@ -184,14 +185,15 @@ def sign_in():
     if request.method == "POST":
         existing_user = mongo.db.user.find_one(
             {"email": request.form.get("email")})
-        
+
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session['user'] = existing_user['username']
-                    return redirect(
-                        url_for("get_shows", username=session["user"])
-                    )
+                                  existing_user["password"], request.form.get(
+                                    "password")):
+                session['user'] = existing_user['username']
+                return redirect(
+                    url_for("get_shows", username=session["user"])
+                )
             else:
                 flash("Incorrect Email or Password")
                 return redirect(url_for("sign_in"))
@@ -212,13 +214,13 @@ def profile(username):
     password = mongo.db.user.find_one(
         {"username": session["user"]}
     )['password']
-    
+
     if session["user"]:
 
         if request.method == "POST":
             existing_user = mongo.db.user.find_one(
                 {"username": request.form.get("username").lower()})
-        
+
             if existing_user:
 
                 update_profile = {
@@ -244,8 +246,8 @@ def profile(username):
                 ), flash("Profile updated")
 
         return render_template("profile.html", username=username, email=email,
-            password=password, shows=shows)
-    
+                               password=password, shows=shows)
+
     return redirect(url_for('profile', username=username))
 
 
@@ -321,6 +323,6 @@ def delete_drama(show_id):
 
 
 if __name__ == "__main__":
-    app.run(host = os.environ.get("IP"),
-            port = int(os.environ.get("PORT")), 
-            debug = True)
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
