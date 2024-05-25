@@ -32,7 +32,7 @@
                             <p class="range-field">
                                 <label for="number_of_episodes">Number of Episodes</label>
                                 <input type="range" id="number_of_episodes" name="number_of_episodes" min="1" value="0"
-                                    max="172" required />
+                                    max="172"/>
                             </p>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                             <p class="range-field">
                                 <label for="episodes_watched">Episodes watched</label>
                                 <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
-                                    value="0" />
+                                    value="0"/>
                             </p>
                         </div>
                     </div>
@@ -60,11 +60,11 @@
                             <div class="star-cont">
                                 <fieldset class="rating rating-large">
                                     {% for i in range(1,11)|reverse %}
-                                        <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star" /><label
+                                        <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star"/><label
                                             for="star{{i}}"></label>
                                     {% endfor %}
                                 </fieldset>
-                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
+                                <i class="fa-solid fa-eraser resetButton" alt="clear"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
