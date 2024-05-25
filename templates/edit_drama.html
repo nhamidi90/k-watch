@@ -68,7 +68,7 @@
                                     {% for i in range(1,11)|reverse %}
                                     {% if show.rating  == i %}
                                     <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star"
-                                        checked /><label for="star{{i}}"></label>
+                                        checked><label for="star{{i}}"></label>
                                     {% else %}
                                     <input type="radio" id="star{{i}}" name="rating" value="{{i}}" class="star"><label
                                         for="star{{i}}"></label>
