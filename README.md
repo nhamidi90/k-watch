@@ -2,7 +2,7 @@
 
 K Watch is a website for Korean drama watchers to keep a track of what they are watching. They can add a drama to their list with details such as the status (Plan to watch, Currently watching, Completed or Dropped), number of episode they have watched, give a rating etc. They can then edit each entry as necessary. On the homepage, users can see information on upcoming dramas, most popular dramas as rated by other users and what others are currently watching. On their profile page, they can see personal stats such as what they have recently completed. 
 
-![Screenshot of the website on different devices]()
+![Screenshot of the website on different devices](documentation/readme/screenshots/mockup.png)
 
 The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 
@@ -115,7 +115,7 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 
 *   The table has a thumbnail to open up a modal including information on each drama. It also shows the title, year, number of episodes, the user's progress and rating.
 
-![Screenshot of my drama modal](documentation/readme/my_lists_modal.png)
+![Screenshot of my drama modal](documentation/readme/screenshots/my_lists_modal.png)
 
 *   The table is responsive and will hide the 'year' and 'episodes' columns for mobile screens
 *   Users can also edit and delte each drama from their database
@@ -184,8 +184,7 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 * [Gitpod](https://gitpod.io/) was used to write and edit code
 * [GitHub](https://github.com/) was used to store code for the website
 * [Heroku](https://heroku.com/) hosts the website
-* [Adobe photoshop](https://www.adobe.com/uk/products/photoshop.html) was used to crop images for the README.md file
-* [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create the logo
+* [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create the logo and favicon
 * [Chrome dev tools](https://developer.chrome.com/docs/devtools) was used for debugging and to check responsiveness
 
 
@@ -257,6 +256,7 @@ Here are the images I used
 *   https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTujmtz_krfwIsrUzeIVlFwY3YbvU827_rnkMUN72tSHyZ4upXa
 
 ### Tools
+* [Adobe photoshop](https://www.adobe.com/uk/products/photoshop.html) was used to crop images for the README.md/TESTING.md file
 * [Amiresponsive](https://ui.dev/amiresponsive) was used to create a mockup of the website for the README
 * [Responsive viewer](https://responsiveviewer.org/) was used to check how the website looks on different devices
 
