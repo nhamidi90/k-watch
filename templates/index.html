@@ -31,7 +31,7 @@
         <p>Add to your watch list
             {% if session.user %}
                 <span>
-                    <a class="modal-trigger" href="#add-to-list{{coming.title}}" aria-label="Add to watch list">
+                    <a class="modal-trigger" href="#add-to-list{{coming._id}}" aria-label="Add to watch list">
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </span>
@@ -106,7 +106,7 @@
     </div>
 
     <!-- add to list modal -->
-    <div id="add-to-list{{coming.title}}" class="modal">
+    <div id="add-to-list{{coming._id}}" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h5>Add to your list</h5>
@@ -121,35 +121,35 @@
                 Please note, images may be removed by the owner at any time. Feel free to replace it should that happen
             </div>
             <div class="row">
-                <form class="col s12" method="POST" action="{{ url_for('add_upcoming') }}" id="add-upcoming">
+                <form class="col s12" method="POST" action="{{ url_for('add_upcoming') }}" id="add-upcoming{{coming._id}}">
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="title" name="title" type="text" value="{{ coming.title }}" class="validate"
+                            <input id="title{{coming._id}}" name="title" type="text" value="{{ coming.title }}" class="validate"
                                 required>
-                            <label for="title">Title</label>
+                            <label for="title{{coming._id}}">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
-                            <input id="img_url" name="img_url" type="text" value="{{ coming.image }}" class="validate">
-                            <label for="img_url">Image Link</label>
+                            <input id="img_url{{coming._id}}" name="img_url" type="text" value="{{ coming.image }}" class="validate">
+                            <label for="img_url{{coming._id}}">Image Link</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="year" name="year" type="text" value="{{ coming.year }}" class="validate"
+                            <input id="year{{coming._id}}" name="year" type="text" value="{{ coming.year }}" class="validate"
                                 required>
-                            <label for="year">Year</label>
+                            <label for="year{{coming._id}}">Year</label>
                         </div>
                         <div class="input-field col s12 m6">
-                            <select id="status" name="status" class="validate" required>
+                            <select id="status{{coming._id}}" name="status" class="validate">
                                 <option value="Plan to watch">Plan to watch</option>
                             </select>
-                            <label for="status">Status</label>
+                            <label for="status{{coming._id}}">Status</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
-                            <label for="notes">Notes</label>
+                            <textarea id="notes{{coming._id}}" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes{{coming._id}}">Notes</label>
                         </div>
                     </div>
                     <div class="row center-align">
@@ -224,7 +224,7 @@
             <p>{{ show.title }}
             {% if session.user %}
                 <span>
-                    <a class="modal-trigger" href="#add_drama{{ show.title }}" aria-label="Add to watch list">
+                    <a class="modal-trigger" href="#add_drama{{ show._id }}" aria-label="Add to watch list">
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </span>
@@ -239,7 +239,7 @@
         </div>
 
     <!-- Add most popular modal-->
-    <div id="add_drama{{ show.title }}" class="modal">
+    <div id="add_drama{{ show._id }}" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h5>Add to your list</h5>
@@ -257,50 +257,50 @@
                 <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="title" name="title" value="{{ show.title }}" type="text" class="validate"
+                            <input id="title{{ show._id }}" name="title" value="{{ show.title }}" type="text" class="validate"
                                 required>
-                            <label for="title">Title</label>
+                            <label for="title{{ show._id }}">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
                             {% if show.image %}
-                                <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                                <input id="img_url{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
-                                <input id="img_url" name="img_url"
+                                <input id="img_url{{ show._id }}" name="img_url"
                                     value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
                                     class="validate">
                             {% endif %}
-                            <label for="img_url">Image Link</label>
+                            <label for="img_url{{ show._id }}">Image Link</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="year" name="year" value="{{ show.year }}" type="text" class="validate" required>
-                            <label for="year">Year</label>
+                            <input id="year{{ show._id }}" name="year" value="{{ show.year }}" type="text" class="validate" required>
+                            <label for="year{{ show._id }}">Year</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <p class="range-field">
-                                <label for="number_of_episodes">Number of Episodes</label>
-                                <input type="range" id="number_of_episodes" name="number_of_episodes"
-                                    value="{{ show.number_of_episodes }}" min="1" value="0" max="172" required />
+                                <label for="number_of_episodes{{ show._id }}">Number of Episodes</label>
+                                <input type="range" id="number_of_episodes{{ show._id }}" name="number_of_episodes"
+                                    value="{{ show.number_of_episodes }}" min="1" max="172">
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <select id="status" name="status" class="validate" required>
+                            <select id="status{{ show._id }}" name="status" class="validate" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="Plan to watch">Plan to watch</option>
                                 <option value="Currently watching">Currently watching</option>
                                 <option value="Completed">Completed</option>
                                 <option value="Dropped">Dropped</option>
                             </select>
-                            <label for="status">Status</label>
+                            <label for="status{{ show._id }}">Status</label>
                         </div>
                         <div class="input-field col s12 m6" id="number-of-eps">
                             <p class="range-field">
-                                <label for="episodes_watched">Episodes watched</label>
-                                <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
-                                    value="0" />
+                                <label for="episodes_watched{{ show._id }}">Episodes watched</label>
+                                <input type="range" id="episodes_watched{{ show._id }}" name="episodes_watched" min="0" max="172"
+                                    value="0">
                             </p>
                         </div>
                     </div>
@@ -310,17 +310,17 @@
                             <div class="star-cont">
                                 <fieldset class="rating">
                                     {% for i in range(1,11)|reverse %}
-                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star" /><label
-                                        for="star{{i}}{{show._id}}"></label>
+                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star">
+                                    <label for="star{{i}}{{show._id}}"></label>
                                     {% endfor %}
                                 </fieldset>
-                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
+                                <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
                         <div class="input-field col s12">
-                            <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
-                            <label for="notes">Notes</label>
+                            <textarea id="notes{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes{{ show._id }}">Notes</label>
                         </div>
                     </div>
                     <div class="row center-align">
@@ -348,7 +348,7 @@
         <p>{{ show.title }}
             {% if session.user %}
                 <span>
-                    <a class="modal-trigger" href="#add_drama2{{ show.title }}" aria-label="Add to watch list">
+                    <a class="modal-trigger" href="#add_drama2{{ show._id }}" aria-label="Add to watch list">
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </span>
@@ -363,7 +363,7 @@
     </div>
 
     <!-- Add watching now modal  -->
-    <div id="add_drama2{{ show.title }}" class="modal">
+    <div id="add_drama2{{ show._id }}" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h5>Add to your list</h5>
@@ -381,50 +381,50 @@
                 <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="title" name="title" value="{{ show.title }}" type="text" class="validate"
+                            <input id="title{{ show._id }}" name="title" value="{{ show.title }}" type="text" class="validate"
                                 required>
-                            <label for="title">Title</label>
+                            <label for="title{{ show._id }}">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
                             {% if show.image %}
-                                <input id="img_url" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                                <input id="img_url{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
-                                <input id="img_url" name="img_url"
+                                <input id="img_url{{ show._id }}" name="img_url"
                                     value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
                                     class="validate">
                             {% endif %}
-                            <label for="img_url">Image Link</label>
+                            <label for="img_url{{ show._id }}">Image Link</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="year" name="year" value="{{ show.year }}" type="text" class="validate" required>
-                            <label for="year">Year</label>
+                            <input id="year{{ show._id }}" name="year" value="{{ show.year }}" type="text" class="validate" required>
+                            <label for="year{{ show._id }}">Year</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <p class="range-field">
-                                <label for="number_of_episodes">Number of Episodes</label>
-                                <input type="range" id="number_of_episodes" name="number_of_episodes"
-                                    value="{{ show.number_of_episodes }}" min="1" value="0" max="172" required />
+                                <label for="number_of_episodes{{ show._id }}">Number of Episodes</label>
+                                <input type="range" id="number_of_episodes{{ show._id }}" name="number_of_episodes"
+                                    value="{{ show.number_of_episodes }}" min="1" max="172">
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <select id="status" name="status" class="validate" required>
+                            <select id="status{{ show._id }}" name="status" class="validate" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="Plan to watch">Plan to watch</option>
                                 <option value="Currently watching">Currently watching</option>
                                 <option value="Completed">Completed</option>
                                 <option value="Dropped">Dropped</option>
                             </select>
-                            <label for="status">Status</label>
+                            <label for="status{{ show._id }}">Status</label>
                         </div>
-                        <div class="input-field col s12 m6" id="number-of-eps">
+                        <div class="input-field col s12 m6" id="number-of-eps{{ show._id }}">
                             <p class="range-field">
-                                <label for="episodes_watched">Episodes watched</label>
+                                <label for="episodes_watched{{ show._id }}">Episodes watched</label>
                                 <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
-                                    value="0" />
+                                    value="0">
                             </p>
                         </div>
                     </div>
@@ -434,17 +434,17 @@
                             <div class="star-cont">
                                 <fieldset class="rating">
                                     {% for i in range(1,11)|reverse %}
-                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star" /><label
+                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star"><label
                                         for="star{{i}}{{show._id}}"></label>
                                     {% endfor %}
                                 </fieldset>
-                                <i class="fa-solid fa-eraser resetButton" aria-label="Clear"></i>
+                                <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
                             <h4 id="rating-value"></h4>
                         </div>
                         <div class="input-field col s12">
-                            <textarea id="notes" name="notes" class="materialize-textarea"></textarea>
-                            <label for="notes">Notes</label>
+                            <textarea id="notes{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes{{ show._id }}">Notes</label>
                         </div>
                     </div>
                     <div class="row center-align">
