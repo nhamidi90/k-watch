@@ -49,7 +49,8 @@
         <ul id="status-menu">
             <li><a href="#" id="menu-all-desktop" aria-label="View all dramas">All dramas</a></li>
             <li><a href="#" id="menu-plan-to-watch-desktop" aria-label="View plan to watch">Plan to Watch</a></li>
-            <li><a href="#" id="menu-currently-watching-desktop" aria-label="View currently watching">Currently Watching</a></li>
+            <li><a href="#" id="menu-currently-watching-desktop" aria-label="View currently watching">Currently
+                    Watching</a></li>
             <li><a href="#" id="menu-completed-desktop" aria-label="View completed">Completed</a></li>
             <li><a href="#" id="menu-dropped-desktop" aria-label="View dropped">Dropped</a></li>
         </ul>
@@ -58,439 +59,445 @@
 
 {% if shows|length >0 %}
 
-    <!-- All shows  -->
-    <div id="all-shows">
-        <table class="highlight centered show-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Edit / Delete</th>
-                    <th class="table-col">Year</th>
-                    <th class="table-col">Episodes</th>
-                    <th>Progress</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            {% for show in shows|sort(attribute='title') %}
-                {% if session.user|lower == show.created_by|lower %}
-                <tr>
-                    <td class="thumb-box">
-                        <div class="thumb-container">
-                            {% if show.image %}
-                                <img class="thumbnail modal-trigger" href="#modal{{ show.title }}" src="{{ show.image }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% else %}
-                                <img class="thumbnail modal-trigger" href="#modal{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>
-                        {{ show.title }}
-                    </td>
-                    <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </td>
-                    <td class="table-col">
-                        {{ show.year }}
-                    </td>
-                    <td class="table-col">
-                        {{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.rating }}
-                    </td>
-                </tr>
-                {% endif %}
-
-                <!-- modal for all drama information -->
-                <div id="modal{{ show.title }}" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-container">
-                            <div class="table-col">
-                                {% if show.image %}
-                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                                {% else %}
-                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Picture for {{ show.title }}">
-                                {% endif %}
-                            </div>
-                            <div class="drama-info">
-                                <h6>{{ show.title }}</h6>
-                                <p><strong>Year:</strong> {{ show.year }}</p>
-                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                                <p><strong>Status:</strong> {{ show.status }}</p>
-                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                                <p><strong>Notes:</strong> {{ show.notes }}</p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
-                                aria-label="Close">Close</a>
-                        </div>
-                    </div>
+<!-- All shows  -->
+<div id="all-shows">
+    <table class="highlight centered show-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Edit / Delete</th>
+                <th class="table-col">Year</th>
+                <th class="table-col">Episodes</th>
+                <th>Progress</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        {% for show in shows|sort(attribute='title') %}
+        {% if session.user|lower == show.created_by|lower %}
+        <tr>
+            <td class="thumb-box">
+                <div class="thumb-container">
+                    {% if show.image %}
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}" src="{{ show.image }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% else %}
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}"
+                        src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% endif %}
                 </div>
-            {% endfor %}
-        </table>
-    </div>
+            </td>
+            <td>
+                {{ show.title }}
+            </td>
+            <td>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </a> /
+                <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </td>
+            <td class="table-col">
+                {{ show.year }}
+            </td>
+            <td class="table-col">
+                {{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.rating }}
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
 
-    <!-- Plan to watch  -->
-    <div id="plan-to-watch" class="nodisplay">
-        <table class="highlight centered show-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Edit / Delete</th>
-                    <th class="table-col">Year</th>
-                    <th class="table-col">Episodes</th>
-                    <th>Progress</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            {% for show in shows|sort(attribute='title') %}
-                {% if (show.status == "Plan to watch") and (session.user|lower == show.created_by|lower) %}
-                <tr>
-                    <td class="thumb-box">
-                        <div class="thumb-container">
-                            {% if show.image %}
-                                <img class="thumbnail modal-trigger" href="#modal2{{ show.title }}" src="{{ show.image }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% else %}
-                                <img class="thumbnail modal-trigger" href="#modal2{{ show.title }}" 
-                                src="{{ url_for('static', filename='images/no-img.png') }}" alt="Click for information 
+    {% for show in shows %}
+    <!-- modal for all drama information -->
+    <div id="modal{{ show._id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-container">
+                <div class="table-col">
+                    {% if show.image %}
+                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
+                    {% else %}
+                    <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Picture for {{ show.title }}">
+                    {% endif %}
+                </div>
+                <div class="drama-info">
+                    <h6>{{ show.title }}</h6>
+                    <p><strong>Year:</strong> {{ show.year }}</p>
+                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                    <p><strong>Status:</strong> {{ show.status }}</p>
+                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                    <p><strong>Notes:</strong> {{ show.notes }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+<!-- Plan to watch  -->
+<div id="plan-to-watch" class="nodisplay">
+    <table class="highlight centered show-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Edit / Delete</th>
+                <th class="table-col">Year</th>
+                <th class="table-col">Episodes</th>
+                <th>Progress</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        {% for show in shows|sort(attribute='title') %}
+        {% if (show.status == "Plan to watch") and (session.user|lower == show.created_by|lower) %}
+        <tr>
+            <td class="thumb-box">
+                <div class="thumb-container">
+                    {% if show.image %}
+                    <img class="thumbnail modal-trigger" href="#modal2{{ show._id }}" src="{{ show.image }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% else %}
+                    <img class="thumbnail modal-trigger" href="#modal2{{ show._id }}"
+                        src="{{ url_for('static', filename='images/no-img.png') }}" alt="Click for information 
                                     about {{ show.title }}">
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>
-                        {{ show.title }}
-                    </td>
-                    <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
-                            <i class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </td>
-                    <td class="table-col">
-                        {{ show.year }}
-                    </td>
-                    <td class="table-col">
-                        {{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.rating }}
-                    </td>
-                </tr>
-                {% endif %}
-
-                <!-- modal for 'plan to watch' drama information -->
-                <div id="modal2{{ show.title }}" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-container">
-                            <div class="table-col">
-                                {% if show.image %}
-                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                                {% else %}
-                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Picture for {{ show.title }}">
-                                {% endif %}
-                            </div>
-                            <div class="drama-info">
-                                <h6>{{ show.title }}</h6>
-                                <p><strong>Year:</strong> {{ show.year }}</p>
-                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                                <p><strong>Status:</strong> {{ show.status }}</p>
-                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                                <p><strong>Notes:</strong> {{ show.notes }}</p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
-                                aria-label="Close">Close</a>
-                        </div>
-                    </div>
+                    {% endif %}
                 </div>
-            {% endfor %}
-        </table>
-    </div>
+            </td>
+            <td>
+                {{ show.title }}
+            </td>
+            <td>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                    <i class="fa-regular fa-pen-to-square"></i></a> /
+                <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </td>
+            <td class="table-col">
+                {{ show.year }}
+            </td>
+            <td class="table-col">
+                {{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.rating }}
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
 
-    <!-- Currently watching  -->
-    <div id="currently-watching" class="nodisplay">
-        <table class="highlight centered show-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Edit / Delete</th>
-                    <th class="table-col">Year</th>
-                    <th class="table-col">Episodes</th>
-                    <th>Progress</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            {% for show in shows|sort(attribute='title') %}
-                {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
-                <tr>
-                    <td class="thumb-box">
-                        <div class="thumb-container">
-                            {% if show.image %}
-                                <img class="thumbnail modal-trigger" href="#modal3{{ show.title }}" src="{{ show.image }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% else %}
-                                <img class="thumbnail modal-trigger" href="#modal3{{ show.title }}" 
-                                src="{{ url_for('static', filename='images/no-img.png') }}" alt="Click for information 
+    {% for show in shows %}
+    <!-- modal for 'plan to watch' drama information -->
+    <div id="modal2{{ show._id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-container">
+                <div class="table-col">
+                    {% if show.image %}
+                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
+                    {% else %}
+                    <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Picture for {{ show.title }}">
+                    {% endif %}
+                </div>
+                <div class="drama-info">
+                    <h6>{{ show.title }}</h6>
+                    <p><strong>Year:</strong> {{ show.year }}</p>
+                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                    <p><strong>Status:</strong> {{ show.status }}</p>
+                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                    <p><strong>Notes:</strong> {{ show.notes }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+<!-- Currently watching  -->
+<div id="currently-watching" class="nodisplay">
+    <table class="highlight centered show-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Edit / Delete</th>
+                <th class="table-col">Year</th>
+                <th class="table-col">Episodes</th>
+                <th>Progress</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        {% for show in shows|sort(attribute='title') %}
+        {% if (show.status == "Currently watching") and (session.user|lower == show.created_by|lower) %}
+        <tr>
+            <td class="thumb-box">
+                <div class="thumb-container">
+                    {% if show.image %}
+                    <img class="thumbnail modal-trigger" href="#modal3{{ show._id }}" src="{{ show.image }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% else %}
+                    <img class="thumbnail modal-trigger" href="#modal3{{ show._id }}"
+                        src="{{ url_for('static', filename='images/no-img.png') }}" alt="Click for information 
                                 about {{ show.title }}">
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>
-                        {{ show.title }}
-                    </td>
-                    <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
-                            <i class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </td>
-                    <td class="table-col">
-                        {{ show.year }}
-                    </td>
-                    <td class="table-col">
-                        {{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.rating }}
-                    </td>
-                </tr>
-                {% endif %}
-
-                <!-- modal for 'currently watching' drama information -->
-                <div id="modal3{{ show.title }}" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-container">
-                            <div class="table-col">
-                                {% if show.image %}
-                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                                {% else %}
-                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Picture for {{ show.title }}">
-                                {% endif %}
-                            </div>
-                            <div class="drama-info">
-                                <h6>{{ show.title }}</h6>
-                                <p><strong>Year:</strong> {{ show.year }}</p>
-                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                                <p><strong>Status:</strong> {{ show.status }}</p>
-                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                                <p><strong>Notes:</strong> {{ show.notes }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
-                            aria-label="Close">Close</a>
-                    </div>
+                    {% endif %}
                 </div>
-            {% endfor %}
-        </table>
-    </div>
+            </td>
+            <td>
+                {{ show.title }}
+            </td>
+            <td>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                    <i class="fa-regular fa-pen-to-square"></i></a> /
+                <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </td>
+            <td class="table-col">
+                {{ show.year }}
+            </td>
+            <td class="table-col">
+                {{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.rating }}
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
 
-    <!-- Completed  -->
-    <div id="completed" class="nodisplay">
-        <table class="highlight centered show-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Edit / Delete</th>
-                    <th class="table-col">Year</th>
-                    <th class="table-col">Episodes</th>
-                    <th>Progress</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            {% for show in shows|sort(attribute='title') %}
-                {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
-                <tr>
-                    <td class="thumb-box">
-                        <div class="thumb-container">
-                            {% if show.image %}
-                                <img class="thumbnail modal-trigger" href="#modal4{{ show.title }}" src="{{ show.image }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% else %}
-                                <img class="thumbnail modal-trigger" href="#modal4{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>
-                        {{ show.title }}
-                    </td>
-                    <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
-                            <i class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </td>
-                    <td class="table-col">
-                        {{ show.year }}
-                    </td>
-                    <td class="table-col">
-                        {{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.rating }}
-                    </td>
-                </tr>
-                {% endif %}
-
-                <!-- modal for 'completed' drama information -->
-                <div id="modal4{{ show.title }}" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-container">
-                            <div class="table-col">
-                                {% if show.image %}
-                                <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                                {% else %}
-                                <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Picture for {{ show.title }}">
-                                {% endif %}
-                            </div>
-                            <div class="drama-info">
-                                <h6>{{ show.title }}</h6>
-                                <p><strong>Year:</strong> {{ show.year }}</p>
-                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                                <p><strong>Status:</strong> {{ show.status }}</p>
-                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                                <p><strong>Notes:</strong> {{ show.notes }}</p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
-                                aria-label="Close">Close</a>
-                        </div>
-                    </div>
+    {% for show in shows %}
+    <!-- modal for 'currently watching' drama information -->
+    <div id="modal3{{ show._id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-container">
+                <div class="table-col">
+                    {% if show.image %}
+                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
+                    {% else %}
+                    <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Picture for {{ show.title }}">
+                    {% endif %}
                 </div>
-            {% endfor %}
-        </table>
-    </div>
-
-    <!-- Dropped  -->
-    <div id="dropped" class="nodisplay">
-        <table class="highlight centered show-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Edit / Delete</th>
-                    <th class="table-col">Year</th>
-                    <th class="table-col">Episodes</th>
-                    <th>Progress</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-
-            {% for show in shows|sort(attribute='title') %}
-                {% if (show.status == "Dropped") and (session.user|lower == show.created_by|lower) %}
-                <tr>
-                    <td class="thumb-box">
-                        <div class="thumb-container">
-                            {% if show.image %}
-                                <img class="thumbnail modal-trigger" href="#modal5{{ show.title }}" src="{{ show.image }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% else %}
-                                <img class="thumbnail modal-trigger" href="#modal5{{ show.title }}" src="{{ url_for('static', filename='images/no-img.png') }}"
-                                alt="Click for information about {{ show.title }}">
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>
-                        {{ show.title }}
-                    </td>
-                    <td>
-                        <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
-                            <i class="fa-regular fa-pen-to-square"></i></a> /
-                        <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </td>
-                    <td class="table-col">
-                        {{ show.year }}
-                    </td>
-                    <td class="table-col">
-                        {{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.episodes_watched }}/{{ show.number_of_episodes }}
-                    </td>
-                    <td>
-                        {{ show.rating }}
-                    </td>
-                </tr>
-                {% endif %}
-
-                <!-- modal for 'dropped' drama information -->
-                <div id="modal5{{ show.title }}" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-container">
-                            <div class="table-col">
-                                {% if show.image %}
-                                <img class="images" 
-                                    src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                                {% else %}
-                                <img class="images" 
-                                    src="{{ url_for('static', filename='images/no-img.png') }}"
-                                    alt="Picture for {{ show.title }}">
-                                {% endif %}
-                            </div>
-                            <div class="drama-info">
-                                <h6>{{ show.title }}</h6>
-                                <p><strong>Year:</strong> {{ show.year }}</p>
-                                <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                                <p><strong>Status:</strong> {{ show.status }}</p>
-                                <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                                <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                                <p><strong>Notes:</strong> {{ show.notes }}</p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4"
-                                aria-label="Close">Close</a>
-                        </div>
-                    </div>
+                <div class="drama-info">
+                    <h6>{{ show.title }}</h6>
+                    <p><strong>Year:</strong> {{ show.year }}</p>
+                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                    <p><strong>Status:</strong> {{ show.status }}</p>
+                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                    <p><strong>Notes:</strong> {{ show.notes }}</p>
                 </div>
-            {% endfor %}
-        </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
+        </div>
     </div>
+    {% endfor %}
+
+<!-- Completed  -->
+<div id="completed" class="nodisplay">
+    <table class="highlight centered show-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Edit / Delete</th>
+                <th class="table-col">Year</th>
+                <th class="table-col">Episodes</th>
+                <th>Progress</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        {% for show in shows|sort(attribute='title') %}
+        {% if (show.status == "Completed") and (session.user|lower == show.created_by|lower) %}
+        <tr>
+            <td class="thumb-box">
+                <div class="thumb-container">
+                    {% if show.image %}
+                    <img class="thumbnail modal-trigger" href="#modal4{{ show._id }}" src="{{ show.image }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% else %}
+                    <img class="thumbnail modal-trigger" href="#modal4{{ show._id }}"
+                        src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% endif %}
+                </div>
+            </td>
+            <td>
+                {{ show.title }}
+            </td>
+            <td>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                    <i class="fa-regular fa-pen-to-square"></i></a> /
+                <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </td>
+            <td class="table-col">
+                {{ show.year }}
+            </td>
+            <td class="table-col">
+                {{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.rating }}
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+
+    {% for show in shows %}
+    <!-- modal for 'completed' drama information -->
+    <div id="modal4{{ show._id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-container">
+                <div class="table-col">
+                    {% if show.image %}
+                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
+                    {% else %}
+                    <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Picture for {{ show.title }}">
+                    {% endif %}
+                </div>
+                <div class="drama-info">
+                    <h6>{{ show.title }}</h6>
+                    <p><strong>Year:</strong> {{ show.year }}</p>
+                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                    <p><strong>Status:</strong> {{ show.status }}</p>
+                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                    <p><strong>Notes:</strong> {{ show.notes }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+<!-- Dropped  -->
+<div id="dropped" class="nodisplay">
+    <table class="highlight centered show-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Edit / Delete</th>
+                <th class="table-col">Year</th>
+                <th class="table-col">Episodes</th>
+                <th>Progress</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+
+        {% for show in shows|sort(attribute='title') %}
+        {% if (show.status == "Dropped") and (session.user|lower == show.created_by|lower) %}
+        <tr>
+            <td class="thumb-box">
+                <div class="thumb-container">
+                    {% if show.image %}
+                    <img class="thumbnail modal-trigger" href="#modal5{{ show._id }}" src="{{ show.image }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% else %}
+                    <img class="thumbnail modal-trigger" href="#modal5{{ show._id }}"
+                        src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Click for information about {{ show.title }}">
+                    {% endif %}
+                </div>
+            </td>
+            <td>
+                {{ show.title }}
+            </td>
+            <td>
+                <a href="{{ url_for('edit_drama', show_id=show._id) }}" aria-label="Edit drama">
+                    <i class="fa-regular fa-pen-to-square"></i></a> /
+                <a href="{{ url_for('delete_drama', show_id=show._id) }}" aria-label="Delete drama">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </td>
+            <td class="table-col">
+                {{ show.year }}
+            </td>
+            <td class="table-col">
+                {{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.episodes_watched }}/{{ show.number_of_episodes }}
+            </td>
+            <td>
+                {{ show.rating }}
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+
+    {% for show in shows %}
+    <!-- modal for 'dropped' drama information -->
+    <div id="modal5{{ show._id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-container">
+                <div class="table-col">
+                    {% if show.image %}
+                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
+                    {% else %}
+                    <img class="images" src="{{ url_for('static', filename='images/no-img.png') }}"
+                        alt="Picture for {{ show.title }}">
+                    {% endif %}
+                </div>
+                <div class="drama-info">
+                    <h6>{{ show.title }}</h6>
+                    <p><strong>Year:</strong> {{ show.year }}</p>
+                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
+                    <p><strong>Status:</strong> {{ show.status }}</p>
+                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
+                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
+                    <p><strong>Notes:</strong> {{ show.notes }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
 {% else %}
-    <h3>No shows found</h3>
+<h3>No shows found</h3>
 {% endif %}
 
 {% endblock %}
