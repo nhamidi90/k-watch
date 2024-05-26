@@ -34,14 +34,14 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 
 ## Wireframes
 
-![Sign up page wireframe](documentation/readme/wireframes/register_page.png)
-![Sign in page wireframe](documentation/readme/wireframes/sign_in_page.png)
-![Regular user home page wireframe](documentation/readme/wireframes/home_page_regular.png)
-![Admin home page wireframe](documentation/readme/wireframes/home_page_admin.png)
-![My lists page wireframe](documentation/readme/wireframes/my_lists_page.png)
-![Add drama page wireframe](documentation/readme/wireframes/add_drama.png)
-![Edit drama page wireframe](documentation/readme/wireframes/edit_drama_page.png)
-![Profile page wireframe](documentation/readme/wireframes/profile_page.png)
+*   [Sign up page wireframe](documentation/readme/wireframes/register_page.png)
+*   [Sign in page wireframe](documentation/readme/wireframes/sign_in_page.png)
+*   [Regular user home page wireframe](documentation/readme/wireframes/home_page_regular.png)
+*   [Admin home page wireframe](documentation/readme/wireframes/home_page_admin.png)
+*   [My lists page wireframe](documentation/readme/wireframes/my_lists_page.png)
+*   [Add drama page wireframe](documentation/readme/wireframes/add_drama.png)
+*   [Edit drama page wireframe](documentation/readme/wireframes/edit_drama_page.png)
+*   [Profile page wireframe](documentation/readme/wireframes/profile_page.png)
 
 
 ## Features
@@ -170,7 +170,7 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 ### Libraries
 
 * [JQuery](https://jquery.com/) was used to reset the star rating
-* [Materialize CSS](https://materializecss.com/) I used features including Navbar, Modals, Dropdown, Carousel, Cards, Buttons and Form components. I also used their CSS components including color , table and grid
+* [Materialize CSS](https://materializecss.com/) I used features including Navbar, Footer, Modals, Dropdown, Carousel, Cards, Buttons and Form components. I also used their CSS components including color , table and grid
 * [Google fonts](https://fonts.google.com/) was used for fonts
 * [Font awesome](https://fontawesome.com/) was where I got the icons displayed on forms and buttons
 
@@ -261,14 +261,12 @@ Here are the images I used
 * [Responsive viewer](https://responsiveviewer.org/) was used to check how the website looks on different devices
 
 ### Code
-* [Stack overflow](https://stackoverflow.com/questions/31607710/randomize-elements-of-a-list-in-jinja-2) was used to shuffle my lists
 * [Codepen](https://codepen.io/melaniexx/pen/GRgBeKW) by Melanie was used to reset the star rating
 * This walkthrough by [codexdude](https://www.youtube.com/watch?v=zDHC4r5eCdY) was used to create a star rating
 * [Materialize CSS](https://materializecss.com/) components were used a lot throughout this project
 * [Code Institute](https://codeinstitute.net/) I referred to lessons and source code from Code Institute's Web Application Development course
 * I also got the code for custom Materialize validation from Code Institute
 * Some code from [geeksforgeeks](https://www.geeksforgeeks.org/how-to-create-a-thumbnail-image-using-html-and-css/) was used to create thumbnails for the 'My lists' page
-* [W3schools](https://www.w3schools.com/html/html_favicon.asp) gave me the method to add a favicon
 
 ### Acknowledgements
 
