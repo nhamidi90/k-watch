@@ -1,18 +1,19 @@
 # TESTING
 
+
 ## Compatibility and responsiveness
 
 * The website was tested on three browsers to determine correct appearance, responsiveness and to ensure it works well
 * It was tested on Chrome, Firefox and Opera
 
 Chrome:
-![Screenshot of website on chrome]()
+![Screenshot of website on chrome](documentation/testing/screenshots/chrome.png)
 
 Firefox:
-![Screenshot of website on firefox]()
+![Screenshot of website on firefox](documentation/testing/screenshots/firefox.png)
 
 Opera:
-![Screenshot of website on opera]()
+![Screenshot of website on opera](documentation/testing/screenshots/opera.png)
 
 * The responsiveness of the site was also tested using chrome devtools. Devices tested include:
 
@@ -38,31 +39,32 @@ Here is the website tested on different devices:
 
 * Sign In Page
 
-![Screenshot of sign in page on different devices]()
+![Screenshot of sign in page on different devices](documentation/testing/screenshots/responsive_sign_in.png)
 
 * Sign Up Page
 
-![Screenshot of sign up page on different devices]()
+![Screenshot of sign up page on different devices](documentation/testing/screenshots/responsive_sign_up.png)
 
 * Home Page
 
-![Screenshot of home page on different devices]()
+![Screenshot of home page on different devices](documentation/testing/screenshots/responsive_home.png)
 
 * My Lists Page
 
-![Screenshot of my lists page on different devices]()
+![Screenshot of my lists page on different devices](documentation/testing/screenshots/responsive_lists.png)
 
 * Add Drama Page
 
-![Screenshot of add drama page on different devices]()
+![Screenshot of add drama page on different devices](documentation/testing/screenshots/responsive_add_drama.png)
 
 * Edit Drama Page
 
-![Screenshot of edit drama page on different devices]()
+![Screenshot of edit drama page on different devices](documentation/testing/screenshots/responsive_edit_drama.png)
 
 * Profile Page
 
-![Screenshot of game page on different devices]()
+![Screenshot of game page on different devices](documentation/testing/screenshots/responsive_profile.png)
+
 
 ## Manual testing
 
@@ -111,23 +113,24 @@ Here is the website tested on different devices:
 |Modal No button |Click on No| Modal will close | Yes | Yes | - |
 |Modal Yes button |Click on Yes| Profile will be deleted. Users will be redirected to register page | Yes | Yes | - |
 
+
 ## Validator testing
 
 ### HTML
 
 The website was tested using the [W3C HTML Validator](https://validator.w3.org/nu/) tool
 
-![Validator results for sign up page]()
+![Validator results for sign up page](documentation/testing/validators/htmlvalidator-sign-up.png)
 
-![Validator results for sign in page]()
+![Validator results for sign in page](documentation/testing/validators/htmlvalidator-sign-in.png)
 
 ![Validator results for home page]()
 
 ![Validator results for my lists page]()
 
-![Validator results for add drama page]()
+![Validator results for add drama page](documentation/testing/validators/htmlvalidator-add-drama.png)
 
-![Validator results for edit drama page]()
+![Validator results for edit drama page](documentation/testing/validators/htmlvalidator-edit-drama.png)
 
 ![Validator results for profile page]()
 
@@ -135,8 +138,7 @@ The website was tested using the [W3C HTML Validator](https://validator.w3.org/n
 
 The website passed all tests using the [W3C CSS validator](https://jigsaw.w3.org/css-validator/) tool
 
-![Validator results for CSS]()
-
+![Validator results for CSS](documentation/testing/validators/css-validator.png)
 
 ### Javascript
 
@@ -145,26 +147,30 @@ The results for javascript validation using the official [JSHint](https://jshint
 ![Validator results for script.js]()
 
 
-
 ## Lighthouse report
 
-![Screenshot of lighthouse report: sign up page]()
+![Screenshot of lighthouse report: sign up page](documentation/testing/lighthouse/validator-sign-up.png)
 
-![Screenshot of lighthouse report: sign in page]()
+![Screenshot of lighthouse report: sign in page](documentation/testing/lighthouse/validator-sign-in.png)
 
 ![Screenshot of lighthouse report: home page]()
 
 ![Screenshot of lighthouse report: my lists page]()
 
-![Screenshot of lighthouse report: add drama page]()
+![Screenshot of lighthouse report: add drama page](documentation/testing/lighthouse/validator-add-drama.png)
 
-![Screenshot of lighthouse report: edit drama page]()
+![Screenshot of lighthouse report: edit drama page](documentation/testing/lighthouse/validator-edit-drama.png)
 
 ![Screenshot of lighthouse report: profile page]()
 
-### Bugs
-*   I found that vanilla javascript does not work in elements inside modals as I tried to hide a section on the settings modal on the profile page. I then had to use jQuery to toggle the section
-*   The ratings on the home page would not work for most of the shows when trying to add them to your own list. Only the first one would work
 
-### Mistakes
+## Bugs
+
+*   I tried to hide a section on the settings modal on the profile page but I found that vanilla javascript wasn't working. I then had to use jQuery to toggle the section
+*   The ratings on the home page would not work for most of the shows when trying to add them to your own list. Only the first one would work. It was evident that I had to give each star a unique id and also for the container which displays the rating
+*   The custom materialize vallidation code would not work on the select menu in the modals. For this to work I had to add new event listeners to the dropdown-trigger class. However, it still does not work if a user has not selected an option and proceeds to click the submit button
+
+
+## Mistakes
+
 *   A mistake I made was that sometimes when clicking on the thumbnail on the lists page, the modal would not open or it would open inside another modal. I discovered that there were missing closing `</div>` tags
