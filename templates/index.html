@@ -296,7 +296,7 @@
                             </select>
                             <label for="status{{ show._id }}">Status</label>
                         </div>
-                        <div class="input-field col s12 m6" id="number-of-eps">
+                        <div class="input-field col s12 m6" id="number-of-eps{{ show._id }}">
                             <p class="range-field">
                                 <label for="episodes_watched{{ show._id }}">Episodes watched</label>
                                 <input type="range" id="episodes_watched{{ show._id }}" name="episodes_watched" min="0" max="172"
@@ -316,7 +316,7 @@
                                 </fieldset>
                                 <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
-                            <h4 id="rating-value"></h4>
+                            <h4 id="rating-value{{show._id}}"></h4>
                         </div>
                         <div class="input-field col s12">
                             <textarea id="notes{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
@@ -423,7 +423,7 @@
                         <div class="input-field col s12 m6" id="number-of-eps{{ show._id }}">
                             <p class="range-field">
                                 <label for="episodes_watched{{ show._id }}">Episodes watched</label>
-                                <input type="range" id="episodes_watched" name="episodes_watched" min="0" max="172"
+                                <input type="range" id="episodes_watched{{ show._id }}" name="episodes_watched" min="0" max="172"
                                     value="0">
                             </p>
                         </div>
@@ -440,7 +440,7 @@
                                 </fieldset>
                                 <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
-                            <h4 id="rating-value"></h4>
+                            <h4 id="rating-value{{show._id}}"></h4>
                         </div>
                         <div class="input-field col s12">
                             <textarea id="notes{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
