@@ -194,5 +194,5 @@ $(document).ready(function () {
     $("#delete-button").on('click', function () {
         $("#delete-account").toggle();
     });
-z
+
 });
