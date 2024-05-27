@@ -167,10 +167,10 @@
             <td class="thumb-box">
                 <div class="thumb-container">
                     {% if show.image %}
-                    <img class="thumbnail modal-trigger" href="#modal2{{ show._id }}" src="{{ show.image }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}" src="{{ show.image }}"
                         alt="Click for information about {{ show.title }}">
                     {% else %}
-                    <img class="thumbnail modal-trigger" href="#modal2{{ show._id }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}"
                         src="{{ url_for('static', filename='images/no-img.webp') }}" alt="Click for information 
                                     about {{ show.title }}">
                     {% endif %}
@@ -204,36 +204,6 @@
     </table>
 </div>
 
-    {% for show in shows %}
-    <!-- modal for 'plan to watch' drama information -->
-    <div id="modal2{{ show._id }}" class="modal">
-        <div class="modal-content">
-            <div class="modal-container">
-                <div class="table-col">
-                    {% if show.image %}
-                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                    {% else %}
-                    <img class="images" src="{{ url_for('static', filename='images/no-img.webp') }}"
-                        alt="Picture for {{ show.title }}">
-                    {% endif %}
-                </div>
-                <div class="drama-info">
-                    <h6>{{ show.title }}</h6>
-                    <p><strong>Year:</strong> {{ show.year }}</p>
-                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                    <p><strong>Status:</strong> {{ show.status }}</p>
-                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                    <p><strong>Notes:</strong> {{ show.notes }}</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-
 <!-- Currently watching  -->
 <div id="currently-watching" class="nodisplay">
     <table class="highlight centered show-table">
@@ -254,10 +224,10 @@
             <td class="thumb-box">
                 <div class="thumb-container">
                     {% if show.image %}
-                    <img class="thumbnail modal-trigger" href="#modal3{{ show._id }}" src="{{ show.image }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}" src="{{ show.image }}"
                         alt="Click for information about {{ show.title }}">
                     {% else %}
-                    <img class="thumbnail modal-trigger" href="#modal3{{ show._id }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}"
                         src="{{ url_for('static', filename='images/no-img.webp') }}" alt="Click for information 
                                 about {{ show.title }}">
                     {% endif %}
@@ -291,36 +261,6 @@
     </table>
 </div>
 
-    {% for show in shows %}
-    <!-- modal for 'currently watching' drama information -->
-    <div id="modal3{{ show._id }}" class="modal">
-        <div class="modal-content">
-            <div class="modal-container">
-                <div class="table-col">
-                    {% if show.image %}
-                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                    {% else %}
-                    <img class="images" src="{{ url_for('static', filename='images/no-img.webp') }}"
-                        alt="Picture for {{ show.title }}">
-                    {% endif %}
-                </div>
-                <div class="drama-info">
-                    <h6>{{ show.title }}</h6>
-                    <p><strong>Year:</strong> {{ show.year }}</p>
-                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                    <p><strong>Status:</strong> {{ show.status }}</p>
-                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                    <p><strong>Notes:</strong> {{ show.notes }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
-        </div>
-    </div>
-    {% endfor %}
-
 <!-- Completed  -->
 <div id="completed" class="nodisplay">
     <table class="highlight centered show-table">
@@ -341,10 +281,10 @@
             <td class="thumb-box">
                 <div class="thumb-container">
                     {% if show.image %}
-                    <img class="thumbnail modal-trigger" href="#modal4{{ show._id }}" src="{{ show.image }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}" src="{{ show.image }}"
                         alt="Click for information about {{ show.title }}">
                     {% else %}
-                    <img class="thumbnail modal-trigger" href="#modal4{{ show._id }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}"
                         src="{{ url_for('static', filename='images/no-img.webp') }}"
                         alt="Click for information about {{ show.title }}">
                     {% endif %}
@@ -377,36 +317,6 @@
         {% endfor %}
     </table>
 </div>
-
-    {% for show in shows %}
-    <!-- modal for 'completed' drama information -->
-    <div id="modal4{{ show._id }}" class="modal">
-        <div class="modal-content">
-            <div class="modal-container">
-                <div class="table-col">
-                    {% if show.image %}
-                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                    {% else %}
-                    <img class="images" src="{{ url_for('static', filename='images/no-img.webp') }}"
-                        alt="Picture for {{ show.title }}">
-                    {% endif %}
-                </div>
-                <div class="drama-info">
-                    <h6>{{ show.title }}</h6>
-                    <p><strong>Year:</strong> {{ show.year }}</p>
-                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                    <p><strong>Status:</strong> {{ show.status }}</p>
-                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                    <p><strong>Notes:</strong> {{ show.notes }}</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
 
 <!-- Dropped  -->
 <div id="dropped" class="nodisplay">
@@ -429,10 +339,10 @@
             <td class="thumb-box">
                 <div class="thumb-container">
                     {% if show.image %}
-                    <img class="thumbnail modal-trigger" href="#modal5{{ show._id }}" src="{{ show.image }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}" src="{{ show.image }}"
                         alt="Click for information about {{ show.title }}">
                     {% else %}
-                    <img class="thumbnail modal-trigger" href="#modal5{{ show._id }}"
+                    <img class="thumbnail modal-trigger" href="#modal{{ show._id }}"
                         src="{{ url_for('static', filename='images/no-img.webp') }}"
                         alt="Click for information about {{ show.title }}">
                     {% endif %}
@@ -465,36 +375,6 @@
         {% endfor %}
     </table>
 </div>
-
-    {% for show in shows %}
-    <!-- modal for 'dropped' drama information -->
-    <div id="modal5{{ show._id }}" class="modal">
-        <div class="modal-content">
-            <div class="modal-container">
-                <div class="table-col">
-                    {% if show.image %}
-                    <img class="images" src="{{ show.image }}" alt="Picture for {{ show.title }}">
-                    {% else %}
-                    <img class="images" src="{{ url_for('static', filename='images/no-img.webp') }}"
-                        alt="Picture for {{ show.title }}">
-                    {% endif %}
-                </div>
-                <div class="drama-info">
-                    <h6>{{ show.title }}</h6>
-                    <p><strong>Year:</strong> {{ show.year }}</p>
-                    <p><strong>Number of episodes:</strong> {{ show.number_of_episodes }}</p>
-                    <p><strong>Status:</strong> {{ show.status }}</p>
-                    <p><strong>Episodes watched:</strong> {{ show.episodes_watched }}</p>
-                    <p><strong>Rating:</strong> {{ show.rating }} / 10</p>
-                    <p><strong>Notes:</strong> {{ show.notes }}</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-light btn purple darken-4" aria-label="Close">Close</a>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
 
 {% else %}
 <h3>No shows found</h3>
