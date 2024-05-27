@@ -136,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else {
                         e.target.addEventListener("focusout", () => {
                             if (e.target.parentNode.childNodes[3].hasAttribute("required")) {
-                                console.log('this field is required');
                                 if (e.target.style.borderBottom != "1px solid rgb(76, 175, 80)") {
                                     e.target.style.cssText = classInvalid;
                                 }
