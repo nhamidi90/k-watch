@@ -18,7 +18,7 @@
         {% if coming.image %}
             <img src="{{ coming.image }}" class="images" alt="Picture for {{ coming.title }}">
         {% else %}
-            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ coming.title }}">
+            <img src="{{ url_for('static', filename='images/no-img.webp') }}" class="images" alt="Picture for {{ coming.title }}">
         {% endif %}
         {% if coming.videoLink %}
             <p>
@@ -219,7 +219,7 @@
             {% if show.image %}
                 <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
             {% else %}
-                <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
+                <img src="{{ url_for('static', filename='images/no-img.webp') }}" class="images" alt="Picture for {{ show.title }}">
             {% endif %}
             <p>{{ show.title }}
             {% if session.user %}
@@ -266,7 +266,7 @@
                                 <input id="img_url{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
                                 <input id="img_url{{ show._id }}" name="img_url"
-                                    value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
+                                    value="{{ url_for('static', filename='images/no-img.webp') }}" type="text"
                                     class="validate">
                             {% endif %}
                             <label for="img_url{{ show._id }}">Image Link</label>
@@ -343,7 +343,7 @@
         {% if show.image %}
             <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
         {% else %}
-            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
+            <img src="{{ url_for('static', filename='images/no-img.webp') }}" class="images" alt="Picture for {{ show.title }}">
         {% endif %}
         <p>{{ show.title }}
             {% if session.user %}
@@ -390,7 +390,7 @@
                                 <input id="img_url{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
                                 <input id="img_url{{ show._id }}" name="img_url"
-                                    value="{{ url_for('static', filename='images/no-img.png') }}" type="text"
+                                    value="{{ url_for('static', filename='images/no-img.webp') }}" type="text"
                                     class="validate">
                             {% endif %}
                             <label for="img_url{{ show._id }}">Image Link</label>

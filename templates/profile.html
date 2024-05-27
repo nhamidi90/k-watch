@@ -85,7 +85,7 @@
         {% if show.image %}
             <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
         {% else %}
-            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
+            <img src="{{ url_for('static', filename='images/no-img.webp') }}" class="images" alt="Picture for {{ show.title }}">
         {% endif %}
         <p>{{ show.title }}</p>
     </div>
@@ -104,7 +104,7 @@
                 {% if show.image %}
                 <img src="{{ show.image }}" alt="Picture for {{ show.title }}">{{ show.title }}
                 {% else %}
-                <img src="{{ url_for('static', filename='images/no-img.png') }}"
+                <img src="{{ url_for('static', filename='images/no-img.webp') }}"
                     alt="Picture for {{ show.title }}">{{ show.title }}
                 {% endif %}
             </a>
@@ -123,7 +123,7 @@
                 {% if show.image %}
                 <img src="{{ show.image }}" alt="Picture for {{ show.title }}">{{ show.title }}
                 {% else %}
-                <img src="{{ url_for('static', filename='images/no-img.png') }}"
+                <img src="{{ url_for('static', filename='images/no-img.webp') }}"
                     alt="Picture for {{ show.title }}">{{ show.title }}
                 {% endif %}
             </a>
@@ -142,7 +142,7 @@
         {% if show.image %}
             <img src="{{ show.image }}" class="images" alt="Picture for {{ show.title }}">
         {% else %}
-            <img src="{{ url_for('static', filename='images/no-img.png') }}" class="images" alt="Picture for {{ show.title }}">
+            <img src="{{ url_for('static', filename='images/no-img.webp') }}" class="images" alt="Picture for {{ show.title }}">
         {% endif %}
         <p>{{ show.title }}
             <span>
