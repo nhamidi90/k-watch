@@ -72,25 +72,25 @@
                     <form class="col s12" method="POST" action="{{ url_for('edit_upcoming', coming_id=coming._id)}}">
                         <div class="row">
                             <div class="input-field col s12 m6">
-                                <input id="title" name="title" value="{{ coming.title }}" type="text" class="validate">
-                                <label for="title">Title</label>
+                                <input id="title-edit-upcoming-{{ coming._id }}" name="title" value="{{ coming.title }}" type="text" class="validate">
+                                <label for="title-edit-upcoming-{{ coming._id }}">Title</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <input id="year" name="year" value="{{ coming.year }}" type="text" class="validate"
+                                <input id="year-edit-upcoming-{{ coming._id }}" name="year" value="{{ coming.year }}" type="text" class="validate"
                                     required>
-                                <label for="year">Release Date (Type year or TBA)</label>
+                                <label for="year-edit-upcoming-{{ coming._id }}">Release Date (Type year or TBA)</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m6">
-                                <input id="img_url" name="img_url" value="{{ coming.image }}" type="text" 
+                                <input id="img_url-edit-upcoming-{{ coming._id }}" name="img_url" value="{{ coming.image }}" type="text" 
                                     class="validate">
-                                <label for="img_url">Image Link</label>
+                                <label for="img_url-edit-upcoming-{{ coming._id }}">Image Link</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <input id="video-link" name="video-link" value="{{ coming.videoLink }}" type="text"
+                                <input id="video-link-edit-upcoming-{{ coming._id }}" name="video-link" value="{{ coming.videoLink }}" type="text"
                                     class="validate">
-                                <label for="video-link">Video link</label>
+                                <label for="video-link-edit-upcoming-{{ coming._id }}">Video link</label>
                             </div>
                         </div>
                         <div class="row center-align">
@@ -124,32 +124,32 @@
                 <form class="col s12" method="POST" action="{{ url_for('add_upcoming') }}" id="add-upcoming{{coming._id}}">
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="title{{coming._id}}" name="title" type="text" value="{{ coming.title }}" class="validate"
+                            <input id="title-add-{{coming._id}}" name="title" type="text" value="{{ coming.title }}" class="validate"
                                 required>
-                            <label for="title{{coming._id}}">Title</label>
+                            <label for="title-add-{{coming._id}}">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
-                            <input id="img_url{{coming._id}}" name="img_url" type="text" value="{{ coming.image }}" class="validate">
-                            <label for="img_url{{coming._id}}">Image Link</label>
+                            <input id="img_url-add-{{coming._id}}" name="img_url" type="text" value="{{ coming.image }}" class="validate">
+                            <label for="img_url-add-{{coming._id}}">Image Link</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="year{{coming._id}}" name="year" type="text" value="{{ coming.year }}" class="validate"
+                            <input id="year-add-{{coming._id}}" name="year" type="text" value="{{ coming.year }}" class="validate"
                                 required>
-                            <label for="year{{coming._id}}">Year</label>
+                            <label for="year-add-{{coming._id}}">Year</label>
                         </div>
                         <div class="input-field col s12 m6">
-                            <select id="status{{coming._id}}" name="status" class="validate">
+                            <select id="status-add-{{coming._id}}" name="status" class="validate">
                                 <option value="Plan to watch">Plan to watch</option>
                             </select>
-                            <label for="status{{coming._id}}">Status</label>
+                            <label for="status-add-{{coming._id}}">Status</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <textarea id="notes{{coming._id}}" name="notes" class="materialize-textarea"></textarea>
-                            <label for="notes{{coming._id}}">Notes</label>
+                            <textarea id="notes-add-{{coming._id}}" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes-add-{{coming._id}}">Notes</label>
                         </div>
                     </div>
                     <div class="row center-align">
@@ -257,49 +257,49 @@
                 <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="title{{ show._id }}" name="title" value="{{ show.title }}" type="text" class="validate"
+                            <input id="title-popular-{{ show._id }}" name="title" value="{{ show.title }}" type="text" class="validate"
                                 required>
-                            <label for="title{{ show._id }}">Title</label>
+                            <label for="title-popular-{{ show._id }}">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
                             {% if show.image %}
-                                <input id="img_url{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                                <input id="img_url-popular-{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
-                                <input id="img_url{{ show._id }}" name="img_url"
+                                <input id="img_url-popular-{{ show._id }}" name="img_url"
                                     value="{{ url_for('static', filename='images/no-img.webp') }}" type="text"
                                     class="validate">
                             {% endif %}
-                            <label for="img_url{{ show._id }}">Image Link</label>
+                            <label for="img_url-popular-{{ show._id }}">Image Link</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="year{{ show._id }}" name="year" value="{{ show.year }}" type="text" class="validate" required>
-                            <label for="year{{ show._id }}">Year</label>
+                            <input id="year-popular-{{ show._id }}" name="year" value="{{ show.year }}" type="text" class="validate" required>
+                            <label for="year-popular-{{ show._id }}">Year</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <p class="range-field">
-                                <label for="number_of_episodes{{ show._id }}">Number of Episodes</label>
-                                <input type="range" id="number_of_episodes{{ show._id }}" name="number_of_episodes"
+                                <label for="number_of_episodes-popular-{{ show._id }}">Number of Episodes</label>
+                                <input type="range" id="number_of_episodes-popular-{{ show._id }}" name="number_of_episodes"
                                     value="{{ show.number_of_episodes }}" min="1" max="172">
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <select id="status{{ show._id }}" name="status" class="validate" required>
+                            <select id="status-popular-{{ show._id }}" name="status" class="validate" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="Plan to watch">Plan to watch</option>
                                 <option value="Currently watching">Currently watching</option>
                                 <option value="Completed">Completed</option>
                                 <option value="Dropped">Dropped</option>
                             </select>
-                            <label for="status{{ show._id }}">Status</label>
+                            <label for="status-popular-{{ show._id }}">Status</label>
                         </div>
                         <div class="input-field col s12 m6" id="number-of-eps{{ show._id }}">
                             <p class="range-field">
-                                <label for="episodes_watched{{ show._id }}">Episodes watched</label>
-                                <input type="range" id="episodes_watched{{ show._id }}" name="episodes_watched" min="0" max="172"
+                                <label for="episodes_watched-popular-{{ show._id }}">Episodes watched</label>
+                                <input type="range" id="episodes_watched-popular-{{ show._id }}" name="episodes_watched" min="0" max="172"
                                     value="0">
                             </p>
                         </div>
@@ -310,17 +310,17 @@
                             <div class="star-cont">
                                 <fieldset class="rating">
                                     {% for i in range(1,11)|reverse %}
-                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star">
-                                    <label for="star{{i}}{{show._id}}"></label>
+                                    <input type="radio" id="star{{i}}-popular-{{show._id}}" name="rating" value="{{i}}" class="star">
+                                    <label for="star{{i}}-popular-{{show._id}}"></label>
                                     {% endfor %}
                                 </fieldset>
                                 <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
-                            <h4 id="rating-value{{show._id}}"></h4>
+                            <h4 id="rating-value-popular-{{show._id}}"></h4>
                         </div>
                         <div class="input-field col s12">
-                            <textarea id="notes{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
-                            <label for="notes{{ show._id }}">Notes</label>
+                            <textarea id="notes-popular-{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes-popular-{{ show._id }}">Notes</label>
                         </div>
                     </div>
                     <div class="row center-align">
@@ -381,49 +381,49 @@
                 <form class="col s12" method="POST" action="{{ url_for('add_new_drama')}}">
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="title{{ show._id }}" name="title" value="{{ show.title }}" type="text" class="validate"
+                            <input id="title-watching-{{ show._id }}" name="title" value="{{ show.title }}" type="text" class="validate"
                                 required>
-                            <label for="title{{ show._id }}">Title</label>
+                            <label for="title-watching{{ show._id }}">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
                             {% if show.image %}
-                                <input id="img_url{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
+                                <input id="img_url-watching-{{ show._id }}" name="img_url" value="{{ show.image }}" type="text" class="validate">
                             {% else %}
-                                <input id="img_url{{ show._id }}" name="img_url"
+                                <input id="img_url-watching-{{ show._id }}" name="img_url"
                                     value="{{ url_for('static', filename='images/no-img.webp') }}" type="text"
                                     class="validate">
                             {% endif %}
-                            <label for="img_url{{ show._id }}">Image Link</label>
+                            <label for="img_url-watching-{{ show._id }}">Image Link</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="year{{ show._id }}" name="year" value="{{ show.year }}" type="text" class="validate" required>
-                            <label for="year{{ show._id }}">Year</label>
+                            <input id="year-watching-{{ show._id }}" name="year" value="{{ show.year }}" type="text" class="validate" required>
+                            <label for="year-watching-{{ show._id }}">Year</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <p class="range-field">
-                                <label for="number_of_episodes{{ show._id }}">Number of Episodes</label>
-                                <input type="range" id="number_of_episodes{{ show._id }}" name="number_of_episodes"
+                                <label for="number_of_episodes-watching-{{ show._id }}">Number of Episodes</label>
+                                <input type="range" id="number_of_episodes-watching-{{ show._id }}" name="number_of_episodes"
                                     value="{{ show.number_of_episodes }}" min="1" max="172">
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <select id="status{{ show._id }}" name="status" class="validate" required>
+                            <select id="status-watching-{{ show._id }}" name="status" class="validate" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="Plan to watch">Plan to watch</option>
                                 <option value="Currently watching">Currently watching</option>
                                 <option value="Completed">Completed</option>
                                 <option value="Dropped">Dropped</option>
                             </select>
-                            <label for="status{{ show._id }}">Status</label>
+                            <label for="status-watching-{{ show._id }}">Status</label>
                         </div>
                         <div class="input-field col s12 m6" id="number-of-eps{{ show._id }}">
                             <p class="range-field">
-                                <label for="episodes_watched{{ show._id }}">Episodes watched</label>
-                                <input type="range" id="episodes_watched{{ show._id }}" name="episodes_watched" min="0" max="172"
+                                <label for="episodes_watched-watching-{{ show._id }}">Episodes watched</label>
+                                <input type="range" id="episodes_watched-watching-{{ show._id }}" name="episodes_watched" min="0" max="172"
                                     value="0">
                             </p>
                         </div>
@@ -434,17 +434,17 @@
                             <div class="star-cont">
                                 <fieldset class="rating">
                                     {% for i in range(1,11)|reverse %}
-                                    <input type="radio" id="star{{i}}{{show._id}}" name="rating" value="{{i}}" class="star"><label
-                                        for="star{{i}}{{show._id}}"></label>
+                                    <input type="radio" id="star{{i}}-watching-{{show._id}}" name="rating" value="{{i}}" class="star"><label
+                                        for="star{{i}}-watching-{{show._id}}"></label>
                                     {% endfor %}
                                 </fieldset>
                                 <i class="fa-solid fa-eraser resetButton"></i>
                             </div>
-                            <h4 id="rating-value{{show._id}}"></h4>
+                            <h4 id="rating-value-watching-{{show._id}}"></h4>
                         </div>
                         <div class="input-field col s12">
-                            <textarea id="notes{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
-                            <label for="notes{{ show._id }}">Notes</label>
+                            <textarea id="notes-watching-{{ show._id }}" name="notes" class="materialize-textarea"></textarea>
+                            <label for="notes-watching-{{ show._id }}">Notes</label>
                         </div>
                     </div>
                     <div class="row center-align">
