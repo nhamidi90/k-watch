@@ -146,9 +146,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        if (selectValidate.hasAttribute("required")) {
+        if (selectValidate) {
+            if (selectValidate.hasAttribute("required")) {
             selectValidate.style.cssText = "display: block; height: 0; padding: 0; width: 0; position: absolute;";
         }
+
         selectWrapperInput.addEventListener("focusin", (e) => {
             e.target.parentNode.addEventListener("change", () => {
                 ulSelectOptions = e.target.parentNode.childNodes[1].childNodes;
@@ -176,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+        }
     }
-
 });
 
 
