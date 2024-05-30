@@ -184,9 +184,10 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 * [Gitpod](https://gitpod.io/) was used to write and edit code
 * [GitHub](https://github.com/) was used to store code for the website
 * [Heroku](https://heroku.com/) hosts the website
+* [Adobe photoshop](https://www.adobe.com/uk/products/photoshop.html) was used to crop images for the README.md/TESTING.md file
 * [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html) was used to create the logo and favicon
 * [Chrome dev tools](https://developer.chrome.com/docs/devtools) was used for debugging and to check responsiveness
-
+* [Cloud Convert](https://cloudconvert.com/) was used to convert images to webp
 
 ## Testing
 
@@ -256,7 +257,6 @@ Here are the images I used
 *   https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTujmtz_krfwIsrUzeIVlFwY3YbvU827_rnkMUN72tSHyZ4upXa
 
 ### Tools
-* [Adobe photoshop](https://www.adobe.com/uk/products/photoshop.html) was used to crop images for the README.md/TESTING.md file
 * [Amiresponsive](https://ui.dev/amiresponsive) was used to create a mockup of the website for the README
 * [Responsive viewer](https://responsiveviewer.org/) was used to check how the website looks on different devices
 
