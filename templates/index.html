@@ -296,7 +296,7 @@
                             </select>
                             <label for="status-popular-{{ show._id }}">Status</label>
                         </div>
-                        <div class="input-field col s12 m6" id="number-of-eps{{ show._id }}">
+                        <div class="input-field col s12 m6" id="number-of-eps-popular-{{ show._id }}">
                             <p class="range-field">
                                 <label for="episodes_watched-popular-{{ show._id }}">Episodes watched</label>
                                 <input type="range" id="episodes_watched-popular-{{ show._id }}" name="episodes_watched" min="0" max="172"
@@ -383,7 +383,7 @@
                         <div class="input-field col s12 m6">
                             <input id="title-watching-{{ show._id }}" name="title" value="{{ show.title }}" type="text" class="validate"
                                 required>
-                            <label for="title-watching{{ show._id }}">Title</label>
+                            <label for="title-watching-{{ show._id }}">Title</label>
                         </div>
                         <div class="input-field col s12 m6">
                             {% if show.image %}
@@ -420,7 +420,7 @@
                             </select>
                             <label for="status-watching-{{ show._id }}">Status</label>
                         </div>
-                        <div class="input-field col s12 m6" id="number-of-eps{{ show._id }}">
+                        <div class="input-field col s12 m6" id="number-of-eps-watching-{{ show._id }}">
                             <p class="range-field">
                                 <label for="episodes_watched-watching-{{ show._id }}">Episodes watched</label>
                                 <input type="range" id="episodes_watched-watching-{{ show._id }}" name="episodes_watched" min="0" max="172"
