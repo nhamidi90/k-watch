@@ -120,19 +120,29 @@ Here is the website tested on different devices:
 
 The website was tested using the [W3C HTML Validator](https://validator.w3.org/nu/) tool
 
+*   Sign up
 ![Validator results for sign up page](documentation/testing/validators/htmlvalidator-sign-up.png)
 
+*   Sign in
 ![Validator results for sign in page](documentation/testing/validators/htmlvalidator-sign-in.png)
 
-![Validator results for home page]()
+*   Homepage
+![Validator results for home page](documentation/testing/validators/htmlvalidator-home.png)
 
-![Validator results for my lists page]()
+*   My lists
+![Validator results for my lists page](documentation/testing/validators/htmlvalidator-my-lists.png)
 
+*   Add drama
 ![Validator results for add drama page](documentation/testing/validators/htmlvalidator-add-drama.png)
 
+*   Edit drama
 ![Validator results for edit drama page](documentation/testing/validators/htmlvalidator-edit-drama.png)
 
-![Validator results for profile page]()
+*   Profile
+![Validator results for profile page](documentation/testing/validators/htmlvalidator-profile.png)
+
+*   The warning of empty heading is due to that being the container for the star rating. This will be filled once users select a rating
+*   I am aware of the warning that section lacks heading but it is my decision to keep this structure
 
 ### CSS
 
@@ -144,24 +154,44 @@ The website passed all tests using the [W3C CSS validator](https://jigsaw.w3.org
 
 The results for javascript validation using the official [JSHint](https://jshint.com/) validator is as follows:
 
-![Validator results for script.js]()
+![Validator results for script.js](documentation/testing/validators/javascript-validator.png)
+
+### Python
+
+To ensure the python code is PEP8 cimpliant, I used the [Code Institute Python Linter](https://pep8ci.herokuapp.com/):
+
+![Validator results for app.py](documentation/testing/validators/python-validator.png)
 
 
 ## Lighthouse report
 
+*   Sign up
+
 ![Screenshot of lighthouse report: sign up page](documentation/testing/lighthouse/validator-sign-up.png)
+
+*   Sign in
 
 ![Screenshot of lighthouse report: sign in page](documentation/testing/lighthouse/validator-sign-in.png)
 
-![Screenshot of lighthouse report: home page]()
+*   Homepage
 
-![Screenshot of lighthouse report: my lists page]()
+![Screenshot of lighthouse report: home page](documentation/testing/lighthouse/validator-home.png)
+
+*   My lists
+
+![Screenshot of lighthouse report: my lists page](documentation/testing/lighthouse/validator-my-list.png)
+
+*   Add drama
 
 ![Screenshot of lighthouse report: add drama page](documentation/testing/lighthouse/validator-add-drama.png)
 
+*   Edit drama
+
 ![Screenshot of lighthouse report: edit drama page](documentation/testing/lighthouse/validator-edit-drama.png)
 
-![Screenshot of lighthouse report: profile page]()
+*   Profile
+
+![Screenshot of lighthouse report: profile page](documentation/testing/lighthouse/validator-profile.png)
 
 
 ## Bugs
