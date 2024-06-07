@@ -192,7 +192,7 @@ def sign_in():
                                     "password")):
                 session['user'] = existing_user['username']
                 return redirect(
-                    url_for("get_shows", username=session["user"])
+                    url_for("index", username=session["user"])
                 )
             else:
                 flash("Incorrect Email or Password")
