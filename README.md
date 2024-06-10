@@ -86,6 +86,7 @@ The live link can be found [here](https://kwatch-c574d8ada52e.herokuapp.com/)
 ### Home page
 
 *   This features a 'Coming soon' section which only admin can add to, edit and remove. Admin can add information including title, image URL, release date and link to a trailer
+*   A banner at the top informs visitors of what the site is intended for
 
 ![Screenshot of admin homepage](documentation/readme/screenshots/admin_index.png)
 
