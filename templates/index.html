@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="info">
+    Discover new content, create and manage your own k-drama watchlist
+</div>
 <div class="upcoming-header row-margin">
     <h4 class="no-margin">Coming soon</h4>
     {% if (session.user|lower == "admin") %}
